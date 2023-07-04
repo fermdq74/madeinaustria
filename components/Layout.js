@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
+import Navbar from '../components/Navbar';
 
 export const Layout = (props) => {
   return (
@@ -14,13 +15,7 @@ export const Layout = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-        {' | '}
-        <Link href="/posts">
-          <a>Posts</a>
-        </Link>
+      <Navbar/>
       </header>
       <main>{props.children}</main>
     </div>

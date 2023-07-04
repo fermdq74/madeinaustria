@@ -3,6 +3,78 @@ import { defineConfig, defineSchema } from "tinacms";
 const schema = defineSchema({
   collections: [
     {
+      label: "Global Settings",
+      name: "global_settings",
+      path: "content/global-settings",
+      ui: {
+        global: true,
+        allowedActions: {
+          create: false,
+          delete: false,
+        },
+      },
+      fields: [
+        {
+          label: "Website's name",
+          name: "name",
+          type: "string",
+          required: true,
+          isTitle: true,
+        },
+        {
+          label: "Logo",
+          name: "logo",
+          type: "image",
+        },
+        {
+          type:"object",
+          name: "menu",
+          label: "Menu",
+          list: true,
+          fields: [
+            {
+              type:"string",
+              label:"Menu item (ES)",
+              name: "menu_item",
+            },
+            {
+              type:"string",
+              label:"Menu item (EN)",
+              name: "menu_item_en",
+            },
+            {
+              type:"string",
+              label:"slug",
+              name: "slug",
+            },
+            {
+              type: "object",
+              label: "Items",
+              name: "children",
+              list:true,
+              fields:[
+                {
+                  type:"string",
+                  label:"Menu item (ES)",
+                  name: "menu_item",
+                },
+                {
+                  type:"string",
+                  label:"Menu item (EN)",
+                  name: "menu_item_en",
+                },
+                {
+                  type:"string",
+                  label:"slug",
+                  name: "slug",
+                }
+              ]
+            }
+          ]
+        }
+      ],
+    },
+    {
       label: "Page Content",
       name: "page",
       path: "content/page",
@@ -33,6 +105,8 @@ const schema = defineSchema({
           type: "string",
           label: "Title",
           name: "title",
+          required: true,
+          isTitle: true,
         },
         {
           type: "string",
