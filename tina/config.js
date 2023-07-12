@@ -75,15 +75,39 @@ const schema = defineSchema({
       ],
     },
     {
+      label: "Homepage hero",
+      name: "homepage_hero",
+      path: "content/hero",
+      fields: [
+        {
+          type: "image",
+          label: "Homepage hero gallery",
+          name: "homepage_hero_gallery",
+          list: true,
+        },
+      ],
+    },
+    {
       label: "Page Content",
       name: "page",
       path: "content/page",
-      format: "mdx",
       fields: [
         {
-          name: "body",
-          label: "Main Content",
+          type: "string",
+          label: "Title",
+          name: "title",
+          required: true,
+          isTitle: true,
+        },
+        {
+          type: "image",
+          label: "Image",
+          name: "image",
+        },
+        {
           type: "rich-text",
+          label: "Main Content",
+          name: "body",
           isBody: true,
         },
       ],
@@ -123,6 +147,152 @@ const schema = defineSchema({
           return `/posts/${document._sys.filename}`;
         },
       },
+    },
+    {
+      label: "Works",
+      name: "works",
+      path: "content/work",
+      fields: [
+        {
+          type: "string",
+          label: "Title(Es)",
+          name: "title_es",
+        },
+        {
+          type: "string",
+          label: "Title(En)",
+          name: "title_eng",
+        },
+        {
+          type: "string",
+          label: "Agency",
+          name: "agency",
+        },
+        {
+          type: "string",
+          label: "Brand",
+          name: "brand",
+        },
+        {
+          type: "string",
+          label: "Video URL",
+          name: "video_url",
+        },
+        {
+          type: "image",
+          label: "Video thumbnail",
+          name: "video_thumbnail",
+        },
+        {
+          type: "image",
+          label: "Featured image",
+          name: "featured_image",
+        },
+        {
+          type: "string",
+          label: "Permalink",
+          name: "permalink",
+        },
+        {
+          type: "reference",
+          label: "Work director",
+          name: "work_director",
+          collections: ['directors'],
+        },
+        {
+          type: "boolean",
+          label: "Hidde reel",
+          name: "hidde_reel",
+        },
+        {
+          type: "boolean",
+          label: "Featured work",
+          name: "featured_work",
+        },
+      ],
+    },
+    {
+      label: "Directors",
+      name: "directors",
+      path: "content/director",
+      fields: [
+        {
+          type: "string",
+          name: "director_name",
+          label: "Director name",
+        },
+        {
+          type: "string",
+          name: "director_description",
+          label: "Director description",
+        },
+        {
+          type: "number",
+          name: "director_order",
+          label: "Director order",
+        }
+      ],
+    },
+    {
+      label: "Photographs",
+      name: "photographs",
+      path: "content/photography",
+      fields: [
+        {
+          type: "string",
+          name: "client",
+          label: "Client",
+        },
+        {
+          type: "reference",
+          label: "Photographer",
+          name: "photographer",
+          collections: ['photographers'],
+        },
+        {
+          type: "string",
+          label: "Agency",
+          name: "p_agency",
+        },
+        {
+          type: "string",
+          label: "Campaign",
+          name: "campaign",
+        },
+        {
+          type: "number",
+          label: "Year",
+          name: "year",
+        },
+        {
+          type: "image",
+          label: "Image gallery",
+          name: "image_gallery",
+          list: true,
+        },
+      ],
+    },
+    {
+      label: "Photographers",
+      name: "photographers",
+      path: "content/photographer",
+      fields: [
+        {
+          type: "string",
+          name: "photographer_name",
+          label: "Photographer name",
+        },
+        {
+          type: "string",
+          name: "photographer_description",
+          label: "Photographer description",
+        },
+        {
+          type: "number",
+          name: "photographer_order",
+          label: "Photographer order",
+        }
+      ],
     },
   ],
 });
