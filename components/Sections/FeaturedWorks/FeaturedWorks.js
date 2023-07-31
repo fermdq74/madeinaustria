@@ -12,6 +12,7 @@ const FeaturedWorks = (props) => {
                     agency={work.agency}
                     brand={work.brand}
                     title_es={work.title_es}
+                    video_url={work.video_url}
                     featured={true}
                 />  
             ))}
