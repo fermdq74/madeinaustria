@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "html-react-parser": "^4.0.0",

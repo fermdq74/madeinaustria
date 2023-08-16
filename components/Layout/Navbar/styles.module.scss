@@ -1,0 +1,10 @@
+.menuWrapper {
+    position: fixed;
+    top: -100px;
+    z-index: 1000;
+    left: calc(50% - 43px);
+    transition: top 0.3s ease-out;
+}
+.nav {
+    
+}

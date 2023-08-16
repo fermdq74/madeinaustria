@@ -9,6 +9,7 @@ import FeaturedWorks from "../components/Sections/FeaturedWorks/FeaturedWorks";
 import About from "../components/Sections/About/About";
 import DirectorSection from "../components/Sections/DirectorSection/DirectorSection";
 import PhotographerSection from "../components/Sections/PhotographerSection/PhotographerSection";
+import ContactForm from "../components/Sections/ContactForm/ContactForm";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -34,6 +35,8 @@ export default function Home(props) {
       {props.photographers_data.map((photographer) => (
         <PhotographerSection key={photographer.id} photographer={photographer.photographer_name} photographs={photographerPhotos(photographer.id, props.photographs_data)} />
       ))}
+
+      <ContactForm />
 
 
     </Layout>

@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import Head from 'next/head';
-import Navbar from './Navbar';
+import Navbar from './Navbar/Navbar';
 
 export const Layout = (props) => {
 

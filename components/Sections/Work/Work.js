@@ -45,10 +45,9 @@ const Work = (props) => {
 
     const videoJsOptions = {
         autoplay: true,
-        controls: true,
+        controls: false,
         responsive: true,
         fluid: true,
-        controls: false,
         sources: [{
           src: finalUrl,
           type: "video/mp4"
