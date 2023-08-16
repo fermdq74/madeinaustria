@@ -1,5 +1,4 @@
 import { sendEmail } from '../../lib/sendgrid';
-import DomParser from 'dom-parser';
 
 export default async (req, res) => {
     //const { email } = req.body;
@@ -21,12 +20,10 @@ export default async (req, res) => {
             ${message}
         </p>
     `;
-    const parser = new DomParser();
-    const htmlMsg = parser.parseFromString(msg, 'text/html');
 
     try {
         console.log("entro 5");
-        await sendEmail(msg, 'Test Email', htmlMsg);
+        await sendEmail(msg, 'Test Email');
         res.status(200).json({ message: 'Email sent successfully' });
     } catch (error) {
         console.log("entro 6");
