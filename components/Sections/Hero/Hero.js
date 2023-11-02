@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 const Hero = (props) => {
 
     return(
-        <section class={styles.hero}>
+        <section className={styles.hero}>
             <div style={{
                 backgroundImage: `url("${props.hero_image[0]}")`
                 }}

@@ -14,7 +14,7 @@ const Work = (props) => {
     const playerRef = React.useRef(null);
 
     useEffect(() => {
-        fetchVideo();
+        //fetchVideo();
     }, []);
     
     const fetchVideo = () => {
@@ -30,7 +30,7 @@ const Work = (props) => {
         });
     };
     
-    const finalUrl = videoUrl ? Array.isArray(videoUrl) && videoUrl.length > 0 ? videoUrl[0].url : "" : "";
+    //const finalUrl = videoUrl ? Array.isArray(videoUrl) && videoUrl.length > 0 ? videoUrl[0].url : "" : "";
     const finalTextTracks = videoTracks;
     
     let videoDataReturn = [];
@@ -49,7 +49,8 @@ const Work = (props) => {
         responsive: true,
         fluid: true,
         sources: [{
-          src: finalUrl,
+          //src: finalUrl,
+          src: props.video_url,
           type: "video/mp4"
         }],
     };
@@ -74,11 +75,12 @@ const Work = (props) => {
 
     return (
         <div style={ (props.featured == true ) ? {height: "500px", width: "100%", position: "relative"} : {height: "250px", width: "50%", position: "relative"} }>
+            {/*}
             <Image 
                 src={props.featured_image}
                 layout='fill'
                 alt="Feat image"
-            />
+    />{*/}
             <div style={{position:"relative"}} className="work-box" data-video-id="536511800">
                 <p>{props.work_director.director_name}</p>
                 <p>{props.agency}</p>

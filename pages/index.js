@@ -27,7 +27,7 @@ export default function Home(props) {
     <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu}>
       
       <Hero logo={props.gs_data.logo} hero_image={props.hh_data} />
-      {/*}<FeaturedWorks works={featuredWorks(props.works_data)} />{*/}
+      <FeaturedWorks works={featuredWorks(props.works_data)} />
       <About title={props.about_data.title} image={props.about_data.image} body={props.about_data.body} />
       {props.directors_data.map((director) => (
         <DirectorSection key={director.id} director={director.director_name} works={directorWorks(director.id, props.works_data)} />

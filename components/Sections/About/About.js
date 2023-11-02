@@ -6,11 +6,13 @@ const About = (props) => {
     return (
         <section style={{display: "flex"}}>
             <div style={{height: "500px", width: "50%", position: "relative"}}>
+                {/*}
                 <Image 
                     src={props.image}
                     layout='fill'
                     alt="About image"
                 />
+    {*/}
                 <h1>{props.title}</h1>
             </div>
             <div style={{height: "500px", width: "50%", position: "relative"}}>
