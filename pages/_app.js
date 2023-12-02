@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import '../styles.css';
+import LangContextProvider from '../context/LangContextProvider';
 
 const App = ({ Component, pageProps }) => {
   return (
-    <Component {...pageProps} />
+    <LangContextProvider>
+      <Component {...pageProps} />
+    </LangContextProvider>
   );
 };
 

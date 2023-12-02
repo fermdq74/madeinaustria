@@ -85,6 +85,11 @@ const schema = defineSchema({
           name: "homepage_hero_gallery",
           list: true,
         },
+        {
+          type: "image",
+          label: "Hero logo",
+          name: "homepage_hero_logo",
+        },
       ],
     },
     {
@@ -291,6 +296,28 @@ const schema = defineSchema({
           type: "number",
           name: "photographer_order",
           label: "Photographer order",
+        }
+      ],
+    },
+    {
+      label: "Contact",
+      name: "contact",
+      path: "content/contact",
+      fields: [
+        {
+          type: "string",
+          name: "country_es",
+          label: "Country(Es)",
+        },
+        {
+          type: "string",
+          name: "country_en",
+          label: "Country(En)",
+        },
+        {
+          type: "rich-text",
+          name: "contact_info",
+          label: "Info",
         }
       ],
     },

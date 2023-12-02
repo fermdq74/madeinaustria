@@ -11,6 +11,8 @@ import DirectorSection from "../components/Sections/DirectorSection/DirectorSect
 import PhotographerSection from "../components/Sections/PhotographerSection/PhotographerSection";
 import ContactForm from "../components/Sections/ContactForm/ContactForm";
 
+import NavContextProvider from "../context/NavContextProvider";
+
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   /*
@@ -24,22 +26,23 @@ export default function Home(props) {
   */
 
   return (
-    <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu}>
-      
-      <Hero logo={props.gs_data.logo} hero_image={props.hh_data} />
-      <FeaturedWorks works={featuredWorks(props.works_data)} />
-      <About title={props.about_data.title} image={props.about_data.image} body={props.about_data.body} />
-      {props.directors_data.map((director) => (
-        <DirectorSection key={director.id} director={director.director_name} works={directorWorks(director.id, props.works_data)} />
-      ))}
-      {props.photographers_data.map((photographer) => (
-        <PhotographerSection key={photographer.id} photographer={photographer.photographer_name} photographs={photographerPhotos(photographer.id, props.photographs_data)} />
-      ))}
-
-      <ContactForm />
-
-
-    </Layout>
+      <NavContextProvider>
+      <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu} contact={props.contacts_data}>
+        
+        <Hero logo={props.hh_data.homepage_hero_logo} hero_image={props.hh_data.homepage_hero_gallery} />
+        <FeaturedWorks works={featuredWorks(props.works_data)} />
+        {/*}
+        <About title={props.about_data.title} image={props.about_data.image} body={props.about_data.body} />
+        {props.directors_data.map((director) => (
+          <DirectorSection key={director.id} director={director.director_name} works={directorWorks(director.id, props.works_data)} />
+        ))}
+        {props.photographers_data.map((photographer) => (
+          <PhotographerSection key={photographer.id} photographer={photographer.photographer_name} photographs={photographerPhotos(photographer.id, props.photographs_data)} />
+        ))}
+        <ContactForm />
+        {*/}
+      </Layout>
+      </NavContextProvider>
   );
 }
 
@@ -63,7 +66,7 @@ export const getStaticProps = async () => {
     relativePath: "homepage_hero.md",
   });
 
-  const hh_data = hh.data.homepage_hero.homepage_hero_gallery;
+  const hh_data = hh.data.homepage_hero;
 
   const about = await client.queries.page({
     relativePath: "about_us.md",
@@ -83,6 +86,10 @@ export const getStaticProps = async () => {
 
   const photographs_data = getPhotographyDataArray(photographs);
 
+  const contacts = await client.queries.contactConnection();
+
+  const contacts_data = getContactDataArray(contacts);
+
   return {
     props: {
       data,
@@ -95,6 +102,7 @@ export const getStaticProps = async () => {
       directors_data,
       photographers_data,
       photographs_data,
+      contacts_data
     },
   };
 };
@@ -160,6 +168,19 @@ const getPhotographyDataArray = (photographs) => {
   });
 
   return photographsData;
+};
+
+const getContactDataArray = (contacts) => {
+  const contactsData = contacts.data.contactConnection.edges.map((contact) => {
+    return { 
+      id: contact.node.id,
+      country_es: contact.node.country_es,
+      country_en: contact.node.country_en,
+      contact_info: contact.node.contact_info.children
+    }
+  });
+
+  return contactsData;
 };
 
 const featuredWorks = (works) => {

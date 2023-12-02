@@ -1,14 +1,14 @@
 import React from 'react';
-
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import parse from 'html-react-parser';
-
 import VideoJS from '../../VideoJS/VideoJS';
+
+import styles from './styles.module.scss';
 
 const Work = (props) => {
 
-    const [showModal, setModal] = useState(null);
+    //const [showModal, setModal] = useState(null);
     const [videoUrl, setVideoUrl] = useState(null);
     const [videoTracks, setVideoTracks] = useState(null);
     const playerRef = React.useRef(null);
@@ -70,29 +70,48 @@ const Work = (props) => {
     
     
     const openModal = () => {
-        setModal(true);
+        props.setModal(true);
     }
 
     return (
-        <div style={ (props.featured == true ) ? {height: "500px", width: "100%", position: "relative"} : {height: "250px", width: "50%", position: "relative"} }>
-            {/*}
-            <Image 
-                src={props.featured_image}
-                layout='fill'
-                alt="Feat image"
-    />{*/}
-            <div style={{position:"relative"}} className="work-box" data-video-id="536511800">
-                <p>{props.work_director.director_name}</p>
-                <p>{props.agency}</p>
-                <p>{props.brand}</p>
-                <p>{props.title_es}</p>
-                <span style={{cursor:"pointer"}} onClick={openModal}> open video </span>
+        <div 
+            style={ (props.featured_image ) ? {backgroundImage: `url( "${props.featured_image}" )`} : {backgroundColor: "#000"} } 
+            className={styles.workWrapper}   
+            onClick={openModal} 
+        >
+
+            {
+                props.featured_image ?
+
+                <div className={styles.featWorkBox}>
+                    <h3>{props.agency}</h3>
+                    <h3>{props.brand}</h3>
+                    <h3>{props.work_director.director_name}</h3>
                     {
-                        showModal ? (
-                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} subs={videoDataReturn} setModal={setModal} />
+                        props.showModal ? (
+                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} subs={videoDataReturn} setModal={props.setModal} />
                         ) : null
                     }
-            </div>
+                </div>
+
+                :
+
+                <div style={{position:"relative"}} className="work-box" data-video-id="536511800">
+                    <p>{props.agency}</p>
+                    <p>{props.brand}</p>
+                    <p>{props.work_director.director_name}</p>
+                    <p>{props.title_es}</p>
+                    <span style={{cursor:"pointer"}} onClick={openModal}> open video </span>
+                        {
+                            props.showModal ? (
+                                <VideoJS options={videoJsOptions} onReady={handlePlayerReady} subs={videoDataReturn} setModal={props.setModal} />
+                            ) : null
+                        }
+                </div>
+            }
+            
+            
+
         </div>
     );
 };

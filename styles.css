@@ -1,0 +1,133 @@
+@font-face { 
+    font-family: "gtFlexaTrial"; 
+    src: url('./fonts/gt_flexa/GT-Flexa-X-Expanded-Black-Trial.woff2'); 
+    font-weight: bold; 
+    font-style: normal; 
+}
+
+@font-face { 
+    font-family: "radioGrotesk"; 
+    src: url('./fonts/pp_radio_grotesk/PPRadioGrotesk-Black.woff2'); 
+    font-weight: 900;
+    font-style: normal; 
+}
+
+@font-face { 
+    font-family: "radioGrotesk"; 
+    src: url('./fonts/pp_radio_grotesk/PPRadioGrotesk-BlackItalic.woff2'); 
+    font-weight: 900;
+    font-style: italic; 
+}
+
+@font-face { 
+    font-family: "radioGrotesk"; 
+    src: url('./fonts/pp_radio_grotesk/PPRadioGrotesk-Regular.woff2'); 
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face { 
+    font-family: "radioGrotesk"; 
+    src: url('./fonts/pp_radio_grotesk/PPRadioGrotesk-RegularItalic.woff2'); 
+    font-weight: 400;
+    font-style: italic;
+}
+
+html {
+    font-size: 16px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+}
+
+body.noScroll {
+    overflow: hidden;
+}
+
+h1,h2,h3,h4,h5,h6,div,p,span,input,label,button,a {
+    font-family: "radioGrotesk";
+    font-style: normal;
+    font-weight: 900;
+}
+
+.container {
+    width: 100%;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-4 {
+    width: 25%;
+}
+
+.swiper-button-prev, .swiper-button-next {
+    width: 42px!important;
+    height: 31.02px!important;
+}
+
+.swiper-button-next {
+    background-image: url("public/uploads/a-slider-right-arrow.png");
+}
+
+.swiper-button-prev {
+    background-image: url("public/uploads/a-slider-left-arrow.png");
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+    content: ''!important;
+}
+
+.swiper-button-prev {
+    left: 29px!important;
+}
+
+.swiper-button-next {
+    right: 29px!important;
+}
+
+.swiper-pagination-fraction {
+    color: #FFF!important;
+    text-align: center!important;
+    /*font-family: PP Radio Grotesk;*/
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 576px) {
+    .swiper-button-prev {
+        left: 0.5rem!important;
+    }
+    
+    .swiper-button-next {
+        right: 0.5rem!important;
+    }
+}
+
+@media screen and (min-width: 576px) {
+
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 992px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}
+

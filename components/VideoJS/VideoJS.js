@@ -2,6 +2,8 @@ import React from 'react';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
 import styles from "./styles.module.scss";
+import { LangContextProvider, useLangContext } from "../../context/LangContextProvider";
+import { NavContextProvider, useNavContext } from "../../context/NavContextProvider";
 
 export const VideoJS = (props) => {
 
@@ -15,13 +17,21 @@ export const VideoJS = (props) => {
   const bufferRef = React.useRef(null);
   const progressRef = React.useRef(null);
   const fullRef = React.useRef(null);
-  const ccRef = React.useRef(null);
-  const ccUlRef = React.useRef(null);
+  //const ccRef = React.useRef(null);
+  //const ccUlRef = React.useRef(null);
   const closeRef = React.useRef(null);
+  const moreInfoRef = React.useRef(null);
+  const playerInfoRef = React.useRef(null);
+  const volumeRef = React.useRef(null);
   const {options, onReady} = props;
 
-  React.useEffect(() => {
+  const lp = useLangContext(LangContextProvider);
+  const np = useNavContext(NavContextProvider);
 
+  np.setVideoOpen(true);
+
+  React.useEffect(() => {
+    
     if (!playerRef.current) {
 
         const playerWrapper = playerWrapperRef.current;
@@ -32,9 +42,11 @@ export const VideoJS = (props) => {
         const bufferVideo = bufferRef.current;
         const progressVideo = progressRef.current;
         const fullVideo = fullRef.current;
-        const videoCc = ccRef.current;
-        const videoccUl = ccUlRef.current;
+        //const videoCc = ccRef.current;
+        //const videoccUl = ccUlRef.current;
         const videoClose = closeRef.current;
+        const moreInfo = moreInfoRef.current;
+        const playerInfo = playerInfoRef.current;
 
         const videoElement = document.createElement("video-js");
 
@@ -141,7 +153,7 @@ export const VideoJS = (props) => {
             });
 
             //Subs Settings
-            if (props.subs != null) {
+            /*if (props.subs != null) {
                 subsSettings();
                 let currentLang = document.getElementById("current-lang").getAttribute('data-value');
                 //setCurrentLangSub(currentLang, player.textTracks());
@@ -185,11 +197,11 @@ export const VideoJS = (props) => {
                         }
                     }
                 }
-            }
+            }*/
             //End Subs Settings
 
             //Listener Subs
-            if(videoccUl.childNodes.length > 0) {
+            /*if(videoccUl.childNodes.length > 0) {
                 if(videoccUl.childNodes.length == 2){
 
                     videoccUl.childNodes[0].addEventListener("click", () => {
@@ -272,7 +284,7 @@ export const VideoJS = (props) => {
                         
                     }
                 }
-            }
+            }*/
             //End Listener Subs
 
             timelineVideo.addEventListener("click", (event) => {
@@ -290,6 +302,12 @@ export const VideoJS = (props) => {
                 //player.dispose();
                 //playerRef.current = null;
                 props.setModal(false);
+                np.setVideoOpen(false);
+            });
+
+            moreInfo.addEventListener("click", () => {
+                playerInfo.classList.toggle(`${styles.open}`);
+                videoClose.classList.toggle(`${styles.hidden}`);
             });
 
             var timeoutMouseMove = null;
@@ -330,10 +348,20 @@ export const VideoJS = (props) => {
     };
   }, [playerRef]);
 
+  React.useEffect(() => {
+    
+    closeRef.current.innerHTML = lp.languaje == 'es' ? '← volver' : '← return';
+    
+  }, [lp.languaje]);
+
+  /*React.useEffect(() => {
+    np.setVideoOpen(true);
+  }, [np.videoOpen]);*/
+
   
-  const openCC = () => {
+  /*const openCC = () => {
         ccUlRef.current.classList.add(styles.show);
-  };
+  };*/
 
   return (
     <div className={styles.popupContainer}>
@@ -341,11 +369,17 @@ export const VideoJS = (props) => {
             <div ref={videoRef} />
 
             <div className={styles.sector} ref={sectorRef}></div>
-            <div className={styles.closePlayer} ref={closeRef}></div>
-            <div className={styles.playerInfo}>
-                <p className="player-text-doble"><span className="player-video-agencia">Agencia</span> | <span className="player-video-marca">Marca</span></p>
-                <p className="player-video-director">Director</p>
-                <p className="player-video-titulo">Titulo</p>
+            <div className={styles.closePlayer} ref={closeRef}>← volver</div>
+            
+            <div className={styles.playerInfo} ref={playerInfoRef}>
+                <div className={styles.moreInfo} ref={moreInfoRef}>info</div>
+                <div className={styles.overlay}></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla.
+
+                    Facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                    Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </p>
             </div>
             <div className={styles.playerControls}>
                 <div className={styles.timeline} ref={timelineRef}>
@@ -356,10 +390,13 @@ export const VideoJS = (props) => {
                 <div className={`${styles.btn} ${styles.play} ${styles.hidden}`} ref={playRef}></div>
                 <div className={`${styles.btn} ${styles.pause} ${styles.hidden}`} ref={pauseRef}></div>
                 <div className={`${styles.btn} ${styles.full}`} ref={fullRef}></div>
+                {/*}
                 <div className={`${styles.btn} ${styles.subs}`} ref={ccRef}>
                     <span onClick={openCC}>CC</span>
                     <ul className={styles.hidde} ref={ccUlRef}></ul>
                 </div>
+                {*/}
+                <div className={`${styles.btn} ${styles.volumeButton}`}></div>
             </div>
 
         </div>

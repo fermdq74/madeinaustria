@@ -1,45 +1,96 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import NavItem from "./NavItem";
+import { NavContextProvider, useNavContext } from "../../../context/NavContextProvider";
+import LanguageSelector from "../../Sections/LanguageSelector/LanguajeSelector";
 
 import styles from "./styles.module.scss";
 
 const Navbar = (props) => {
-  const [navActive, setNavActive] = useState(null);
-  const [activeIdx, setActiveIdx] = useState(-1);
+
+  const np = useNavContext(NavContextProvider);
+
+  //const [vo, setVO] = useState(false);
+  
+  const menuButtonRef = useRef(null);
+  const mrRef = useRef(null);
+  const navRef = useRef(null);
+  const voSwitch = useRef(null);
+
+  useEffect(() => {
+    menuButtonRef.current.addEventListener("click", () => {
+      menuButtonRef.current.classList.toggle(styles.open);
+      navRef.current.classList.toggle(styles.hidden);
+    });
+    
+  }, []);
+
+  /*useEffect(() => {
+    if(np.videoOpen) {
+      setVO(true);
+      voSwitch.current.addEventListener("click", () => {
+        mrRef.current.classList.toggle(styles.videoOpen);
+      });
+    }else{
+      setVO(false);
+    }
+  }, [np.videoOpen]);*/
+  
 
   return (
-    <div className={styles.menuWrapper}>
-        
-            {/*}
-            <div className="logo">
-                <Image 
-                    src={props.logo}
-                    width={80}
-                    height={50}
-                    alt="Logo image"
-                />
-            </div>
-            {*/}
-            <nav className={styles.nav}>
+    
+    <div 
+      className={`${styles.menuWrapper} ${styles.transparent} ${np.navStatus ? styles.showNav : styles.hiddenNav} ${np.videoOpen ? styles.videoOpen : null }`}
+      ref={mrRef}
+    >
 
-                <div className="logo">
+            {
+              /*
+              np.videoOpen ?
+              <div 
+                className={styles.menuSwitch}
+                ref={voSwitch}
+              ></div>
+              :
+              null
+              */
+            }
+
+            <div className={styles.overlay}></div>
+
+            <div className={styles.siteLocation}>{`${np.siteLocation}`}</div>
+        
+            <div className={styles.logo}>
                     <Image 
                         src={props.logo}
                         width={80}
                         height={50}
                         alt="Logo image"
                     />
+            </div>
+
+            <button 
+              className={styles.menuButton}
+              ref={menuButtonRef}
+            />
+
+            <nav 
+              className={`${styles.nav} ${styles.hidden}`}
+              ref={navRef}
+            >
+                <div className={`${styles.navMenuList}`}>
+                  <div>
+                  {props.menu_items.map((menu, idx) => (
+                      <NavItem key={idx} menuItem={menu} />
+                  ))}
+                  </div>
+                  <LanguageSelector tc={"white"} from={"nav"}></LanguageSelector>
                 </div>
 
-                <div className={`${navActive ? "active" : ""} nav_menu-list`}>
-                  {props.menu_items.map((menu, idx) => (
-                      <NavItem key={idx} text={menu.menu_item} slug={menu.slug} />
-                  ))}
-                </div>
             </nav>
         
     </div>
+    
   );
 };
 
