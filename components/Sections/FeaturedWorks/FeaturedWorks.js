@@ -54,7 +54,7 @@ const FeaturedWorks = (props) => {
             >
 
                 {props.works.map((work) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={work.id}>
                         <Work 
                             key={work.id}
                             featured_image={work.featured_image} 
@@ -64,6 +64,7 @@ const FeaturedWorks = (props) => {
                             title_es={work.title_es}
                             video_url={work.video_url}
                             featured={true}
+                            from={"featuredWorks"}
                             showModal={showModal}
                             setModal={setModal}
                         />  

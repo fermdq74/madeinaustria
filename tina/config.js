@@ -235,6 +235,11 @@ const schema = defineSchema({
           type: "number",
           name: "director_order",
           label: "Director order",
+        },
+        {
+          type: "string",
+          name: "director_slug",
+          label: "Director slug",
         }
       ],
     },

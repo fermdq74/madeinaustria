@@ -1,14 +1,10 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Layout } from "../components/Layout/Layout";
-
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 
+import { Layout } from "../components/Layout/Layout";
 import Hero from "../components/Sections/Hero/Hero";
 import FeaturedWorks from "../components/Sections/FeaturedWorks/FeaturedWorks";
-import About from "../components/Sections/About/About";
-import DirectorSection from "../components/Sections/DirectorSection/DirectorSection";
-import PhotographerSection from "../components/Sections/PhotographerSection/PhotographerSection";
 import ContactForm from "../components/Sections/ContactForm/ContactForm";
 
 import NavContextProvider from "../context/NavContextProvider";
@@ -30,7 +26,7 @@ export default function Home(props) {
       <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu} contact={props.contacts_data}>
         
         <Hero logo={props.hh_data.homepage_hero_logo} hero_image={props.hh_data.homepage_hero_gallery} />
-        <FeaturedWorks works={featuredWorks(props.works_data)} />
+        <FeaturedWorks key={props.works_data.id} works={featuredWorks(props.works_data)} />
         {/*}
         <About title={props.about_data.title} image={props.about_data.image} body={props.about_data.body} />
         {props.directors_data.map((director) => (

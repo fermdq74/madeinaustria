@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 const Work = (props) => {
 
-    //const [showModal, setModal] = useState(null);
+    const [showModal, setModal] = useState(null);
     const [videoUrl, setVideoUrl] = useState(null);
     const [videoTracks, setVideoTracks] = useState(null);
     const playerRef = React.useRef(null);
@@ -70,8 +70,12 @@ const Work = (props) => {
     
     
     const openModal = () => {
-        props.setModal(true);
+        setModal(true);
     }
+
+    useEffect(() => {
+        props.setModal(showModal);
+    }, [showModal]);
 
     return (
         <div 
@@ -81,32 +85,38 @@ const Work = (props) => {
         >
 
             {
-                props.featured_image ?
+                props.from == "featuredWorks" ?
 
                 <div className={styles.featWorkBox}>
                     <h3>{props.agency}</h3>
                     <h3>{props.brand}</h3>
                     <h3>{props.work_director.director_name}</h3>
                     {
-                        props.showModal ? (
-                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} subs={videoDataReturn} setModal={props.setModal} />
+                        showModal ? (
+                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} subs={videoDataReturn} setModal={setModal} />
                         ) : null
                     }
                 </div>
 
                 :
 
-                <div style={{position:"relative"}} className="work-box" data-video-id="536511800">
-                    <p>{props.agency}</p>
-                    <p>{props.brand}</p>
-                    <p>{props.work_director.director_name}</p>
-                    <p>{props.title_es}</p>
-                    <span style={{cursor:"pointer"}} onClick={openModal}> open video </span>
-                        {
-                            props.showModal ? (
-                                <VideoJS options={videoJsOptions} onReady={handlePlayerReady} subs={videoDataReturn} setModal={props.setModal} />
-                            ) : null
-                        }
+                <div className={styles.DsWorkBox}>
+                    <div className={styles.title}>
+                        <h5>Director</h5>
+                        <h2>{props.work_director.director_name}</h2>
+                    </div>
+                    <div className={styles.workData}>
+                        <h3>{props.agency}</h3>
+                        <div className={styles.separator}></div>
+                        <h3>{props.brand}</h3>
+                        <div className={styles.separator}></div>
+                        <h3>{props.title_es}</h3>
+                    </div>
+                    {
+                        showModal ? (
+                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} subs={videoDataReturn} setModal={setModal} />
+                        ) : null
+                    }
                 </div>
             }
             
