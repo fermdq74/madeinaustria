@@ -54,7 +54,9 @@ const FeaturedWorks = (props) => {
             >
 
                 {props.works.map((work) => (
+                    
                     <SwiperSlide key={work.id}>
+                        
                         <Work 
                             key={work.id}
                             featured_image={work.featured_image} 
@@ -67,6 +69,7 @@ const FeaturedWorks = (props) => {
                             from={"featuredWorks"}
                             showModal={showModal}
                             setModal={setModal}
+                            info={work.info}
                         />  
                     </SwiperSlide>
                 ))}

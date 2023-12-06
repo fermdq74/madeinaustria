@@ -104,6 +104,7 @@ export const getStaticProps = async () => {
 };
 
 const getWorkDataArray = (works) => {
+  
   const worksData = works.data.worksConnection.edges.map((work) => {
     return { 
       title_eng: work.node.title_eng,
@@ -118,6 +119,7 @@ const getWorkDataArray = (works) => {
       video_url: work.node.video_url,
       work_director: work.node.work_director,
       id: work.node.id,
+      info: work.node.info_work.children,
     }
   });
 

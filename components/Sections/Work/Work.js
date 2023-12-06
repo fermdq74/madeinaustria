@@ -93,7 +93,7 @@ const Work = (props) => {
                     <h3>{props.work_director.director_name}</h3>
                     {
                         showModal ? (
-                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} subs={videoDataReturn} setModal={setModal} />
+                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} subs={videoDataReturn} setModal={setModal} workInfo={props.info} />
                         ) : null
                     }
                 </div>

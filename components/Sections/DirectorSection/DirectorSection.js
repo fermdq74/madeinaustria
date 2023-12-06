@@ -69,6 +69,7 @@ const DirectorSection = (props) => {
                             from={"directorSection"}
                             showModal={showModal}
                             setModal={setModal}
+                            info={work.info}
                         />  
                     </SwiperSlide>
                 ))}

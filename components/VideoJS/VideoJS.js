@@ -374,12 +374,13 @@ export const VideoJS = (props) => {
             <div className={styles.playerInfo} ref={playerInfoRef}>
                 <div className={styles.moreInfo} ref={moreInfoRef}>info</div>
                 <div className={styles.overlay}></div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla.
-
-                    Facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-                    Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                </p>
+                {
+                    props.workInfo.map((info) => (
+                        <p>
+                            {info.children[0].text ? info.children[0].text : ""}
+                        </p>
+                    ))
+                }
             </div>
             <div className={styles.playerControls}>
                 <div className={styles.timeline} ref={timelineRef}>

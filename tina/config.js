@@ -214,6 +214,11 @@ const schema = defineSchema({
           label: "Featured work",
           name: "featured_work",
         },
+        {
+          type: "rich-text",
+          label: "Info work",
+          name: "info_work",
+        },
       ],
     },
     {
