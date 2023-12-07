@@ -70,6 +70,7 @@ export const getStaticProps = async () => {
         video_url: work.node.video_url,
         work_director: work.node.work_director,
         id: work.node.id,
+        info: work.node.info_work.children,
       }
     });
   

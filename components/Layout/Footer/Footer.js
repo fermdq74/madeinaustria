@@ -12,12 +12,17 @@ const Footer = (props) => {
         <div className={`container ${styles.footer}`}>
             <div className={styles.fcw}>
                 <div className={styles.logo}>
+                        {/*}
                         <Image 
                             src={props.logo}
                             width={88}
                             height={54}
                             alt="Logo image"
                         />
+                        {*/}
+                        <Link href="/">
+                          <img src={props.logo} alt="logo image" />
+                        </Link>
                 </div>
 
                 <div className={styles.footerNav}>

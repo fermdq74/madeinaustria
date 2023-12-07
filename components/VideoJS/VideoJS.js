@@ -29,12 +29,8 @@ export const VideoJS = (props) => {
   np.setVideoOpen(true);
 
   React.useEffect(() => {
-
-    console.log("ENTRO USEEFFECT: ", props.test);
     
     if (!playerRef.current) {
-
-        console.log("ENTRO EN EL PRIMER IF");
 
         const playerWrapper = playerWrapperRef.current;
         const sectorVideo = sectorRef.current;
@@ -204,7 +200,6 @@ export const VideoJS = (props) => {
 
 
     } else {
-        console.log("ENTRO EN EL ELSE");
         const player = playerRef.current;
         player.autoplay(false);
         player.src(options.sources);
@@ -213,13 +208,11 @@ export const VideoJS = (props) => {
 
 
   React.useEffect(() => {
-    console.log("ENTRO EN EL SEGUNDO USEEFFECT");
     const player = playerRef.current;
     console.log("PLAYER: ", player);
 
     return () => {
       if (player && !player.isDisposed()) {
-        console.log("entro dispose");
         player.dispose();
         playerRef.current = null;
       }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import NavItem from "./NavItem";
 import { NavContextProvider, useNavContext } from "../../../context/NavContextProvider";
@@ -69,7 +70,9 @@ const Navbar = (props) => {
                         alt="Logo image"
                     />
                     {*/}
-                    <img src={props.logo} alt="logo image" />
+                    <Link href="/">
+                      <img src={props.logo} alt="logo image" />
+                    </Link>
             </div>
 
             <button 

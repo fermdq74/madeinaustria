@@ -50,7 +50,7 @@ const Work = (props) => {
                     <h3>{props.work_director.director_name}</h3>
                     {
                         showModal ? (
-                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} test={props.title_es} />
+                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} />
                         ) : null
                     }
                 </div>
@@ -87,7 +87,7 @@ const Work = (props) => {
                     </div>
                     {
                         showModal ? (
-                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} />
+                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} />
                         ) : null
                     }
                 </div>
