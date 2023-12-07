@@ -111,7 +111,13 @@ export const VideoJS = (props) => {
     
             //End video settings
             player.on('ended', function () {
+                //player.pause();
+                stopTrackingPlayProgress();
                 player.pause();
+                player.dispose();
+                playerRef.current = null;
+                props.setModal(false);
+                np.setVideoOpen(false);
             });
 
             //Play button listener
@@ -167,8 +173,8 @@ export const VideoJS = (props) => {
             videoClose.addEventListener("click", () => {
                 stopTrackingPlayProgress();
                 player.pause();
-                //player.dispose();
-                //playerRef.current = null;
+                player.dispose();
+                playerRef.current = null;
                 props.setModal(false);
                 np.setVideoOpen(false);
             });
