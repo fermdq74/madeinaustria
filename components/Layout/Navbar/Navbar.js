@@ -61,13 +61,15 @@ const Navbar = (props) => {
             <div className={styles.siteLocation}>{`${np.siteLocation}`}</div>
         
             <div className={styles.logo}>
+                    {/*}
                     <Image 
                         src={props.logo}
                         width={80}
                         height={50}
                         alt="Logo image"
                     />
-                    {console.log("MAIN LOGO: ", props.logo)}
+                    {*/}
+                    <img src={props.logo} alt="logo image" />
             </div>
 
             <button 
