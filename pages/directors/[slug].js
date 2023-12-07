@@ -1,6 +1,6 @@
 import NavContextProvider from "../../context/NavContextProvider";
 import { Layout } from "../../components/Layout/Layout";
-import DirectorSection from "../../components/Sections/DirectorSection/DirectorSection";
+import DirectorGrid from "../../components/Sections/DirectorGrid/DirectorGrid";
 import { client } from "../../tina/__generated__/client";
 
 export default function DirectorsSlug(props) {
@@ -8,7 +8,11 @@ export default function DirectorsSlug(props) {
 
 
     return (
-      <p>qwe</p>        
+      <NavContextProvider>
+        <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu} contact={props.contacts_data}>
+          <DirectorGrid director={props.director} works={props.works}></DirectorGrid>
+        </Layout>
+      </NavContextProvider>
     );
 }
 
@@ -38,11 +42,26 @@ export const getStaticPaths = async () => {
       };
     }
 
+    const gs = await client.queries.global_settings({
+      relativePath: "global-settings.md",
+    });
+  
+    const gs_data = gs.data.global_settings;
+
+    const contacts = await client.queries.contactConnection();
+  
+    const contacts_data = getContactDataArray(contacts);
+
     const works = await fetchWorksByDirector(director);
+
+
 
     return {
       props: {
         director,
+        gs_data,
+        contacts_data,
+        works
       },
     };
     
@@ -73,18 +92,15 @@ export const getStaticPaths = async () => {
       const response = await client.queries.worksConnection();
 
       const works = response.data.worksConnection.edges.map((edge) => {
-        const work = edge.node; // Ajusta esto según la estructura real de tus datos
+        const work = edge.node;
         const directorSlug = director.directors.director_slug;
   
-        // Verifica si work_director está definido y contiene director_slug
         if (work.work_director && work.work_director.director_slug && work.work_director.director_slug.includes(directorSlug)) {
           return work;
         } else {
           return null;
         }
       }).filter(Boolean);
-
-      console.log("works filtrados: ", works);
   
       return works;
     } catch (error) {
@@ -112,6 +128,19 @@ export const getStaticPaths = async () => {
     });
   
     return worksData;
+  };
+
+  const getContactDataArray = (contacts) => {
+    const contactsData = contacts.data.contactConnection.edges.map((contact) => {
+      return { 
+        id: contact.node.id,
+        country_es: contact.node.country_es,
+        country_en: contact.node.country_en,
+        contact_info: contact.node.contact_info.children
+      }
+    });
+  
+    return contactsData;
   };
   
   const getDirectorDataArray = (directors) => {

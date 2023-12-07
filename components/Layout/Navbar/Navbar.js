@@ -67,6 +67,7 @@ const Navbar = (props) => {
                         height={50}
                         alt="Logo image"
                     />
+                    {console.log("MAIN LOGO: ", props.logo)}
             </div>
 
             <button 

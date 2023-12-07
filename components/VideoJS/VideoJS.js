@@ -17,8 +17,6 @@ export const VideoJS = (props) => {
   const bufferRef = React.useRef(null);
   const progressRef = React.useRef(null);
   const fullRef = React.useRef(null);
-  //const ccRef = React.useRef(null);
-  //const ccUlRef = React.useRef(null);
   const closeRef = React.useRef(null);
   const moreInfoRef = React.useRef(null);
   const playerInfoRef = React.useRef(null);
@@ -31,8 +29,12 @@ export const VideoJS = (props) => {
   np.setVideoOpen(true);
 
   React.useEffect(() => {
+
+    console.log("ENTRO USEEFFECT: ", props.test);
     
     if (!playerRef.current) {
+
+        console.log("ENTRO EN EL PRIMER IF");
 
         const playerWrapper = playerWrapperRef.current;
         const sectorVideo = sectorRef.current;
@@ -42,11 +44,11 @@ export const VideoJS = (props) => {
         const bufferVideo = bufferRef.current;
         const progressVideo = progressRef.current;
         const fullVideo = fullRef.current;
-        //const videoCc = ccRef.current;
-        //const videoccUl = ccUlRef.current;
         const videoClose = closeRef.current;
         const moreInfo = moreInfoRef.current;
         const playerInfo = playerInfoRef.current;
+
+        let playProgressInterval;
 
         const videoElement = document.createElement("video-js");
 
@@ -60,8 +62,6 @@ export const VideoJS = (props) => {
 
         //Settings and Listeners
         player.ready(function () {
-
-            let playProgressInterval;
 
             //Buffer settings
             player.on("progress", () => {
@@ -95,7 +95,9 @@ export const VideoJS = (props) => {
             });
 
             function stopTrackingPlayProgress() {
-                clearInterval(playProgressInterval);
+                if(playProgressInterval) {
+                    clearInterval(playProgressInterval);
+                }
             }
     
             //Full screen settings
@@ -152,141 +154,6 @@ export const VideoJS = (props) => {
                 }
             });
 
-            //Subs Settings
-            /*if (props.subs != null) {
-                subsSettings();
-                let currentLang = document.getElementById("current-lang").getAttribute('data-value');
-                //setCurrentLangSub(currentLang, player.textTracks());
-            }
-    
-            function subsSettings() {
-                let subTracks = player.textTracks();
-    
-                for (let i = 0; i < subTracks.length; i++) {
-                    player.removeRemoteTextTrack(subTracks[i]);
-                }
-    
-                let submenuAppend = '';
-                
-                props.subs.forEach(function(sub) {
-                    var lang_string = sub.lang;
-                    submenuAppend += '<li data-sub-lang="' + lang_string + '" id="dsl-' + lang_string + '">' + lang_string + '</li>';
-                    const trackE = player.addRemoteTextTrack({kind: 'subtitles', src: 'https://vimeo.com' + sub.url, srclang: lang_string});
-                });
-    
-                submenuAppend += '<li data-sub-lang="">Off</li>';
-    
-                videoccUl.innerHTML = '';
-                videoccUl.innerHTML = submenuAppend;
-                videoccUl.classList.remove('submenu-on');
-                videoccUl.childNodes[0].classList.remove('active');
-            }
-    
-            function setCurrentLangSub(currentLang, vSubTracks) {
-                if (currentLang == 'en') {
-    
-                    if(document.getElementById("dsl" + currentLang) != null) {
-                        document.getElementById("dsl-" + currentLang).classList.add('active');
-                    }
-                    for (let i = 0; i < vSubTracks.length; i++) {
-                        let track = vSubTracks[i];
-                        if (track.language == currentLang) {
-                            track.mode = 'showing';
-                        } else {
-                            track.mode = 'hidden';
-                        }
-                    }
-                }
-            }*/
-            //End Subs Settings
-
-            //Listener Subs
-            /*if(videoccUl.childNodes.length > 0) {
-                if(videoccUl.childNodes.length == 2){
-
-                    videoccUl.childNodes[0].addEventListener("click", () => {
-                        videoccUl.classList.remove(styles.show);
-                        if (!playerWrapper.classList.contains('loading')) {
-
-                            if(!videoccUl.childNodes[0].classList.contains('active')) {
-                                if(videoccUl.childNodes[1].classList.contains("active")) {
-                                    videoccUl.childNodes[1].classList.remove("active");
-                                }
-                                videoccUl.childNodes[0].classList.add('active');
-                                let esteLang = videoccUl.childNodes[0].getAttribute('data-sub-lang');
-                                for (let i = 0; i < player.textTracks().length; i++) {
-                                    let track = player.textTracks()[i];
-                                    if (track.language == esteLang) {
-                                        track.mode = 'showing';
-                                    } else {
-                                        track.mode = 'hidden';
-                                    }
-                                }
-                            }
-                        }
-                    });
-
-                    videoccUl.childNodes[1].addEventListener("click", () => {
-                        videoccUl.classList.remove(styles.show);
-                        if (!playerWrapper.classList.contains('loading')) {
-
-                            if(!videoccUl.childNodes[1].classList.contains('active')) {
-                                if(videoccUl.childNodes[0].classList.contains("active")) {
-                                    videoccUl.childNodes[0].classList.remove("active");
-                                }
-                                videoccUl.childNodes[1].classList.add('active');
-                                let esteLang = videoccUl.childNodes[1].getAttribute('data-sub-lang');
-                                for (let i = 0; i < player.textTracks().length; i++) {
-                                    let track = player.textTracks()[i];
-                                    if (track.language == esteLang) {
-                                        track.mode = 'showing';
-                                    } else {
-                                        track.mode = 'hidden';
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-                if(videoccUl.childNodes.length == 1) {
-                    videoccUl.classList.remove(styles.show);
-                }
-                if(videoccUl.childNodes.length > 2) {
-                    for(let i=0; i < videoccUl.childNodes.length; i++ ) {
-                    
-                        videoccUl.childNodes[i].addEventListener("click", () => {
-                            if (!playerWrapper.classList.contains('loading')) {
-                                
-                                
-                                if(!videoccUl.childNodes[i].classList.contains('active')) {
-                                    for(let j=0; j < videoccUl.childNodes.length; j++) {
-                                        if(videoccUl.childNodes[j].classList.contains('active')){
-                                            videoccUl.childNodes[j].classList.remove('active');
-                                        }
-                                    }
-                                    
-                                    videoccUl.childNodes[i].classList.add('active');
-                                    let esteLang = videoccUl.childNodes[i].getAttribute('data-sub-lang');
-                                    for (i = 0; i < player.textTracks().length; i++) {
-                                        let track = player.textTracks()[i];
-                                        if (track.language == esteLang) {
-                                            track.mode = 'showing';
-                                        } else {
-                                            track.mode = 'hidden';
-                                        }
-                                    }
-                                    ccUlRef.current.classList.add(styles.hidde);
-                                    videoccUl.classList.remove(styles.show);
-                                }
-        
-                            }
-                        });
-                        
-                    }
-                }
-            }*/
-            //End Listener Subs
-
             timelineVideo.addEventListener("click", (event) => {
                 if (!playerWrapper.classList.contains('loading')) {
                     let posPorc = ( ((event.pageX) - (parseInt(timelineVideo.getBoundingClientRect().left))) * 100 ) / timelineVideo.getBoundingClientRect().width;
@@ -299,6 +166,7 @@ export const VideoJS = (props) => {
 
             videoClose.addEventListener("click", () => {
                 stopTrackingPlayProgress();
+                player.pause();
                 //player.dispose();
                 //playerRef.current = null;
                 props.setModal(false);
@@ -310,7 +178,7 @@ export const VideoJS = (props) => {
                 videoClose.classList.toggle(`${styles.hidden}`);
             });
 
-            var timeoutMouseMove = null;
+            let timeoutMouseMove = null;
 
             sectorVideo.addEventListener("mousemove", function () {
                 if (timeoutMouseMove !== null) {
@@ -330,18 +198,22 @@ export const VideoJS = (props) => {
 
 
     } else {
-      const player = playerRef.current;
-      player.autoplay(options.autoplay);
-      player.src(options.sources);
+        console.log("ENTRO EN EL ELSE");
+        const player = playerRef.current;
+        player.autoplay(false);
+        player.src(options.sources);
     }
-  }, [options, videoRef]);
+  }, [videoRef]);
 
 
   React.useEffect(() => {
+    console.log("ENTRO EN EL SEGUNDO USEEFFECT");
     const player = playerRef.current;
+    console.log("PLAYER: ", player);
 
     return () => {
       if (player && !player.isDisposed()) {
+        console.log("entro dispose");
         player.dispose();
         playerRef.current = null;
       }
@@ -357,11 +229,6 @@ export const VideoJS = (props) => {
   /*React.useEffect(() => {
     np.setVideoOpen(true);
   }, [np.videoOpen]);*/
-
-  
-  /*const openCC = () => {
-        ccUlRef.current.classList.add(styles.show);
-  };*/
 
   return (
     <div className={styles.popupContainer}>
@@ -391,12 +258,6 @@ export const VideoJS = (props) => {
                 <div className={`${styles.btn} ${styles.play} ${styles.hidden}`} ref={playRef}></div>
                 <div className={`${styles.btn} ${styles.pause} ${styles.hidden}`} ref={pauseRef}></div>
                 <div className={`${styles.btn} ${styles.full}`} ref={fullRef}></div>
-                {/*}
-                <div className={`${styles.btn} ${styles.subs}`} ref={ccRef}>
-                    <span onClick={openCC}>CC</span>
-                    <ul className={styles.hidde} ref={ccUlRef}></ul>
-                </div>
-                {*/}
                 <div className={`${styles.btn} ${styles.volumeButton}`}></div>
             </div>
 

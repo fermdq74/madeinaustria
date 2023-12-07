@@ -9,8 +9,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-
-
 import styles from "./styles.module.scss";
 
 const FeaturedWorks = (props) => {
@@ -35,6 +33,7 @@ const FeaturedWorks = (props) => {
         spanLang.innerHTML = lp.languaje == 'es' ? ' de ' : ' of ';
     }, [lp.languaje]);
 
+
     return (
         <section className={styles.featuredWorks}>
 
@@ -47,6 +46,7 @@ const FeaturedWorks = (props) => {
                                 + '<span class="' + totalClass + '"></span>';
                     }
                 }}
+                simulateTouch={false}
                 navigation={true}
                 modules={[Pagination, Navigation]}
                 className={styles.slider}

@@ -49,6 +49,7 @@ const DirectorSection = (props) => {
                                 + '<span class="' + totalClass + '"></span>';
                     }
                 }}
+                simulateTouch={false}
                 navigation={true}
                 modules={[Pagination, Navigation]}
                 className={styles.slider}

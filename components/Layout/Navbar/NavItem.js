@@ -10,7 +10,7 @@ const NavItem = (props) => {
     
     props.menuItem.children ?
       <div className={styles.subItemsWrapper}>
-        <h5>{lp.languaje == 'es' ? props.menuItem.menu_item : props.menuItem.menu_item_en}</h5>
+        <a href={props.menuItem.slug} className={styles.listLink}>{lp.languaje == 'es' ? props.menuItem.menu_item : props.menuItem.menu_item_en}</a>
         {
           props.menuItem.children.map((subItem) => (
             <Link href={subItem.slug}>
