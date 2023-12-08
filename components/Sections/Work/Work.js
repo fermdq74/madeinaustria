@@ -42,7 +42,7 @@ const Work = (props) => {
         >
 
             {
-                props.from == "featuredWorks" ?
+                props.from === "featuredWorks" ? (
 
                 <div className={styles.featWorkBox}>
                     <h3>{props.agency}</h3>
@@ -55,7 +55,38 @@ const Work = (props) => {
                     }
                 </div>
 
-                :
+                ) : props.from === "directorGrid" ? (
+                    <div className={styles.DgWorkBox}>
+                        <div className={styles.workData}>
+                            
+                            {
+                                props.agency ? 
+                                    <>
+                                        <h3>{props.agency}</h3>
+                                        <div className={styles.separator}></div>
+                                    </>
+                                :
+                                    null
+                            }
+                            {
+                                props.brand ?
+                                    <>
+                                        <h3>{props.brand}</h3>
+                                        <div className={styles.separator}></div>    
+                                    </>
+                                :
+                                    null
+                            }
+                            
+                            <h3>{props.title_es}</h3>
+                        </div>
+                        {
+                            showModal ? (
+                                <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} />
+                            ) : null
+                        }
+                    </div>
+                ) : (
 
                 <div className={styles.DsWorkBox}>
                     <div className={styles.title}>
@@ -91,6 +122,7 @@ const Work = (props) => {
                         ) : null
                     }
                 </div>
+                )
             }
             
             

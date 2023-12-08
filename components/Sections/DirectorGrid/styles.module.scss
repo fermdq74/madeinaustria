@@ -1,0 +1,13 @@
+.directorGrid {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .mainWork {
+        height: 100vh;
+        width: 100%;
+    }
+    .secondaryWork {
+        height: 50vh;
+        width: 50%;
+    }
+}

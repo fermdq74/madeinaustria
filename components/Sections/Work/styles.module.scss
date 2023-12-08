@@ -96,6 +96,71 @@
         
 
     }
+    .DgWorkBox {
+        max-width: 49.688rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+
+            h5 {
+                color: #FFF;
+                text-align: center;
+                font-family: 'gtFlexaTrial';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: 100%;
+                text-transform: uppercase;
+                margin: 0;
+            }
+            h2 {
+                color: #FFF;
+                text-align: center;
+                font-family: 'gtFlexaTrial';
+                font-size: 60px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: 100%;
+                text-transform: uppercase;
+                margin: 0;
+            }
+        }
+        .workData {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #FFF;
+            //min-width: 21.75rem;
+            h3 {
+                text-align: center;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: 120%;
+                letter-spacing: 1.4px;
+                text-transform: uppercase;
+                margin: 0;
+            }
+            .separator {
+                width: 1px;
+                height: 1.25rem;
+                background: #fff;
+                margin: 0 1.25rem;
+            }
+        }
+        
+        
+
+    }
+
+    
     
 }
 

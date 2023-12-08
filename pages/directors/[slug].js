@@ -42,6 +42,8 @@ export const getStaticPaths = async () => {
       };
     }
 
+    console.log("DIRECTOR: ", director);
+
     const gs = await client.queries.global_settings({
       relativePath: "global-settings.md",
     });
@@ -73,7 +75,7 @@ export const getStaticPaths = async () => {
         relativePath: `${slug}.md`,
       });
   
-      const director = response.data;
+      const director = response.data.directors;
   
       if (!director) {
         return null;
@@ -93,7 +95,7 @@ export const getStaticPaths = async () => {
 
       const works = response.data.worksConnection.edges.map((edge) => {
         const work = edge.node;
-        const directorSlug = director.directors.director_slug;
+        const directorSlug = director.director_slug;
   
         if (work.work_director && work.work_director.director_slug && work.work_director.director_slug.includes(directorSlug)) {
           return work;
@@ -101,7 +103,7 @@ export const getStaticPaths = async () => {
           return null;
         }
       }).filter(Boolean);
-  
+
       return works;
     } catch (error) {
       console.error('Error fetching works:', error);
@@ -124,6 +126,7 @@ export const getStaticPaths = async () => {
         video_url: work.node.video_url,
         work_director: work.node.work_director,
         id: work.node.id,
+        info: work.node.info_work.children,
       }
     });
   
@@ -141,18 +144,6 @@ export const getStaticPaths = async () => {
     });
   
     return contactsData;
-  };
-  
-  const getDirectorDataArray = (directors) => {
-    const directorsData = directors.data.directorsConnection.edges.map((director) => {
-      return { 
-        id: director.node.id,
-        director_name: director.node.director_name,
-        director_description: director.node.director_description,
-        director_order: director.node.director_order,
-      }
-    });
-    return directorsData;
   };
   
   const directorWorks = (id, works) => {

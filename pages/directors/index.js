@@ -12,7 +12,9 @@ export default function Directors(props) {
             <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu} contact={props.contacts_data}>
                 {
                     
-                    props.directors_data.map((director) => (
+                    props.directors_data
+                    .sort((a, b) => a.director_order - b.director_order)
+                    .map((director) => (
                         directorWorks(director.id, props.works_data).length > 0 ?
                             <DirectorSection director={director} works={directorWorks(director.id, props.works_data)}></DirectorSection>
                         :
