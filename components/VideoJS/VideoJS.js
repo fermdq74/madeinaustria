@@ -7,262 +7,322 @@ import { NavContextProvider, useNavContext } from "../../context/NavContextProvi
 
 export const VideoJS = (props) => {
 
-  const videoRef = React.useRef(null);
-  const playerRef = React.useRef(null);
-  const playerWrapperRef = React.useRef(null);
-  const sectorRef = React.useRef(null);
-  const playRef = React.useRef(null);
-  const pauseRef = React.useRef(null);
-  const timelineRef = React.useRef(null);
-  const bufferRef = React.useRef(null);
-  const progressRef = React.useRef(null);
-  const fullRef = React.useRef(null);
-  const closeRef = React.useRef(null);
-  const moreInfoRef = React.useRef(null);
-  const playerInfoRef = React.useRef(null);
-  const volumeRef = React.useRef(null);
-  const {options, onReady} = props;
+    const [wInfo, setWInfo] = React.useState(props.workInfo);
 
-  const lp = useLangContext(LangContextProvider);
-  const np = useNavContext(NavContextProvider);
+    const videoRef = React.useRef(null);
+    const playerRef = React.useRef(null);
+    const playerWrapperRef = React.useRef(null);
+    const sectorRef = React.useRef(null);
+    const playRef = React.useRef(null);
+    const pauseRef = React.useRef(null);
+    const timelineRef = React.useRef(null);
+    const bufferRef = React.useRef(null);
+    const progressRef = React.useRef(null);
+    const fullRef = React.useRef(null);
+    const closeRef = React.useRef(null);
+    const moreInfoRef = React.useRef(null);
+    const playerInfoRef = React.useRef(null);
+    const volumeRef = React.useRef(null);
+    const {options, onReady} = props;
 
-  np.setVideoOpen(true);
+    const lp = useLangContext(LangContextProvider);
+    const np = useNavContext(NavContextProvider);
 
-  React.useEffect(() => {
-    
-    if (!playerRef.current) {
+    np.setVideoOpen(true);
 
-        const playerWrapper = playerWrapperRef.current;
-        const sectorVideo = sectorRef.current;
-        const playVideo = playRef.current;
-        const pauseVideo = pauseRef.current;
-        const timelineVideo = timelineRef.current;
-        const bufferVideo = bufferRef.current;
-        const progressVideo = progressRef.current;
-        const fullVideo = fullRef.current;
-        const videoClose = closeRef.current;
-        const moreInfo = moreInfoRef.current;
-        const playerInfo = playerInfoRef.current;
+    React.useEffect(() => {
+        
+        if (!playerRef.current) {
 
-        let playProgressInterval;
+            const playerWrapper = playerWrapperRef.current;
+            const sectorVideo = sectorRef.current;
+            const playVideo = playRef.current;
+            const pauseVideo = pauseRef.current;
+            const timelineVideo = timelineRef.current;
+            const bufferVideo = bufferRef.current;
+            const progressVideo = progressRef.current;
+            const fullVideo = fullRef.current;
+            const videoClose = closeRef.current;
+            const moreInfo = moreInfoRef.current;
+            const playerInfo = playerInfoRef.current;
 
-        const videoElement = document.createElement("video-js");
+            let playProgressInterval;
 
-        videoElement.classList.add('vjs-big-play-centered');
-        videoRef.current.appendChild(videoElement);
+            const videoElement = document.createElement("video-js");
 
-        const player = playerRef.current = videojs(videoElement, options, () => {
-            videojs.log('player is ready');
-            onReady && onReady(player);
-        });
+            videoElement.classList.add('vjs-big-play-centered');
+            videoRef.current.appendChild(videoElement);
 
-        //Settings and Listeners
-        player.ready(function () {
-
-            //Buffer settings
-            player.on("progress", () => {
-                let bufferPorc = ((player.buffered().end(0) - player.buffered().start(0)) * 100 ) / player.duration();
-                bufferVideo.style.width = bufferPorc + "%";
+            const player = playerRef.current = videojs(videoElement, options, () => {
+                videojs.log('player is ready');
+                onReady && onReady(player);
             });
 
-            //Play settings
-            player.on('play', () => {
-                trackPlayProgress();
-                playerWrapper.classList.remove(`${styles.paused}`);
-                playVideo.classList.add(`${styles.hidden}`);
-                pauseVideo.classList.remove(`${styles.hidden}`);
-            });
+            //Settings and Listeners
+            player.ready(function () {
 
-            const trackPlayProgress = () => {
-                playProgressInterval = setInterval(updatePlayProgress, 33);
-            }
+                //Buffer settings
+                player.on("progress", () => {
+                    let bufferPorc = ((player.buffered().end(0) - player.buffered().start(0)) * 100 ) / player.duration();
+                    bufferVideo.style.width = bufferPorc + "%";
+                });
 
-            const updatePlayProgress = () => {
-                let timePorc = (player.currentTime() * 100) / player.duration();
-                progressVideo.style.width = timePorc + "%";
-            }
-            
-            //Pause settings
-            player.on('pause', () => {
-                stopTrackingPlayProgress();
-                playerWrapper.classList.add(`${styles.paused}`);
-                playVideo.classList.remove(`${styles.hidden}`);
-                pauseVideo.classList.add(`${styles.hidden}`);
-            });
+                //Play settings
+                player.on('play', () => {
+                    trackPlayProgress();
+                    playerWrapper.classList.remove(`${styles.paused}`);
+                    playVideo.classList.add(`${styles.hidden}`);
+                    pauseVideo.classList.remove(`${styles.hidden}`);
+                });
 
-            function stopTrackingPlayProgress() {
-                if(playProgressInterval) {
-                    clearInterval(playProgressInterval);
+                const trackPlayProgress = () => {
+                    playProgressInterval = setInterval(updatePlayProgress, 33);
                 }
-            }
-    
-            //Full screen settings
-            player.on('fullscreenchange', function () {
-                if (player.isFullscreen()) {
-                    playerWrapper.classList.add('isFullScreen');
-                } else {
-                    playerWrapper.classList.remove('isFullScreen');
-                }
-            });
-    
-            //End video settings
-            player.on('ended', function () {
-                //player.pause();
-                stopTrackingPlayProgress();
-                player.pause();
-                player.dispose();
-                playerRef.current = null;
-                props.setModal(false);
-                np.setVideoOpen(false);
-            });
 
-            //Play button listener
-            playVideo.addEventListener("click", () => {
-                if (!playerWrapper.classList.contains('loading')) {
-                    if (player.paused()) {
-                        player.play();
-                    }
-                }
-            });
-            
-            //Pause button listener
-            pauseVideo.addEventListener("click", () => {
-                if (!playerWrapper.classList.contains('loading')) {
-                    if (player.play()) {
-                        player.pause();
-                    }
-                }
-            }); 
-    
-            //Area player listener
-            sectorVideo.addEventListener("click", () => {
-                if (!playerWrapper.classList.contains('loading')) {
-                    if (player.paused()) {
-                        player.play();
-                    } else {
-                        player.pause();
-                    }
-                }
-            });
-    
-            //Full screen button listener
-            fullVideo.addEventListener("click", () => {
-                if (!playerWrapper.classList.contains('loading')) {
-                    if (!player.isFullscreen()) {
-                        player.requestFullscreen();
-                    } else {
-                        player.exitFullscreen();
-                    }
-                }
-            });
-
-            timelineVideo.addEventListener("click", (event) => {
-                if (!playerWrapper.classList.contains('loading')) {
-                    let posPorc = ( ((event.pageX) - (parseInt(timelineVideo.getBoundingClientRect().left))) * 100 ) / timelineVideo.getBoundingClientRect().width;
-                    let currentTime = ((posPorc * (player.duration())) / 100);
-                    player.currentTime(currentTime);
+                const updatePlayProgress = () => {
                     let timePorc = (player.currentTime() * 100) / player.duration();
                     progressVideo.style.width = timePorc + "%";
                 }
-            });
+                
+                //Pause settings
+                player.on('pause', () => {
+                    stopTrackingPlayProgress();
+                    playerWrapper.classList.add(`${styles.paused}`);
+                    playVideo.classList.remove(`${styles.hidden}`);
+                    pauseVideo.classList.add(`${styles.hidden}`);
+                });
 
-            videoClose.addEventListener("click", () => {
-                stopTrackingPlayProgress();
-                player.pause();
-                player.dispose();
-                playerRef.current = null;
-                props.setModal(false);
-                np.setVideoOpen(false);
-            });
-
-            moreInfo.addEventListener("click", () => {
-                playerInfo.classList.toggle(`${styles.open}`);
-                videoClose.classList.toggle(`${styles.hidden}`);
-            });
-
-            let timeoutMouseMove = null;
-
-            sectorVideo.addEventListener("mousemove", function () {
-                if (timeoutMouseMove !== null) {
-                    playerWrapper.classList.remove(`${styles.hideElements}`);
-                    clearTimeout(timeoutMouseMove);
+                function stopTrackingPlayProgress() {
+                    if(playProgressInterval) {
+                        clearInterval(playProgressInterval);
+                    }
                 }
+        
+                //Full screen settings
+                player.on('fullscreenchange', function () {
+                    if (player.isFullscreen()) {
+                        playerWrapper.classList.add('isFullScreen');
+                    } else {
+                        playerWrapper.classList.remove('isFullScreen');
+                    }
+                });
+        
+                //End video settings
+                player.on('ended', function () {
+                    player.src(options.sources);
+                    setWInfo(props.workInfo);
+                    stopTrackingPlayProgress();
+                    player.pause();
+                    player.dispose();
+                    playerRef.current = null;
+                    props.setModal(false);
+                    np.setVideoOpen(false);
+                });
 
-                timeoutMouseMove = setTimeout(function () {
-                    playerWrapper.classList.add(`${styles.hideElements}`);
-                }, 3000);
+                //Play button listener
+                playVideo.addEventListener("click", () => {
+                    if (!playerWrapper.classList.contains('loading')) {
+                        if (player.paused()) {
+                            player.play();
+                        }
+                    }
+                });
+                
+                //Pause button listener
+                pauseVideo.addEventListener("click", () => {
+                    if (!playerWrapper.classList.contains('loading')) {
+                        if (player.play()) {
+                            player.pause();
+                        }
+                    }
+                }); 
+        
+                //Area player listener
+                sectorVideo.addEventListener("click", () => {
+                    if (!playerWrapper.classList.contains('loading')) {
+                        if (player.paused()) {
+                            player.play();
+                        } else {
+                            player.pause();
+                        }
+                    }
+                });
+        
+                //Full screen button listener
+                fullVideo.addEventListener("click", () => {
+                    if (!playerWrapper.classList.contains('loading')) {
+                        if (!player.isFullscreen()) {
+                            player.requestFullscreen();
+                        } else {
+                            player.exitFullscreen();
+                        }
+                    }
+                });
+
+                timelineVideo.addEventListener("click", (event) => {
+                    if (!playerWrapper.classList.contains('loading')) {
+                        let posPorc = ( ((event.pageX) - (parseInt(timelineVideo.getBoundingClientRect().left))) * 100 ) / timelineVideo.getBoundingClientRect().width;
+                        let currentTime = ((posPorc * (player.duration())) / 100);
+                        player.currentTime(currentTime);
+                        let timePorc = (player.currentTime() * 100) / player.duration();
+                        progressVideo.style.width = timePorc + "%";
+                    }
+                });
+
+                videoClose.addEventListener("click", () => {
+                    player.src(options.sources);
+                    setWInfo(props.workInfo);
+                    stopTrackingPlayProgress();
+                    player.pause();
+                    player.dispose();
+                    playerRef.current = null;
+                    props.setModal(false);
+                    np.setVideoOpen(false);
+                });
+
+                moreInfo.addEventListener("click", () => {
+                    playerInfo.classList.toggle(`${styles.open}`);
+                    videoClose.classList.toggle(`${styles.hidden}`);
+                });
+
+                let timeoutMouseMove = null;
+
+                sectorVideo.addEventListener("mousemove", function () {
+                    if (timeoutMouseMove !== null) {
+                        playerWrapper.classList.remove(`${styles.hideElements}`);
+                        clearTimeout(timeoutMouseMove);
+                    }
+
+                    timeoutMouseMove = setTimeout(function () {
+                        playerWrapper.classList.add(`${styles.hideElements}`);
+                    }, 3000);
+                });
+
+                console.log("PLAYER: ", player);
+
             });
-
-            console.log("PLAYER: ", player);
-
-        });
-        //End Settings and Listeners
+            //End Settings and Listeners
 
 
-    } else {
+        } else {
+            const player = playerRef.current;
+            player.autoplay(false);
+            player.src(options.sources);
+        }
+    }, [videoRef]);
+
+
+    React.useEffect(() => {
         const player = playerRef.current;
-        player.autoplay(false);
-        player.src(options.sources);
+
+        return () => {
+        if (player && !player.isDisposed()) {
+            player.dispose();
+            playerRef.current = null;
+        }
+        };
+    }, [playerRef]);
+
+    React.useEffect(() => {
+        
+        closeRef.current.innerHTML = lp.languaje == 'es' ? '← volver' : '← return';
+        
+    }, [lp.languaje]);
+
+    React.useEffect(() => {
+        if(props.fromSlider == false) {
+            props.setWorkSelectedIndex(props.index);
+        }
+    }, []);
+
+    const changePrev = () => {
+        const player = playerRef.current;
+        if (!playerWrapperRef.current.classList.contains('loading')) {
+            if (player.play()) {
+                player.pause();
+            }
+        }
+        setWInfo(props.workPrev.info_work.children);
+        player.autoplay(true);
+        player.src(props.workPrev.video_url);
+        props.setWorkSelectedIndex(props.workSelectedIndex - 1);
     }
-  }, [videoRef]);
 
+    const changeNext = () => {
+        const player = playerRef.current;
+        if (!playerWrapperRef.current.classList.contains('loading')) {
+            if (player.play()) {
+                player.pause();
+            }
+        }
+        console.log("WORK NEXT: ", props.workNext.info_work);
+        setWInfo(props.workNext.info_work.children);
+        player.autoplay(true);
+        player.src(props.workNext.video_url);
+        props.setWorkSelectedIndex(props.workSelectedIndex + 1);
+    }
 
-  React.useEffect(() => {
-    const player = playerRef.current;
-    console.log("PLAYER: ", player);
+    /*React.useEffect(() => {
+        np.setVideoOpen(true);
+    }, [np.videoOpen]);*/
 
-    return () => {
-      if (player && !player.isDisposed()) {
-        player.dispose();
-        playerRef.current = null;
-      }
-    };
-  }, [playerRef]);
+    return (
+        <div className={styles.popupContainer}>
+            <div data-vjs-player className={`${styles.player} ${styles.paused}`} ref={playerWrapperRef}>
+                <div ref={videoRef} />
 
-  React.useEffect(() => {
-    
-    closeRef.current.innerHTML = lp.languaje == 'es' ? '← volver' : '← return';
-    
-  }, [lp.languaje]);
-
-  /*React.useEffect(() => {
-    np.setVideoOpen(true);
-  }, [np.videoOpen]);*/
-
-  return (
-    <div className={styles.popupContainer}>
-        <div data-vjs-player className={`${styles.player} ${styles.paused}`} ref={playerWrapperRef}>
-            <div ref={videoRef} />
-
-            <div className={styles.sector} ref={sectorRef}></div>
-            <div className={styles.closePlayer} ref={closeRef}>← volver</div>
-            
-            <div className={styles.playerInfo} ref={playerInfoRef}>
-                <div className={styles.moreInfo} ref={moreInfoRef}>info</div>
-                <div className={styles.overlay}></div>
-                {
-                    props.workInfo.map((info) => (
-                        <p>
-                            {info.children[0].text ? info.children[0].text : ""}
-                        </p>
-                    ))
-                }
-            </div>
-            <div className={styles.playerControls}>
-                <div className={styles.timeline} ref={timelineRef}>
-                    <div className={styles.buffer} ref={bufferRef}></div>
-                    <div className={styles.progress} ref={progressRef}></div>
-                    <div></div>
+                <div className={styles.sector} ref={sectorRef}></div>
+                <div className={styles.closePlayer} ref={closeRef}>← volver</div>
+                
+                <div className={styles.playerInfo} ref={playerInfoRef}>
+                    <div className={styles.moreInfo} ref={moreInfoRef}>info</div>
+                    <div className={styles.overlay}></div>
+                    {console.log("WINFO: ", wInfo)}
+                    {
+                        wInfo.map((info) => (
+                            <p>
+                                {info.children[0].text ? info.children[0].text : ""}
+                            </p>
+                        ))
+                    }
                 </div>
-                <div className={`${styles.btn} ${styles.play} ${styles.hidden}`} ref={playRef}></div>
-                <div className={`${styles.btn} ${styles.pause} ${styles.hidden}`} ref={pauseRef}></div>
-                <div className={`${styles.btn} ${styles.full}`} ref={fullRef}></div>
-                <div className={`${styles.btn} ${styles.volumeButton}`}></div>
-            </div>
+                <div className={styles.playerControls}>
+                    <div className={styles.timeline} ref={timelineRef}>
+                        <div className={styles.buffer} ref={bufferRef}></div>
+                        <div className={styles.progress} ref={progressRef}></div>
+                        <div></div>
+                    </div>
+                    <div className={`${styles.btn} ${styles.play} ${styles.hidden}`} ref={playRef}></div>
+                    <div className={`${styles.btn} ${styles.pause} ${styles.hidden}`} ref={pauseRef}></div>
+                    <div className={`${styles.btn} ${styles.full}`} ref={fullRef}></div>
+                    <div className={`${styles.btn} ${styles.volumeButton}`}></div>
+                    {
+                        props.fromSlider == false ? 
+                        <div className={styles.navWrapper}>
+                            <button 
+                                onClick={props.workPrev ? changePrev : null}
+                                className={props.workPrev ? null : styles.disabled}
+                            >
+                                ←video anterior
+                            </button>
 
+                            <button 
+                                onClick={props.workNext ? changeNext : null}
+                                className={props.workNext ? null : styles.disabled}
+                            >
+                                video siguiente →
+                            </button>
+                        </div>
+                        :
+                        null
+
+                    }
+                    
+                </div>
+
+            </div>
         </div>
-    </div>
-  );
+    );
 }
 
 export default VideoJS;

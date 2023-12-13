@@ -7,6 +7,11 @@ import styles from "./styles.module.scss";
 const DirectorGrid = (props) => {
 
     const [showModal, setModal] = useState(null);
+
+    const [workSelectedIndex, setWorkSelectedIndex] = useState(null);
+    const [workPrev, setWorkPrev] = useState(null);
+    const [workNext, setWorkNext] = useState(null);
+    
     const lp = useLangContext(LangContextProvider);
     const np = useNavContext(NavContextProvider);
 
@@ -14,17 +19,23 @@ const DirectorGrid = (props) => {
         np.setNavStatus(true);
     }, []);
 
-    console.log("PROPS: ", props);
+    useEffect(() => {
+        setWorkPrev(props.works[workSelectedIndex - 1]);
+        setWorkNext(props.works[workSelectedIndex + 1]);
+    }, [workSelectedIndex]);
 
     return (
         <section className={styles.directorGrid}>
-            {props.works.map((work, index) => {
+            {props.works.map((work, index, array) => {
                   
                 return(
                     index == 0 ? (
                     
-                        <div className={styles.mainWork}>
-                            {console.log("WWWW: ", work)}
+                        <div 
+                            className={styles.mainWork}
+                            key={work.id}
+                        >
+                            
                             <Work 
                                 key={work.id}
                                 featured_image={work.featured_image} 
@@ -38,6 +49,12 @@ const DirectorGrid = (props) => {
                                 showModal={showModal}
                                 setModal={setModal}
                                 info={work.info_work.children}
+                                fromSlider={false}
+                                setWorkSelectedIndex={setWorkSelectedIndex}
+                                workSelectedIndex={workSelectedIndex}
+                                index={index}
+                                workPrev={workPrev}
+                                workNext={workNext}
                             />  
                         </div>
                     ) : (
@@ -55,6 +72,12 @@ const DirectorGrid = (props) => {
                                 showModal={showModal}
                                 setModal={setModal}
                                 info={work.info_work.children}
+                                fromSlider={false}
+                                setWorkSelectedIndex={setWorkSelectedIndex}
+                                workSelectedIndex={workSelectedIndex}
+                                index={index}
+                                workPrev={workPrev}
+                                workNext={workNext}
                             />
                         </div>
 

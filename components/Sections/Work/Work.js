@@ -9,6 +9,7 @@ import styles from './styles.module.scss';
 const Work = (props) => {
 
     const [showModal, setModal] = useState(null);
+    const [showNav, setShowNav] = useState(null);
     const playerRef = React.useRef(null);
 
     const videoJsOptions = {
@@ -50,7 +51,7 @@ const Work = (props) => {
                     <h3>{props.work_director.director_name}</h3>
                     {
                         showModal ? (
-                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} />
+                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} fromSlider={props.fromSlider} />
                         ) : null
                     }
                 </div>
@@ -82,7 +83,7 @@ const Work = (props) => {
                         </div>
                         {
                             showModal ? (
-                                <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} />
+                                <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} fromSlider={props.fromSlider} workSelectedIndex={props.workSelectedIndex} setWorkSelectedIndex={props.setWorkSelectedIndex} video_url={props.video_url} index={props.index} workPrev={props.workPrev} workNext={props.workNext} />
                             ) : null
                         }
                     </div>
@@ -118,7 +119,7 @@ const Work = (props) => {
                     </div>
                     {
                         showModal ? (
-                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} />
+                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} fromSlider={props.fromSlider} />
                         ) : null
                     }
                 </div>

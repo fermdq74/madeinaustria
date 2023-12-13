@@ -70,6 +70,7 @@ const FeaturedWorks = (props) => {
                             showModal={showModal}
                             setModal={setModal}
                             info={work.info}
+                            fromSlider={true}
                         />  
                     </SwiperSlide>
                 ))}
