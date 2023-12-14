@@ -1,4 +1,4 @@
-import Album from "../Album/Album";
+/*import Album from "../Album/Album";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { useState, useRef, useEffect } from "react";
@@ -24,7 +24,7 @@ const PhotographerSection = (props) => {
 
     return (
         <section className={styles.photographerSection}>
-            {/*}
+            
             <Swiper
                 pagination={{type: 'fraction'}}
                 simulateTouch={false}
@@ -47,9 +47,10 @@ const PhotographerSection = (props) => {
                 ))}
 
             </Swiper>
-            {*/}
+            
         </section>
     );
 };
 
 export default PhotographerSection;
+*/
