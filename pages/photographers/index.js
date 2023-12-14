@@ -27,7 +27,7 @@ export default function Directors(props) {
 }
 
 export const getStaticProps = async () => {
-  
+    
     const photographs = await client.queries.photographsConnection();
   
     const photographs_data = getPhotoDataArray(photographs);
