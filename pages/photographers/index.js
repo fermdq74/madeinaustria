@@ -1,4 +1,4 @@
-/*import NavContextProvider from "../../context/NavContextProvider";
+import NavContextProvider from "../../context/NavContextProvider";
 import { Layout } from "../../components/Layout/Layout";
 import PhotographerSection from "../../components/Sections/PhotographerSection/PhotographerSection";
 import { client } from "../../tina/__generated__/client";
@@ -107,4 +107,4 @@ export const getStaticProps = async () => {
     });
   
     return pp;
-  };*/
+  };

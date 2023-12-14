@@ -1,4 +1,4 @@
-/*import Album from "../Album/Album";
+import Album from "../Album/Album";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { useState, useRef, useEffect } from "react";
@@ -53,4 +53,3 @@ const PhotographerSection = (props) => {
 };
 
 export default PhotographerSection;
-*/
