@@ -3,7 +3,7 @@ import { Layout } from "../../components/Layout/Layout";
 import PhotographerSection from "../../components/Sections/PhotographerSection/PhotographerSection";
 import { client } from "../../tina/__generated__/client";
 
-export default function Directors(props) {
+export default function Photographers(props) {
 
 
 
