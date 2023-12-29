@@ -18,7 +18,6 @@ const DirectorSection = (props) => {
     const lp = useLangContext(LangContextProvider);
     const np = useNavContext(NavContextProvider);
     const fractionS = lp.languaje == 'es' ? ' de ' : ' of ';
-    np.setSiteLocation(lp.languaje == 'es' ? 'Directores' : 'Directors');
 
     useEffect(() => {
         if(showModal) {
@@ -29,11 +28,14 @@ const DirectorSection = (props) => {
     }, [showModal]);
 
     useEffect(() => {
-        let spanLang = document.getElementById("fracLang");
-        spanLang.innerHTML = lp.languaje == 'es' ? ' de ' : ' of ';
+        let spanLang = document.getElementsByClassName("fracLang");
+        for(let i=0; i<spanLang.length; i++) {
+            spanLang[i].innerHTML = lp.languaje == 'es' ? ' de ' : ' of ';
+        }
     }, [lp.languaje]);
 
     useEffect(() => {
+        np.setSiteLocation(lp.languaje == 'es' ? 'Directores' : 'Directors');
         np.setNavStatus(true);
     }, []);
 
@@ -45,7 +47,7 @@ const DirectorSection = (props) => {
                     type: 'fraction',
                     renderFraction: function (currentClass, totalClass) {
                         return '<span class="' + currentClass + '"></span>' +
-                                '<span id="fracLang">' + fractionS + "</span>"
+                                '<span class="fracLang">' + fractionS + "</span>"
                                 + '<span class="' + totalClass + '"></span>';
                     }
                 }}
@@ -56,8 +58,8 @@ const DirectorSection = (props) => {
                 ref={ref}
             >
 
-                {props.works.map((work) => (
-                    <SwiperSlide>
+                {props.works.map((work, idx) => (
+                    <SwiperSlide key={idx}>
                         <Work 
                             key={work.id}
                             featured_image={work.featured_image} 
@@ -65,12 +67,14 @@ const DirectorSection = (props) => {
                             agency={work.agency}
                             brand={work.brand}
                             title_es={work.title_es}
+                            title_en={work.title_en}
                             video_url={work.video_url}
                             featured={true}
                             from={"directorSection"}
                             showModal={showModal}
                             setModal={setModal}
                             info={work.info}
+                            info_en={work.info_en}
                             fromSlider={true}
                         />  
                     </SwiperSlide>

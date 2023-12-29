@@ -8,6 +8,7 @@ import { NavContextProvider, useNavContext } from "../../context/NavContextProvi
 export const VideoJS = (props) => {
 
     const [wInfo, setWInfo] = React.useState(props.workInfo);
+    const [wInfoEn, setWInfoEn] = React.useState(props.workInfoEn);
 
     const videoRef = React.useRef(null);
     const playerRef = React.useRef(null);
@@ -27,8 +28,6 @@ export const VideoJS = (props) => {
 
     const lp = useLangContext(LangContextProvider);
     const np = useNavContext(NavContextProvider);
-
-    np.setVideoOpen(true);
 
     React.useEffect(() => {
         
@@ -111,6 +110,7 @@ export const VideoJS = (props) => {
                 player.on('ended', function () {
                     player.src(options.sources);
                     setWInfo(props.workInfo);
+                    setWInfoEn(props.workInfoEn);
                     stopTrackingPlayProgress();
                     player.pause();
                     player.dispose();
@@ -172,6 +172,7 @@ export const VideoJS = (props) => {
                 videoClose.addEventListener("click", () => {
                     player.src(options.sources);
                     setWInfo(props.workInfo);
+                    setWInfoEn(props.workInfoEn);
                     stopTrackingPlayProgress();
                     player.pause();
                     player.dispose();
@@ -197,8 +198,6 @@ export const VideoJS = (props) => {
                         playerWrapper.classList.add(`${styles.hideElements}`);
                     }, 3000);
                 });
-
-                console.log("PLAYER: ", player);
 
             });
             //End Settings and Listeners
@@ -235,6 +234,10 @@ export const VideoJS = (props) => {
         }
     }, []);
 
+    React.useEffect(() => {
+        np.setVideoOpen(true);
+    }, []);
+
     const changePrev = () => {
         const player = playerRef.current;
         if (!playerWrapperRef.current.classList.contains('loading')) {
@@ -243,6 +246,7 @@ export const VideoJS = (props) => {
             }
         }
         setWInfo(props.workPrev.info_work.children);
+        setWInfoEn(props.workPrev.info_work_eng.children);
         player.autoplay(true);
         player.src(props.workPrev.video_url);
         props.setWorkSelectedIndex(props.workSelectedIndex - 1);
@@ -255,16 +259,12 @@ export const VideoJS = (props) => {
                 player.pause();
             }
         }
-        console.log("WORK NEXT: ", props.workNext.info_work);
         setWInfo(props.workNext.info_work.children);
+        setWInfoEn(props.workNext.info_work_eng.children);
         player.autoplay(true);
         player.src(props.workNext.video_url);
         props.setWorkSelectedIndex(props.workSelectedIndex + 1);
     }
-
-    /*React.useEffect(() => {
-        np.setVideoOpen(true);
-    }, [np.videoOpen]);*/
 
     return (
         <div className={styles.popupContainer}>
@@ -277,20 +277,25 @@ export const VideoJS = (props) => {
                 <div className={styles.playerInfo} ref={playerInfoRef}>
                     <div className={styles.moreInfo} ref={moreInfoRef}>info</div>
                     <div className={styles.overlay}></div>
-                    {console.log("WINFO: ", wInfo)}
                     {
-                        wInfo.map((info) => (
-                            <p>
-                                {info.children[0].text ? info.children[0].text : ""}
-                            </p>
-                        ))
+                        lp.languaje == 'es' ?
+                            wInfo.map((info, idx) => (
+                                <p key={idx}>
+                                    {info.children[0].text ? info.children[0].text : ""}
+                                </p>
+                            ))
+                        :
+                            wInfoEn.map((info, idx) => (
+                                <p key={idx}>
+                                    {info.children[0].text ? info.children[0].text : ""}
+                                </p>
+                            ))
                     }
                 </div>
                 <div className={styles.playerControls}>
                     <div className={styles.timeline} ref={timelineRef}>
                         <div className={styles.buffer} ref={bufferRef}></div>
                         <div className={styles.progress} ref={progressRef}></div>
-                        <div></div>
                     </div>
                     <div className={`${styles.btn} ${styles.play} ${styles.hidden}`} ref={playRef}></div>
                     <div className={`${styles.btn} ${styles.pause} ${styles.hidden}`} ref={pauseRef}></div>
@@ -303,14 +308,19 @@ export const VideoJS = (props) => {
                                 onClick={props.workPrev ? changePrev : null}
                                 className={props.workPrev ? null : styles.disabled}
                             >
-                                ←video anterior
+                                {
+                                    lp.languaje == 'es' ? '←video anterior' : '←previous video'
+                                }
                             </button>
 
                             <button 
                                 onClick={props.workNext ? changeNext : null}
                                 className={props.workNext ? null : styles.disabled}
                             >
-                                video siguiente →
+                                
+                                {
+                                    lp.languaje == 'es' ? 'video siguiente →' : 'next video→'
+                                }
                             </button>
                         </div>
                         :

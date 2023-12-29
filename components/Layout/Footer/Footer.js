@@ -8,32 +8,44 @@ const Footer = (props) => {
 
     const lp = useLangContext(LangContextProvider);
 
+    const openAbout = () => {
+        props.setAboutState(true);
+    }
+
     return (
         <div className={`container ${styles.footer}`}>
             <div className={styles.fcw}>
                 <div className={styles.logo}>
-                        {/*}
-                        <Image 
-                            src={props.logo}
-                            width={88}
-                            height={54}
-                            alt="Logo image"
-                        />
-                        {*/}
-                        <Link href="/">
-                          <img src={props.logo} alt="logo image" />
-                        </Link>
+                    <Link href="/">
+                        <img src={props.logo} alt="logo image" />
+                    </Link>
                 </div>
 
                 <div className={styles.footerNav}>
                     {
-                        props.menu.map((item) => (
-                            <Link href={item.slug}>
-                                {lp.languaje == 'es' ? item.menu_item : item.menu_item_en}
-                            </Link>
+                        props.menu.map((item, idx) => (
+                            item.slug == "about" ?
+                                <a 
+                                    onClick={openAbout} 
+                                    className={styles.aboutButton}
+                                >
+                                    {lp.languaje == 'es' ? item.menu_item : item.menu_item_en}
+                                </a>
+                            :
+                                <Link 
+                                    href={item.slug}
+                                    key={idx}
+                                >
+                                    <a>
+                                        {lp.languaje == 'es' ? item.menu_item : item.menu_item_en}
+                                    </a>
+                                </Link>
                         ))
                     }
-                    <LanguajeSelector tc={"white"} from={"footer"}></LanguajeSelector>
+                    <LanguajeSelector 
+                        tc={"white"} 
+                        from={"footer"} 
+                    />
                 </div>
             </div>
         </div>

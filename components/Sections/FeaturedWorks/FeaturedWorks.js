@@ -18,7 +18,6 @@ const FeaturedWorks = (props) => {
     const lp = useLangContext(LangContextProvider);
     const np = useNavContext(NavContextProvider);
     const fractionS = lp.languaje == 'es' ? ' de ' : ' of ';
-    np.setSiteLocation(lp.languaje == 'es' ? 'Trabajos destacados' : 'Featured Works');
 
     useEffect(() => {
         if(showModal) {
@@ -31,7 +30,14 @@ const FeaturedWorks = (props) => {
     useEffect(() => {
         let spanLang = document.getElementById("fracLang");
         spanLang.innerHTML = lp.languaje == 'es' ? ' de ' : ' of ';
+        np.setSiteLocation(lp.languaje == 'es' ? 'Trabajos destacados' : 'Featured Works');
     }, [lp.languaje]);
+
+    useEffect(() => {
+        if(sessionStorage.getItem('heroIsClosed')) {
+            np.setNavStatus(true);
+        }
+    }, []);
 
 
     return (
@@ -70,6 +76,7 @@ const FeaturedWorks = (props) => {
                             showModal={showModal}
                             setModal={setModal}
                             info={work.info}
+                            info_en={work.info_en}
                             fromSlider={true}
                         />  
                     </SwiperSlide>

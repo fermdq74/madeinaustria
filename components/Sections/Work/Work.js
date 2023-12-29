@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import parse from 'html-react-parser';
 import VideoJS from '../../VideoJS/VideoJS';
+import { LangContextProvider, useLangContext } from '../../../context/LangContextProvider';
 
 import styles from './styles.module.scss';
 
@@ -11,6 +12,7 @@ const Work = (props) => {
     const [showModal, setModal] = useState(null);
     const [showNav, setShowNav] = useState(null);
     const playerRef = React.useRef(null);
+    const lp = useLangContext(LangContextProvider);
 
     const videoJsOptions = {
         autoplay: true,
@@ -51,7 +53,14 @@ const Work = (props) => {
                     <h3>{props.work_director.director_name}</h3>
                     {
                         showModal ? (
-                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} fromSlider={props.fromSlider} />
+                            <VideoJS 
+                                options={videoJsOptions} 
+                                onReady={handlePlayerReady} 
+                                setModal={setModal} 
+                                workInfo={props.info} 
+                                workInfoEn={props.info_en} 
+                                fromSlider={props.fromSlider} 
+                            />
                         ) : null
                     }
                 </div>
@@ -79,11 +88,24 @@ const Work = (props) => {
                                     null
                             }
                             
-                            <h3>{props.title_es}</h3>
+                            <h3>{lp.languaje == 'es' ? props.title_es : props.title_en}</h3>
                         </div>
                         {
                             showModal ? (
-                                <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} fromSlider={props.fromSlider} workSelectedIndex={props.workSelectedIndex} setWorkSelectedIndex={props.setWorkSelectedIndex} video_url={props.video_url} index={props.index} workPrev={props.workPrev} workNext={props.workNext} />
+                                <VideoJS 
+                                    options={videoJsOptions} 
+                                    onReady={handlePlayerReady} 
+                                    setModal={setModal} 
+                                    workInfo={props.info} 
+                                    workInfoEn={props.info_en}
+                                    fromSlider={props.fromSlider} 
+                                    workSelectedIndex={props.workSelectedIndex} 
+                                    setWorkSelectedIndex={props.setWorkSelectedIndex} 
+                                    video_url={props.video_url} 
+                                    index={props.index} 
+                                    workPrev={props.workPrev} 
+                                    workNext={props.workNext} 
+                                />
                             ) : null
                         }
                     </div>
@@ -115,11 +137,18 @@ const Work = (props) => {
                                 null
                         }
                         
-                        <h3>{props.title_es}</h3>
+                        <h3>{lp.languaje == 'es' ? props.title_es : props.title_en}</h3>
                     </div>
                     {
                         showModal ? (
-                            <VideoJS options={videoJsOptions} onReady={handlePlayerReady} setModal={setModal} workInfo={props.info} fromSlider={props.fromSlider} />
+                            <VideoJS 
+                                options={videoJsOptions} 
+                                onReady={handlePlayerReady} 
+                                setModal={setModal} 
+                                workInfo={props.info} 
+                                workInfoEn={props.info_en}
+                                fromSlider={props.fromSlider} 
+                            />
                         ) : null
                     }
                 </div>

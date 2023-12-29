@@ -47,9 +47,9 @@ body {
     margin: 0;
 }
 
-body.noScroll {
+/*body.noScroll {
     overflow: hidden;
-}
+}*/
 
 h1,h2,h3,h4,h5,h6,div,p,span,input,label,button,a {
     font-family: "radioGrotesk";

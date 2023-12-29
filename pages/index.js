@@ -1,56 +1,37 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
-
 import { Layout } from "../components/Layout/Layout";
 import Hero from "../components/Sections/Hero/Hero";
 import FeaturedWorks from "../components/Sections/FeaturedWorks/FeaturedWorks";
 import ContactForm from "../components/Sections/ContactForm/ContactForm";
-
 import NavContextProvider from "../context/NavContextProvider";
 
 export default function Home(props) {
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
-  /*
-  const { data } = useTina({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  });
-
-  const content = data.page.body;
-  */
 
   return (
       <NavContextProvider>
-      <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu} contact={props.contacts_data}>
-        
-        <Hero logo={props.hh_data.homepage_hero_logo} hero_image={props.hh_data.homepage_hero_gallery} />
-        <FeaturedWorks key={props.works_data.id} works={featuredWorks(props.works_data)} />
-        {/*}
-        <About title={props.about_data.title} image={props.about_data.image} body={props.about_data.body} />
-        {props.directors_data.map((director) => (
-          <DirectorSection key={director.id} director={director.director_name} works={directorWorks(director.id, props.works_data)} />
-        ))}
-        {props.photographers_data.map((photographer) => (
-          <PhotographerSection key={photographer.id} photographer={photographer.photographer_name} photographs={photographerPhotos(photographer.id, props.photographs_data)} />
-        ))}
-        <ContactForm />
-        {*/}
-      </Layout>
+        <Layout 
+          title={props.gs_data.name} 
+          logo={props.gs_data.logo} 
+          menu={props.gs_data.menu} 
+          contact={props.contacts_data} 
+          about_data={props.about_data}
+        >
+          <Hero 
+            logo={props.hh_data.homepage_hero_logo} 
+            hero_image={props.hh_data.homepage_hero_gallery} 
+          />
+          <FeaturedWorks 
+            key={props.works_data.id} 
+            works={featuredWorks(props.works_data)} 
+          />
+        </Layout>
       </NavContextProvider>
   );
 }
 
 export const getStaticProps = async () => {
-
-  const { data, query, variables } = await client.queries.page({
-    relativePath: "home.md",
-  });
-
-  const works = await client.queries.worksConnection();
-
-  const works_data = getWorkDataArray(works);
 
   const gs = await client.queries.global_settings({
     relativePath: "global-settings.md",
@@ -58,29 +39,21 @@ export const getStaticProps = async () => {
 
   const gs_data = gs.data.global_settings;
 
+  const works = await client.queries.worksConnection();
+
+  const works_data = getWorkDataArray(works);
+
   const hh = await client.queries.homepage_hero({
     relativePath: "homepage_hero.md",
   });
 
   const hh_data = hh.data.homepage_hero;
 
-  const about = await client.queries.page({
-    relativePath: "about_us.md",
+  const about = await client.queries.about({
+    relativePath: "about.md",
   });
 
-  const about_data = about.data.page;
-
-  const directors = await client.queries.directorsConnection();
-
-  const directors_data = getDirectorDataArray(directors);
-
-  const photographers = await client.queries.photographersConnection();
-
-  const photographers_data = getPhotographerDataArray(photographers);
-
-  const photographs = await client.queries.photographsConnection();
-
-  const photographs_data = getPhotographyDataArray(photographs);
+  const about_data = about.data.about;
 
   const contacts = await client.queries.contactConnection();
 
@@ -88,16 +61,10 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      data,
-      query,
-      variables,
       works_data,
       gs_data,
       hh_data,
       about_data,
-      directors_data,
-      photographers_data,
-      photographs_data,
       contacts_data
     },
   };
@@ -120,6 +87,7 @@ const getWorkDataArray = (works) => {
       work_director: work.node.work_director,
       id: work.node.id,
       info: work.node.info_work.children,
+      info_en: work.node.info_work_eng.children,
     }
   });
 

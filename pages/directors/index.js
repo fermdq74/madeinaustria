@@ -9,14 +9,24 @@ export default function Directors(props) {
 
     return (
         <NavContextProvider>
-            <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu} contact={props.contacts_data}>
+            <Layout 
+              title={props.gs_data.name} 
+              logo={props.gs_data.logo} 
+              menu={props.gs_data.menu} 
+              contact={props.contacts_data} 
+              about_data={props.about_data}
+            >
                 {
                     
                     props.directors_data
                     .sort((a, b) => a.director_order - b.director_order)
                     .map((director) => (
                         directorWorks(director.id, props.works_data).length > 0 ?
-                            <DirectorSection director={director} works={directorWorks(director.id, props.works_data)}></DirectorSection>
+                            <DirectorSection 
+                              key={director.id}
+                              director={director} 
+                              works={directorWorks(director.id, props.works_data)} 
+                            />
                         :
                             null
                     ))
@@ -38,6 +48,12 @@ export const getStaticProps = async () => {
     });
   
     const gs_data = gs.data.global_settings;
+
+    const about = await client.queries.about({
+      relativePath: "about.md",
+    });
+
+    const about_data = about.data.about;
   
     const directors = await client.queries.directorsConnection();
   
@@ -51,6 +67,7 @@ export const getStaticProps = async () => {
       props: {
         works_data,
         gs_data,
+        about_data,
         directors_data,
         contacts_data
       },
@@ -60,7 +77,7 @@ export const getStaticProps = async () => {
   const getWorkDataArray = (works) => {
     const worksData = works.data.worksConnection.edges.map((work) => {
       return { 
-        title_eng: work.node.title_eng,
+        title_en: work.node.title_eng,
         title_es: work.node.title_es,
         agency: work.node.agency,
         brand: work.node.brand,
@@ -73,6 +90,7 @@ export const getStaticProps = async () => {
         work_director: work.node.work_director,
         id: work.node.id,
         info: work.node.info_work.children,
+        info_en: work.node.info_work_eng.children,
       }
     });
   

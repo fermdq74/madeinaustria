@@ -1,6 +1,6 @@
 import { LangContextProvider, useLangContext } from "../../../context/LangContextProvider";
 import { NavContextProvider, useNavContext } from "../../../context/NavContextProvider";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Work from "../Work/Work";
 import styles from "./styles.module.scss";
 
@@ -16,6 +16,8 @@ const DirectorGrid = (props) => {
     const np = useNavContext(NavContextProvider);
 
     useEffect(() => {
+        np.setSiteLocation(lp.languaje == 'es' ? 'Director' : 'Director');
+        np.setSubpageLocation(props.director.director_name);
         np.setNavStatus(true);
     }, []);
 
@@ -24,16 +26,42 @@ const DirectorGrid = (props) => {
         setWorkNext(props.works[workSelectedIndex + 1]);
     }, [workSelectedIndex]);
 
+    const closePersonInfo = () => {
+        np.setPersonDescription(false);
+    }
+
     return (
         <section className={styles.directorGrid}>
-            {props.works.map((work, index, array) => {
+
+            <div className={`${styles.directorDescription} ${np.personDescription ? styles.open : null}`}>
+                
+                {
+                    lp.languaje == 'es' ?
+                    props.director.director_description.children.map((description, idx) => (
+                        <p key={idx}>
+                            {description.children[0].text}
+                        </p>                        
+                    ))
+                    :
+                    props.director.director_description_eng.children.map((description, idx) => (
+                        <p key={idx}>
+                            {description.children[0].text}
+                        </p>                        
+                    ))
+                }
+                <button onClick={closePersonInfo}>
+                    {lp.languaje == 'es' ? 'Cerrar' : 'Close'}
+                </button>
+            </div>
+
+            {props.works.map((work, index) => {
                   
                 return(
                     index == 0 ? (
                     
                         <div 
                             className={styles.mainWork}
-                            key={work.id}
+                            key={index}
                         >
                             
                             <Work 
@@ -43,12 +71,14 @@ const DirectorGrid = (props) => {
                                 agency={work.agency}
                                 brand={work.brand}
                                 title_es={work.title_es}
+                                title_en={work.title_eng}
                                 video_url={work.video_url}
                                 featured={true}
                                 from={"directorGrid"}
                                 showModal={showModal}
                                 setModal={setModal}
                                 info={work.info_work.children}
+                                info_en={work.info_work_eng.children}
                                 fromSlider={false}
                                 setWorkSelectedIndex={setWorkSelectedIndex}
                                 workSelectedIndex={workSelectedIndex}
@@ -58,7 +88,10 @@ const DirectorGrid = (props) => {
                             />  
                         </div>
                     ) : (
-                        <div className={styles.secondaryWork}>
+                        <div 
+                            className={styles.secondaryWork} 
+                            key={index}
+                        >
                             <Work 
                                 key={work.id}
                                 featured_image={work.featured_image} 
@@ -66,12 +99,14 @@ const DirectorGrid = (props) => {
                                 agency={work.agency}
                                 brand={work.brand}
                                 title_es={work.title_es}
+                                title_en={work.title_eng}
                                 video_url={work.video_url}
                                 featured={true}
                                 from={"directorGrid"}
                                 showModal={showModal}
                                 setModal={setModal}
                                 info={work.info_work.children}
+                                info_en={work.info_work_eng.children}
                                 fromSlider={false}
                                 setWorkSelectedIndex={setWorkSelectedIndex}
                                 workSelectedIndex={workSelectedIndex}

@@ -219,6 +219,11 @@ const schema = defineSchema({
           label: "Info work",
           name: "info_work",
         },
+        {
+          type: "rich-text",
+          label: "Info work(Eng)",
+          name: "info_work_eng",
+        },
       ],
     },
     {
@@ -232,9 +237,14 @@ const schema = defineSchema({
           label: "Director name",
         },
         {
-          type: "string",
+          type: "rich-text",
           name: "director_description",
           label: "Director description",
+        },
+        {
+          type: "rich-text",
+          name: "director_description_eng",
+          label: "Director description(Eng)",
         },
         {
           type: "number",
@@ -298,14 +308,24 @@ const schema = defineSchema({
           label: "Photographer name",
         },
         {
-          type: "string",
+          type: "rich-text",
           name: "photographer_description",
           label: "Photographer description",
+        },
+        {
+          type: "rich-text",
+          name: "photographer_description_eng",
+          label: "Photographer description(Eng)",
         },
         {
           type: "number",
           name: "photographer_order",
           label: "Photographer order",
+        },
+        {
+          type: "string",
+          name: "photographer_slug",
+          label: "Photographer slug",
         }
       ],
     },
@@ -328,6 +348,28 @@ const schema = defineSchema({
           type: "rich-text",
           name: "contact_info",
           label: "Info",
+        }
+      ],
+    },
+    {
+      label: "About",
+      name: "about",
+      path: "content/about",
+      fields: [
+        {
+          type: "rich-text",
+          name: "description_es",
+          label: "Description(Es)",
+        },
+        {
+          type: "rich-text",
+          name: "description_en",
+          label: "Description(En)",
+        },
+        {
+          type: "image",
+          label: "About logo",
+          name: "about_logo",
         }
       ],
     },

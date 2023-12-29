@@ -6,22 +6,47 @@ const NavItem = (props) => {
 
   const lp = useLangContext(LangContextProvider);
 
+  const openAbout = () => {
+    props.setAboutState(true);
+  }
+
   return (
     
     props.menuItem.children ?
       <div className={styles.subItemsWrapper}>
-        <a href={props.menuItem.slug} className={styles.listLink}>{lp.languaje == 'es' ? props.menuItem.menu_item : props.menuItem.menu_item_en}</a>
+        <Link href={`/${props.menuItem.slug}`}>
+          <a 
+            className={styles.listLink}
+          >
+            {lp.languaje == 'es' ? props.menuItem.menu_item : props.menuItem.menu_item_en}
+          </a>
+        </Link>
         {
-          props.menuItem.children.map((subItem) => (
-            <Link href={subItem.slug}>
-              {lp.languaje == 'es' ? subItem.menu_item : subItem.menu_item_en}
+          props.menuItem.children.map((subItem, idx) => (
+            <Link 
+              href={`/${props.menuItem.slug == "directors" ? "directors/" + subItem.slug : "photographers/" + subItem.slug}`}
+              key={idx}
+            >
+              <a>
+                {lp.languaje == 'es' ? subItem.menu_item : subItem.menu_item_en}
+              </a>
             </Link>
           ))
         }
       </div>
     :
-      <Link href={props.menuItem.slug}>
-        {lp.languaje == 'es' ? props.menuItem.menu_item : props.menuItem.menu_item_en}
+      props.menuItem.slug == "about" ?
+        <a 
+          onClick={openAbout} 
+          className={styles.aboutButton}
+        >
+          {lp.languaje == 'es' ? props.menuItem.menu_item : props.menuItem.menu_item_en}
+        </a>
+      :
+      <Link href={`/${props.menuItem.slug}`}>
+        <a>
+          {lp.languaje == 'es' ? props.menuItem.menu_item : props.menuItem.menu_item_en}
+        </a>
       </Link>
      
   );

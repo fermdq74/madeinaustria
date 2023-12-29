@@ -5,12 +5,19 @@ import { client } from "../../tina/__generated__/client";
 
 export default function DirectorsSlug(props) {
 
-
-
     return (
       <NavContextProvider>
-        <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu} contact={props.contacts_data}>
-          <DirectorGrid director={props.director} works={props.works}></DirectorGrid>
+        <Layout 
+          title={props.gs_data.name} 
+          logo={props.gs_data.logo} 
+          menu={props.gs_data.menu} 
+          contact={props.contacts_data} 
+          about_data={props.about_data}
+        >
+          <DirectorGrid 
+            director={props.director} 
+            works={props.works}>  
+          </DirectorGrid>
         </Layout>
       </NavContextProvider>
     );
@@ -32,128 +39,96 @@ export const getStaticPaths = async () => {
   }
 }
 
-  export const getStaticProps = async ({params}) => {
+export const getStaticProps = async ({params}) => {
 
-    const director = await fetchDirectorBySlug(params.slug);
+  const director = await fetchDirectorBySlug(params.slug);
+
+  if (!director) {
+    return {
+      notFound: true, // Redirige a la página 404
+    };
+  }
+
+  const gs = await client.queries.global_settings({
+    relativePath: "global-settings.md",
+  });
+
+  const gs_data = gs.data.global_settings;
+
+  const about = await client.queries.about({
+    relativePath: "about.md",
+  });
+
+  const about_data = about.data.about;
+
+  const contacts = await client.queries.contactConnection();
+
+  const contacts_data = getContactDataArray(contacts);
+
+  const works = await fetchWorksByDirector(director);
+
+  return {
+    props: {
+      director,
+      gs_data,
+      about_data,
+      contacts_data,
+      works
+    },
+  };
+  
+};
+
+export async function fetchDirectorBySlug(slug) {
+  try {
+    const response = await client.queries.directors({
+      relativePath: `${slug}.md`,
+    });
+
+    const director = response.data.directors;
 
     if (!director) {
-      return {
-        notFound: true, // Redirige a la página 404
-      };
+      return null;
     }
 
-    console.log("DIRECTOR: ", director);
+    return director;
+  } catch (error) {
+    console.error('Error fetching director:', error);
+    return null;
+  }
+}
 
-    const gs = await client.queries.global_settings({
-      relativePath: "global-settings.md",
-    });
-  
-    const gs_data = gs.data.global_settings;
+export async function fetchWorksByDirector(director) {
+  try {
+    const response = await client.queries.worksConnection();
 
-    const contacts = await client.queries.contactConnection();
-  
-    const contacts_data = getContactDataArray(contacts);
+    const works = response.data.worksConnection.edges.map((edge) => {
+      const work = edge.node;
+      const directorSlug = director.director_slug;
 
-    const works = await fetchWorksByDirector(director);
-
-
-
-    return {
-      props: {
-        director,
-        gs_data,
-        contacts_data,
-        works
-      },
-    };
-    
-  };
-
-  export async function fetchDirectorBySlug(slug) {
-    try {
-      const response = await client.queries.directors({
-        relativePath: `${slug}.md`,
-      });
-  
-      const director = response.data.directors;
-  
-      if (!director) {
+      if (work.work_director && work.work_director.director_slug && work.work_director.director_slug.includes(directorSlug)) {
+        return work;
+      } else {
         return null;
       }
-  
-      return director;
-    } catch (error) {
-      console.error('Error fetching director:', error);
-      return null;
-    }
+    }).filter(Boolean);
+
+    return works;
+  } catch (error) {
+    console.error('Error fetching works:', error);
+    return null;
   }
+}
 
-  export async function fetchWorksByDirector(director) {
-    try {
-
-      const response = await client.queries.worksConnection();
-
-      const works = response.data.worksConnection.edges.map((edge) => {
-        const work = edge.node;
-        const directorSlug = director.director_slug;
-  
-        if (work.work_director && work.work_director.director_slug && work.work_director.director_slug.includes(directorSlug)) {
-          return work;
-        } else {
-          return null;
-        }
-      }).filter(Boolean);
-
-      return works;
-    } catch (error) {
-      console.error('Error fetching works:', error);
-      return null;
+const getContactDataArray = (contacts) => {
+  const contactsData = contacts.data.contactConnection.edges.map((contact) => {
+    return { 
+      id: contact.node.id,
+      country_es: contact.node.country_es,
+      country_en: contact.node.country_en,
+      contact_info: contact.node.contact_info.children
     }
-  }
-  
-  const getWorkDataArray = (works) => {
-    const worksData = works.data.worksConnection.edges.map((work) => {
-      return { 
-        title_eng: work.node.title_eng,
-        title_es: work.node.title_es,
-        agency: work.node.agency,
-        brand: work.node.brand,
-        featured_image: work.node.featured_image,
-        featured_work: work.node.featured_work,
-        hidde_reel: work.node.hidde_reel,
-        pemalink: work.node.permalink,
-        video_thumbnail: work.node.video_thumbnail,
-        video_url: work.node.video_url,
-        work_director: work.node.work_director,
-        id: work.node.id,
-        info: work.node.info_work.children,
-      }
-    });
-  
-    return worksData;
-  };
+  });
 
-  const getContactDataArray = (contacts) => {
-    const contactsData = contacts.data.contactConnection.edges.map((contact) => {
-      return { 
-        id: contact.node.id,
-        country_es: contact.node.country_es,
-        country_en: contact.node.country_en,
-        contact_info: contact.node.contact_info.children
-      }
-    });
-  
-    return contactsData;
-  };
-  
-  const directorWorks = (id, works) => {
-    
-    const dw = [];
-    works.map((work) => {
-      if(work.work_director.id == id) {
-        dw.push(work);
-      }
-    });
-  
-    return dw;
-  };
+  return contactsData;
+};

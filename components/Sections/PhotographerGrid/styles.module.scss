@@ -1,15 +1,21 @@
-.directorGrid {
+.photographerGrid {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    
-    .mainWork {
-        height: 100vh;
+    padding: 4.625rem 1.418rem 1.875rem;
+    background: #000;
+
+    .mainPhoto {
         width: 100%;
+        height: calc(100vh - 5.875rem);
+        margin-bottom: 1.25rem;
     }
-    .secondaryWork {
+    .secondaryPhoto {
+        width: calc(50% - 0.75rem);
         height: 50vh;
-        width: 50%;
+        margin-bottom: 1.25rem;
     }
+
     .directorDescription {
         position: absolute;
         top: 0;
@@ -69,5 +75,4 @@
             }
         }
     }
-
 }

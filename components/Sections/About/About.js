@@ -1,23 +1,53 @@
-import Image from "next/image";
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
+import { LangContextProvider, useLangContext } from "../../../context/LangContextProvider";
+import { useRef } from "react";
+import Link from "next/link";
+import styles from "./styles.module.scss";
+
 
 const About = (props) => {
 
+    const closeRef = useRef(null);
+    const lp = useLangContext(LangContextProvider);
+
+    const closeAbout = () => {
+        props.setAboutState(false);
+    }
+
     return (
-        <section style={{display: "flex"}}>
-            <div style={{height: "500px", width: "50%", position: "relative"}}>
-                {/*}
-                <Image 
-                    src={props.image}
-                    layout='fill'
-                    alt="About image"
+        <section className={styles.about}>
+            
+            <div className={styles.aboutNav}>
+                <div className={styles.siteLocation}>
+                    {lp.languaje == 'es' ? 'nosotros' : 'about'}
+                </div>
+
+                <div className={styles.logo}>
+                    <Link href="/">
+                        <img 
+                            src={props.about_data.about_logo} 
+                            alt="logo image" 
+                        />
+                    </Link>
+                </div>
+
+                <button 
+                    className={styles.closeButton}
+                    onClick={closeAbout}
                 />
-    {*/}
-                <h1>{props.title}</h1>
             </div>
-            <div style={{height: "500px", width: "50%", position: "relative"}}>
-                <TinaMarkdown content={props.body} />
+
+            <div className={styles.aboutContent}>
+                {lp.languaje == 'es' ? 
+                    props.about_data.description_es.children.map((description) => (
+                        <p>{description.children[0].text}</p>
+                    ))
+                : 
+                    props.about_data.description_en.children.map((description) => (
+                        <p>{description.children[0].text}</p>
+                    ))
+                }
             </div>
+
         </section>
     );
 };

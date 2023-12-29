@@ -9,14 +9,24 @@ export default function Photographers(props) {
 
     return (
         <NavContextProvider>
-            <Layout title={props.gs_data.name} logo={props.gs_data.logo} menu={props.gs_data.menu} contact={props.contacts_data}>
+            <Layout 
+              title={props.gs_data.name} 
+              logo={props.gs_data.logo} 
+              menu={props.gs_data.menu} 
+              contact={props.contacts_data} 
+              about_data={props.about_data}
+            >
                 {
                     
                     props.photographers_data
                     .sort((a, b) => a.photographer_order - b.photographer_order)
                     .map((photographer) => (
                         photographerPhotographs(photographer.id, props.photographs_data).length > 0 ?
-                            <PhotographerSection photographer={photographer} photographs={photographerPhotographs(photographer.id, props.photographs_data)}></PhotographerSection>
+                            <PhotographerSection 
+                              key={photographer.id}
+                              photographer={photographer} 
+                              photographs={photographerPhotographs(photographer.id, props.photographs_data)} 
+                            />
                         :
                             null
                     ))
@@ -25,6 +35,7 @@ export default function Photographers(props) {
         </NavContextProvider>
     );
 }
+
 
 export const getStaticProps = async () => {
     
@@ -37,6 +48,12 @@ export const getStaticProps = async () => {
     });
   
     const gs_data = gs.data.global_settings;
+
+    const about = await client.queries.about({
+      relativePath: "about.md",
+    });
+
+    const about_data = about.data.about;
   
     const photographers = await client.queries.photographersConnection();
   
@@ -50,6 +67,7 @@ export const getStaticProps = async () => {
       props: {
         photographs_data,
         gs_data,
+        about_data,
         photographers_data,
         contacts_data
       },

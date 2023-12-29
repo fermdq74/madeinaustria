@@ -8,6 +8,7 @@ const NavContextProvider = ({children}) => {
     const [subpageLocation, setSubpageLocation] = useState('');
     const [navStatus, setNavStatus] = useState(false);
     const [videoOpen, setVideoOpen] = useState(false);
+    const [personDescription, setPersonDescription] = useState(false);
 
     return (
         <NavContext.Provider value={{
@@ -18,7 +19,9 @@ const NavContextProvider = ({children}) => {
             navStatus,
             setNavStatus,
             videoOpen,
-            setVideoOpen
+            setVideoOpen,
+            personDescription,
+            setPersonDescription
         }}>
             {children}
         </NavContext.Provider>

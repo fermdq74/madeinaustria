@@ -4,40 +4,39 @@ name: A U S T R I A
 menu:
   - menu_item: Trabajos destacados
     menu_item_en: Featured Works
-    slug: featured-works
+    slug: ''
   - menu_item: Directores
     menu_item_en: Directors
     slug: directors
     children:
-      - menu_item: Mora
-        menu_item_en: Mora
-        slug: director_test_three
       - menu_item: Ranchez
         menu_item_en: Ranchez
-        slug: director_test_two
+        slug: ranchez
       - menu_item: Sanchez
         menu_item_en: Sanchez
-        slug: director_test_one
+        slug: sanchez
+      - menu_item: Santa
+        menu_item_en: Santa
+        slug: santa
   - menu_item: Fotógrafos
     menu_item_en: Photographers
     slug: photographers
     children:
-      - menu_item: Toto Pons
-        menu_item_en: Toto Pons
-        slug: photographer_test_three
       - menu_item: Juan Soler
         menu_item_en: Juan Soler
-        slug: photographer_test_two
+        slug: juan_soler
       - menu_item: Mp Curtet
         menu_item_en: Mp Curtet
-        slug: photographer_test_one
+        slug: mp_curtet
   - menu_item: Contacto
     menu_item_en: Contact
-    slug: contact
+    slug: '#contact-section'
   - menu_item: Nosotros
     menu_item_en: About
     slug: about
 ---
+
+
 
 
 

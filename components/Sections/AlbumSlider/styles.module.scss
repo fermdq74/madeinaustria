@@ -1,0 +1,81 @@
+.albumSlider {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 2000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .closeSlider {
+        position: absolute;
+        top: 28.5px;
+        left: 44px;
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 120%;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        max-width: 100px;
+        max-height: 17px;
+        z-index: 20;
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .slider {
+        height: 100%;
+        width: 100%;
+
+        .albumSlide {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                height: 100%;
+                max-height: calc(100vh - 9.375rem);
+                max-width: calc(100vw - 17.75rem);
+                object-fit: cover;
+            }
+        }
+    }
+
+    .albumSliderNav {
+        position: absolute;
+        left: 0;
+        bottom: 1.5rem;
+        width: 100%;
+        padding: 0 2.75rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        button {
+            color: #FFF;
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 120%;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            border: 0;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+            z-index: 1;
+            &.disabled {
+                cursor: auto;
+                opacity: 0.5;
+            }
+        }
+    }
+}
