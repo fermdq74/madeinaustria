@@ -19,7 +19,7 @@ const DirectorGrid = (props) => {
         np.setSiteLocation(lp.languaje == 'es' ? 'Director' : 'Director');
         np.setSubpageLocation(props.director.director_name);
         np.setNavStatus(true);
-    }, []);
+    });
 
     useEffect(() => {
         setWorkPrev(props.works[workSelectedIndex - 1]);

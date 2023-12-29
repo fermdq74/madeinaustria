@@ -17,7 +17,7 @@ const PhotographerGrid = (props) => {
         np.setSiteLocation(lp.languaje == 'es' ? 'Fotografo' : 'Photographer');
         np.setSubpageLocation(props.photographer.photographer_name);
         np.setNavStatus(true);
-    }, []);
+    });
 
     useEffect(() => {
         np.setSiteLocation(lp.languaje == 'es' ? 'Fotografo' : 'Photographer');    
