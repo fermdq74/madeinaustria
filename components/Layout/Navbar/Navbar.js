@@ -1,11 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import NavItem from "./NavItem";
 import { NavContextProvider, useNavContext } from "../../../context/NavContextProvider";
 import LanguageSelector from "../../Sections/LanguageSelector/LanguajeSelector";
-
 import styles from "./styles.module.scss";
+import { useRouter } from 'next/router';
 
 const Navbar = (props) => {
 
@@ -14,6 +13,8 @@ const Navbar = (props) => {
   const menuButtonRef = useRef(null);
   const mrRef = useRef(null);
   const navRef = useRef(null);
+
+  const router = useRouter();
 
   useEffect(() => {
     menuButtonRef.current.addEventListener("click", () => {
@@ -32,6 +33,11 @@ const Navbar = (props) => {
   const openPersonInfo = () => {
     np.setPersonDescription(true);
   }
+
+  useEffect(() => {
+    menuButtonRef.current.classList.remove(styles.open);
+    navRef.current.classList.add(styles.hidden);
+  }, [router.asPath]);
 
   return (
     
