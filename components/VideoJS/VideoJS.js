@@ -31,7 +31,9 @@ export const VideoJS = (props) => {
 
     React.useEffect(() => {
 
-        document.body.classList.add('sd');
+        if(props.from == 'directorSection') {
+            document.body.classList.add('sd');
+        }
         
         if (!playerRef.current) {
 
@@ -110,7 +112,9 @@ export const VideoJS = (props) => {
         
                 //End video settings
                 player.on('ended', function () {
-                    document.body.classList.remove('sd');
+                    if(props.from == 'directorSection') {
+                        document.body.classList.remove('sd');
+                    }
                     player.src(options.sources);
                     setWInfo(props.workInfo);
                     setWInfoEn(props.workInfoEn);
@@ -173,7 +177,9 @@ export const VideoJS = (props) => {
                 });
 
                 videoClose.addEventListener("click", () => {
-                    document.body.classList.remove('sd');
+                    if(props.from == 'directorSection') {
+                        document.body.classList.remove('sd');
+                    }
                     player.src(options.sources);
                     setWInfo(props.workInfo);
                     setWInfoEn(props.workInfoEn);

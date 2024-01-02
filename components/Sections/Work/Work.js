@@ -60,6 +60,7 @@ const Work = (props) => {
                                 workInfo={props.info} 
                                 workInfoEn={props.info_en} 
                                 fromSlider={props.fromSlider} 
+                                from={props.from}
                             />
                         ) : null
                     }
@@ -105,6 +106,7 @@ const Work = (props) => {
                                     index={props.index} 
                                     workPrev={props.workPrev} 
                                     workNext={props.workNext} 
+                                    from={props.from}
                                 />
                             ) : null
                         }
@@ -148,6 +150,7 @@ const Work = (props) => {
                                 workInfo={props.info} 
                                 workInfoEn={props.info_en}
                                 fromSlider={props.fromSlider} 
+                                from={props.from}
                             />
                         ) : null
                     }

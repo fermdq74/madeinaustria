@@ -9,6 +9,9 @@
     .secondaryWork {
         height: 50vh;
         width: 50%;
+        @media screen and (max-width: 350px) {
+            width: 100%;
+        }
     }
     .directorDescription {
         position: absolute;
@@ -66,6 +69,13 @@
                 height: auto;
                 visibility: visible;
                 
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            padding: 8.375rem 1rem;
+            &.open {
+                padding: 8.375rem 1rem;
             }
         }
     }

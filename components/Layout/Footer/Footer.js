@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { LangContextProvider, useLangContext } from "../../../context/LangContextProvider";
 import styles from "./styles.module.scss";
@@ -28,6 +27,7 @@ const Footer = (props) => {
                                 <a 
                                     onClick={openAbout} 
                                     className={styles.aboutButton}
+                                    key={idx}
                                 >
                                     {lp.languaje == 'es' ? item.menu_item : item.menu_item_en}
                                 </a>

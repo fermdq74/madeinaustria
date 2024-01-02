@@ -36,6 +36,7 @@
             background: #fff;
             margin: 0 1.25rem;
         }
+
     }
 }
 
@@ -75,6 +76,13 @@
             height: 1.25rem;
             background: #fff;
             margin: 0 1.25rem;
+        }
+
+        @media screen and (max-width: 576px) {
+            flex-direction: column;
+            .separator {
+                background: transparent;
+            }
         }
     }
 }
