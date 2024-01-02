@@ -2,33 +2,8 @@ import NavContextProvider from "../../context/NavContextProvider";
 import { Layout } from "../../components/Layout/Layout";
 import DirectorSection from "../../components/Sections/DirectorSection/DirectorSection";
 import { client } from "../../tina/__generated__/client";
-import { useRef, useEffect } from "react";
 
 export default function Directors(props) {
-
-    const directorRefs = props.directors_data.map(() => useRef(null));
-
-    useEffect(() => {
-      const handleScroll = () => {
-        const currentSection = directorRefs.find((ref) => {
-          if (ref && ref.current) {
-            const rect = ref.current.getBoundingClientRect();
-            return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
-          }
-          return false;
-        });
-  
-        if (currentSection) {
-          currentSection.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        }
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, [directorRefs]);
 
 
     return (
@@ -46,17 +21,11 @@ export default function Directors(props) {
                     .sort((a, b) => a.director_order - b.director_order)
                     .map((director, idx) => (
                         directorWorks(director.id, props.works_data).length > 0 ?
-                            <div 
-                              key={director.id} 
-                              className="directorSection" 
-                              ref={directorRefs[idx]}
-                            >
                               <DirectorSection 
                                 key={director.id}
                                 director={director} 
                                 works={directorWorks(director.id, props.works_data)}
                               />
-                            </div>
                         :
                             null
                     ))
