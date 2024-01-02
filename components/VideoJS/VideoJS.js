@@ -30,6 +30,8 @@ export const VideoJS = (props) => {
     const np = useNavContext(NavContextProvider);
 
     React.useEffect(() => {
+
+        document.body.classList.add('sd');
         
         if (!playerRef.current) {
 
@@ -108,6 +110,7 @@ export const VideoJS = (props) => {
         
                 //End video settings
                 player.on('ended', function () {
+                    document.body.classList.remove('sd');
                     player.src(options.sources);
                     setWInfo(props.workInfo);
                     setWInfoEn(props.workInfoEn);
@@ -170,6 +173,7 @@ export const VideoJS = (props) => {
                 });
 
                 videoClose.addEventListener("click", () => {
+                    document.body.classList.remove('sd');
                     player.src(options.sources);
                     setWInfo(props.workInfo);
                     setWInfoEn(props.workInfoEn);

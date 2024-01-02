@@ -203,7 +203,10 @@ const Hero = (props) => {
                             src={props.logo}
                         />
                     </figure>
-                    <LanguajeSelector tc={"black"} from={"hero"}></LanguajeSelector>
+                    <LanguajeSelector 
+                        tc={"black"} 
+                        from={"hero"}
+                    />
             </section>
         ) : null
         
