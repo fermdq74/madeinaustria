@@ -213,12 +213,47 @@
             right: 55px;
             top: -3px;
         }
-        .volumeButton {
+        .volumeControl {
+            position: absolute;
             width: 22.022px;
             height: 18.001px;
             right: 20px;
             bottom: 2px;
+        }
+        .volumeRegulator {
+            background: transparent;
+            height: 3.5rem;
+            width: 100%;
+            position: absolute;
+            top: -3.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+
+            &.open {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .volumeLevel {
+                transform: rotate(-90deg);
+                margin: 0;
+                height: 2px;
+                width: 3.5rem;
+                border-radius: 5px;
+                background: transparent!important;
+            }
+        }
+        .volumeButton {
+            width: 22.022px;
+            height: 18.001px;
             background-image: url("../../public/uploads/volume.png");
+            background-color: transparent;
+            border: none;
+            padding: 0;
         }
         .navWrapper {
             position: absolute;

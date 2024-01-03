@@ -24,6 +24,8 @@ export const VideoJS = (props) => {
     const moreInfoRef = React.useRef(null);
     const playerInfoRef = React.useRef(null);
     const volumeRef = React.useRef(null);
+    const volumeLevelRef = React.useRef(null);
+    const volumeWrapperRef = React.useRef(null);
     const {options, onReady} = props;
 
     const lp = useLangContext(LangContextProvider);
@@ -48,6 +50,9 @@ export const VideoJS = (props) => {
             const videoClose = closeRef.current;
             const moreInfo = moreInfoRef.current;
             const playerInfo = playerInfoRef.current;
+            const volumeWrapper = volumeWrapperRef.current;
+            const volume = volumeRef.current;
+            const volumeLevel = volumeLevelRef.current;
 
             let playProgressInterval;
 
@@ -191,6 +196,16 @@ export const VideoJS = (props) => {
                     np.setVideoOpen(false);
                 });
 
+                volume.addEventListener("click", () => {
+                    console.log("ASD");
+                    volumeWrapper.classList.toggle(`${styles.open}`);
+                });
+
+                volumeLevel.addEventListener('input', (event) => {
+                    const volumeValue = parseFloat(event.target.value) / 100;
+                    player.volume(volumeValue);
+                });
+
                 moreInfo.addEventListener("click", () => {
                     playerInfo.classList.toggle(`${styles.open}`);
                     videoClose.classList.toggle(`${styles.hidden}`);
@@ -310,7 +325,25 @@ export const VideoJS = (props) => {
                     <div className={`${styles.btn} ${styles.play} ${styles.hidden}`} ref={playRef}></div>
                     <div className={`${styles.btn} ${styles.pause} ${styles.hidden}`} ref={pauseRef}></div>
                     <div className={`${styles.btn} ${styles.full}`} ref={fullRef}></div>
-                    <div className={`${styles.btn} ${styles.volumeButton}`}></div>
+                    <div className={styles.volumeControl}>
+                        <div 
+                            className={styles.volumeRegulator} 
+                            ref={volumeWrapperRef}
+                        >
+                            <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                className={styles.volumeLevel}
+                                ref={volumeLevelRef} 
+                            />
+                        </div>
+                        
+                        <button 
+                            className={`${styles.btn} ${styles.volumeButton}`} 
+                            ref={volumeRef}
+                        />
+                    </div>
                     {
                         props.fromSlider == false ? 
                         <div className={styles.navWrapper}>

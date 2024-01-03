@@ -58,7 +58,7 @@ const PhotographerGrid = (props) => {
                     
                         <div 
                             className={styles.mainPhoto}
-                            key={photo.id}
+                            key={index}
                         >
                             
                             <Album 
@@ -74,7 +74,10 @@ const PhotographerGrid = (props) => {
                             />
                         </div>
                     ) : (
-                        <div className={styles.secondaryPhoto}>
+                        <div 
+                            className={styles.secondaryPhoto}
+                            key={index}
+                        >
                             <Album 
                                 key={photo.id}
                                 client={photo.client}
