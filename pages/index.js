@@ -94,55 +94,14 @@ const getWorkDataArray = (works) => {
   return worksData;
 };
 
-const getDirectorDataArray = (directors) => {
-  const directorsData = directors.data.directorsConnection.edges.map((director) => {
-    return { 
-      id: director.node.id,
-      director_name: director.node.director_name,
-      director_description: director.node.director_description,
-      director_order: director.node.director_order,
-    }
-  });
-
-  return directorsData;
-};
-
-const getPhotographerDataArray = (photographers) => {
-  const photographersData = photographers.data.photographersConnection.edges.map((photographer) => {
-    return { 
-      id: photographer.node.id,
-      photographer_name: photographer.node.photographer_name,
-      photographer_description: photographer.node.photographer_description,
-      photographer_order: photographer.node.photographer_order,
-    }
-  });
-
-  return photographersData;
-};
-
-const getPhotographyDataArray = (photographs) => {
-  const photographsData = photographs.data.photographsConnection.edges.map((photography) => {
-    return { 
-      id: photography.node.id,
-      client: photography.node.client,
-      photographer: photography.node.photographer,
-      p_agency: photography.node.p_agency,
-      campaign: photography.node.campaign,
-      year: photography.node.year,
-      image_gallery: photography.node.image_gallery,
-    }
-  });
-
-  return photographsData;
-};
-
 const getContactDataArray = (contacts) => {
   const contactsData = contacts.data.contactConnection.edges.map((contact) => {
     return { 
       id: contact.node.id,
       country_es: contact.node.country_es,
       country_en: contact.node.country_en,
-      contact_info: contact.node.contact_info.children
+      contact_info: contact.node.contact_info.children,
+      contact_info_en: contact.node.contact_info_eng.children
     }
   });
 
@@ -159,28 +118,4 @@ const featuredWorks = (works) => {
   });
 
   return fw;
-};
-
-const directorWorks = (id, works) => {
-  
-  const dw = [];
-  works.map((work) => {
-    if(work.work_director.id == id) {
-      dw.push(work);
-    }
-  });
-
-  return dw;
-};
-
-const photographerPhotos = (id, photographs) => {
-  
-  const pp = [];
-  photographs.map((photography) => {
-    if(photography.photographer.id == id) {
-      pp.push(photography);
-    }
-  });
-
-  return pp;
 };

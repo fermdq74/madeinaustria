@@ -342,12 +342,17 @@ const schema = defineSchema({
         {
           type: "string",
           name: "country_en",
-          label: "Country(En)",
+          label: "Country(Eng)",
         },
         {
           type: "rich-text",
           name: "contact_info",
-          label: "Info",
+          label: "Info(Es)",
+        },
+        {
+          type: "rich-text",
+          name: "contact_info_eng",
+          label: "Info(Eng)",
         }
       ],
     },

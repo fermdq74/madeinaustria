@@ -14,7 +14,7 @@ const PhotographerGrid = (props) => {
     const np = useNavContext(NavContextProvider);
     
     useEffect(() => {
-        np.setSiteLocation(lp.languaje == 'es' ? 'Fotografo' : 'Photographer');
+        np.setSiteLocation(lp.languaje == 'es' ? 'Fotografos' : 'Photographers');
         np.setSubpageLocation(props.photographer.photographer_name);
         np.setNavStatus(true);
     });

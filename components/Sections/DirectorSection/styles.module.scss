@@ -4,6 +4,37 @@
     .slider {
         height: 100%;
         width: 100%;
+
+        .title {
+            position: absolute;
+            top: 5.625rem;
+            //top: 40%;
+            left: 0;
+            width: 100%;
+            h2 {
+                font-family: 'gtFlexaTrial';
+                color: #FFF;
+                text-align: center;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: 60px;
+                text-transform: uppercase;
+                position: relative;
+                z-index: 1;
+                margin: 0;
+                @media screen and (max-width: 768px) {
+                    font-size: 1.5rem;
+                    line-height: 100%;
+                }
+                @media screen and (min-width: 576px) and (max-width: 768px) {
+                    font-size: 2rem;
+                }
+                @media screen and (max-width: 315px) {
+                    word-break: break-all;
+                }
+            }
+        }
     }
 }
 

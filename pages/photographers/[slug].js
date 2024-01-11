@@ -124,7 +124,8 @@ const getContactDataArray = (contacts) => {
         id: contact.node.id,
         country_es: contact.node.country_es,
         country_en: contact.node.country_en,
-        contact_info: contact.node.contact_info.children
+        contact_info: contact.node.contact_info.children,
+        contact_info_en: contact.node.contact_info_eng.children
       }
     });
   

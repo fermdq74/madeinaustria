@@ -1,7 +1,4 @@
-import React from 'react';
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import parse from 'html-react-parser';
+import { useEffect, useState, useRef } from "react";
 import VideoJS from '../../VideoJS/VideoJS';
 import { LangContextProvider, useLangContext } from '../../../context/LangContextProvider';
 
@@ -11,7 +8,11 @@ const Work = (props) => {
 
     const [showModal, setModal] = useState(null);
     const [showNav, setShowNav] = useState(null);
-    const playerRef = React.useRef(null);
+
+    const [showContent, setShowContent] = useState(false);
+
+    const playerRef = useRef(null);
+    const workRef = useRef(null);
     const lp = useLangContext(LangContextProvider);
 
     const videoJsOptions = {
@@ -37,11 +38,22 @@ const Work = (props) => {
         props.setModal(showModal);
     }, [showModal]);
 
+    useEffect(() => {
+        if(props.from === 'directorSection') {
+            if(workRef.current.parentNode.classList.contains("swiper-slide-active")) {
+                setShowContent(true);
+            }else{
+                setShowContent(false);
+            }
+        }
+    }, [props.activeSlide]);
+
     return (
         <div 
             style={ (props.featured_image ) ? {backgroundImage: `url( "${props.featured_image}" )`} : {backgroundColor: "#000"} } 
             className={styles.workWrapper}   
             onClick={openModal} 
+            ref={workRef}
         >
 
             {
@@ -114,11 +126,7 @@ const Work = (props) => {
                 ) : (
 
                 <div className={styles.DsWorkBox}>
-                    <div className={styles.title}>
-                        <h5>Director</h5>
-                        <h2>{props.work_director.director_name}</h2>
-                    </div>
-                    <div className={styles.workData}>
+                    <div className={`${styles.workData} ${showContent ? styles.oc : null}`}>
                         
                         {
                             props.agency ? 

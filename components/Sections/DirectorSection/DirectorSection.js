@@ -14,6 +14,7 @@ import styles from "./styles.module.scss";
 const DirectorSection = (props) => {
 
     const [showModal, setModal] = useState(null);
+    const [activeSlideIndex, setActiveSlideIndex] = useState(0);
     const ref = useRef(null);
     const sectionRef = useRef(null);
     const lp = useLangContext(LangContextProvider);
@@ -43,6 +44,12 @@ const DirectorSection = (props) => {
         np.setNavStatus(true);
     }, []);
 
+    const handleSlideChange = (swiper) => {
+        const newIndex = swiper.activeIndex;
+        console.log(`Slider cambió a slide ${newIndex}`);
+        setActiveSlideIndex(newIndex);
+    };
+
     return (
         <section 
             className={styles.directorsSection} 
@@ -63,14 +70,18 @@ const DirectorSection = (props) => {
                 modules={[Pagination, Navigation]}
                 className={styles.slider}
                 ref={ref}
+                onSlideChange={handleSlideChange}
             >
+
+                <div className={styles.title}>
+                    <h2>{props.director.director_name}</h2>
+                </div>
 
                 {props.works.map((work, idx) => (
                     <SwiperSlide key={idx}>
                         <Work 
                             key={work.id}
-                            featured_image={work.featured_image} 
-                            work_director={work.work_director}
+                            featured_image={work.featured_image}
                             agency={work.agency}
                             brand={work.brand}
                             title_es={work.title_es}
@@ -83,6 +94,8 @@ const DirectorSection = (props) => {
                             info={work.info}
                             info_en={work.info_en}
                             fromSlider={true}
+                            activeSlide={activeSlideIndex}
+                            slideIndex={idx}
                         />  
                     </SwiperSlide>
                 ))}

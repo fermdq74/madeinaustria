@@ -39,7 +39,6 @@ const PhotographerSection = (props) => {
                 className={styles.slider}
             >
                 <div className={styles.title}>
-                    <h3>{lp.languaje == 'es' ? 'Fotografo' : 'Photographer'}</h3>
                     <h2>{props.photographer.name}</h2>
                 </div>
 

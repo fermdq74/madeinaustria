@@ -11,7 +11,7 @@ const Contact = (props) => {
             id="contact-section"
         >
             {
-                props.contact.map((contact, idx) => (
+                props.contact.map((contact) => (
                     <div 
                         className={`col-4 ${styles.cCol}`}
                         key={contact.id}
@@ -19,7 +19,12 @@ const Contact = (props) => {
                         <div>
                             <h5>{lp.languaje == 'es' ? contact.country_es : contact.country_en}</h5>
                             {
+                                lp.languaje == 'es' ? 
                                 contact.contact_info.map((ci, idx) => (
+                                    <p key={idx}>{ci.children[0].text}</p>
+                                ))
+                                : 
+                                contact.contact_info_en.map((ci, idx) => (
                                     <p key={idx}>{ci.children[0].text}</p>
                                 ))
                             }

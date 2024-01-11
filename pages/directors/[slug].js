@@ -45,7 +45,7 @@ export const getStaticProps = async ({params}) => {
 
   if (!director) {
     return {
-      notFound: true, // Redirige a la página 404
+      notFound: true,
     };
   }
 
@@ -126,7 +126,8 @@ const getContactDataArray = (contacts) => {
       id: contact.node.id,
       country_es: contact.node.country_es,
       country_en: contact.node.country_en,
-      contact_info: contact.node.contact_info.children
+      contact_info: contact.node.contact_info.children,
+      contact_info_en: contact.node.contact_info_eng.children
     }
   });
 

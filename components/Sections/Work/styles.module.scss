@@ -99,6 +99,12 @@
             justify-content: space-between;
             color: #FFF;
             //min-width: 21.75rem;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+
+            &.oc {
+                opacity: 1;
+            }
             h3 {
                 text-align: center;
                 font-size: 14px;

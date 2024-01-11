@@ -49,7 +49,14 @@ const Navbar = (props) => {
       <div className={styles.overlay} />
 
       <div className={styles.siteLocation}>
-        {`${np.siteLocation}`}
+        {
+          np.subpageLocation != '' ? 
+            <Link href={np.siteLocation === 'Directors' || np.siteLocation === 'Directores' ? '/directors' : np.siteLocation === 'Photographers' || np.siteLocation === 'Fotografos' ? '/photographers' : '/' }>
+              <a>{`${np.siteLocation}`}</a>
+            </Link>
+          :
+            `${np.siteLocation}`
+        }
         {
           np.subpageLocation != '' ? 
             <>

@@ -33,7 +33,7 @@ export const VideoJS = (props) => {
 
     React.useEffect(() => {
 
-        if(props.from == 'directorSection') {
+        if(props.from == 'directorSection' || props.from == 'featuredWorks') {
             document.body.classList.add('sd');
         }
         
@@ -117,7 +117,7 @@ export const VideoJS = (props) => {
         
                 //End video settings
                 player.on('ended', function () {
-                    if(props.from == 'directorSection') {
+                    if(props.from == 'directorSection' || props.from == 'featuredWorks') {
                         document.body.classList.remove('sd');
                     }
                     player.src(options.sources);
@@ -182,7 +182,7 @@ export const VideoJS = (props) => {
                 });
 
                 videoClose.addEventListener("click", () => {
-                    if(props.from == 'directorSection') {
+                    if(props.from == 'directorSection' || props.from == 'featuredWorks') {
                         document.body.classList.remove('sd');
                     }
                     player.src(options.sources);

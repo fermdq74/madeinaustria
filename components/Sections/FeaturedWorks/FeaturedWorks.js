@@ -14,7 +14,8 @@ import styles from "./styles.module.scss";
 const FeaturedWorks = (props) => {
 
     const [showModal, setModal] = useState(null);
-    const ref = useRef(0);
+    const ref = useRef(null);
+    const sectionRef = useRef(null);
     const lp = useLangContext(LangContextProvider);
     const np = useNavContext(NavContextProvider);
     const fractionS = lp.languaje == 'es' ? ' de ' : ' of ';
@@ -22,6 +23,9 @@ const FeaturedWorks = (props) => {
     useEffect(() => {
         if(showModal) {
             ref.current.classList.add(styles.op);
+            if (sectionRef) {
+                sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+            }
         }else{
             ref.current.classList.remove(styles.op);
         }
@@ -41,7 +45,10 @@ const FeaturedWorks = (props) => {
 
 
     return (
-        <section className={styles.featuredWorks}>
+        <section 
+            className={styles.featuredWorks} 
+            ref={sectionRef}
+        >
 
             <Swiper
                 pagination={{
