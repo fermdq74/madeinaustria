@@ -8,11 +8,12 @@ description_es: >
   y bandas.
 description_en: >
   Austria is an international creative production company born in Buenos Aires,
-  Argentina with offices in Colombia, Mexico and Ecuador. 
+  Argentina with offices in Colombia, Mexico and Ecuador.
 
 
   We proudly produce commercials, music videos and digital content for brands
   and bands.
-about_logo: /uploads/about_logo.png
+about_logo: /uploads/about-logo.png
 ---
+
 

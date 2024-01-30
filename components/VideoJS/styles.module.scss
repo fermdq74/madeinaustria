@@ -43,9 +43,10 @@
         color: #FFF;
         font-size: 14px;
         font-style: normal;
-        font-weight: 900;
+        font-weight: 00;
         line-height: 120%;
-        letter-spacing: 1.4px;
+        //letter-spacing: 1.4px;
+        letter-spacing: 2.8px;
         text-transform: uppercase;
         max-width: 100px;
         max-height: 17px;
@@ -76,9 +77,10 @@
             color: #FFF;
             font-size: 14px;
             font-style: normal;
-            font-weight: 900;
+            font-weight: 500;
             line-height: 120%;
-            letter-spacing: 1.4px;
+            //letter-spacing: 1.4px;
+            letter-spacing: 2.8px;
             text-transform: uppercase;
             position: absolute;
             top: 28.5px;
@@ -94,14 +96,16 @@
             }
         }
         .overlay {
-            background: rgba(255, 255, 255, 0.50);
+            //background: rgba(0, 0, 0, 0.30);
             height: 100%;
             width: 100%;
             position: absolute;
-            opacity: 50%;
+            //opacity: 50%;
+            background: rgba(0, 0, 0, 0.30);
+            backdrop-filter: blur(15px);
         }
         p {
-            color: #000;
+            color: #fff;
             margin: 0;
             margin-bottom: 2rem;
             text-align: center;
@@ -109,7 +113,6 @@
             font-style: normal;
             font-weight: 400;
             line-height: 120%;
-            letter-spacing: 1.6px;
             visibility: hidden;
             height: 0;
             max-width: 42.75rem;
@@ -121,7 +124,7 @@
             height: auto;
             padding: 4.625rem 0;
             .moreInfo {
-                color: #000;
+                //color: #000;
                 top: auto;
                 bottom: 20px;
                 &:before {
@@ -269,9 +272,10 @@
                 text-align: center;
                 font-size: 14px;
                 font-style: normal;
-                font-weight: 900;
+                font-weight: 500;
                 line-height: 120%;
-                letter-spacing: 1.4px;
+                //letter-spacing: 1.4px;
+                letter-spacing: 2.8px;
                 text-transform: uppercase;
                 padding: 0;
                 border: none;

@@ -10,7 +10,8 @@
     cursor: pointer;
     
     .featWorkBox {
-        max-width: 49.688rem;
+        //max-width: 49.688rem;
+        max-width: calc(100% - 142px);
         h3 {
             color: #FFF;
             text-align: center;
@@ -21,6 +22,15 @@
             line-height: 100%;
             text-transform: uppercase;
             margin: 0;
+            &.agency {
+                font-family: 'gtFlexaTrial2';
+                font-weight: 250;
+            }
+            &.brand {
+                font-family: 'gtFlexaTrial3';
+                font-weight: 400;
+            }
+
             @media screen and (max-width: 768px) {
                 font-size: 1.5rem;
             }
@@ -52,7 +62,7 @@
             justify-content: center;
             margin-bottom: 1.25rem;
 
-            h5 {
+            /*h5 {
                 color: #FFF;
                 text-align: center;
                 font-family: 'gtFlexaTrial';
@@ -71,7 +81,7 @@
                 @media screen and (max-width: 315px) {
                     word-break: break-all;
                 }
-            }
+            }*/
             h2 {
                 color: #FFF;
                 text-align: center;
@@ -109,9 +119,10 @@
                 text-align: center;
                 font-size: 14px;
                 font-style: normal;
-                font-weight: 900;
+                font-weight: 500;
                 line-height: 120%;
-                letter-spacing: 1.4px;
+                //letter-spacing: 1.4px;
+                letter-spacing: 2.8px;
                 text-transform: uppercase;
                 margin: 0;
             }
@@ -142,7 +153,7 @@
         flex-direction: column;
         align-items: center;
 
-        .title {
+        /*.title {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -171,7 +182,7 @@
                 text-transform: uppercase;
                 margin: 0;
             }
-        }
+        }*/
         .workData {
             display: flex;
             align-items: center;
@@ -182,9 +193,10 @@
                 text-align: center;
                 font-size: 14px;
                 font-style: normal;
-                font-weight: 900;
+                font-weight: 500;
                 line-height: 120%;
-                letter-spacing: 1.4px;
+                //letter-spacing: 1.4px;
+                letter-spacing: 2.8px;
                 text-transform: uppercase;
                 margin: 0;
             }

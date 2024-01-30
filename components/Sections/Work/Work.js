@@ -60,8 +60,8 @@ const Work = (props) => {
                 props.from === "featuredWorks" ? (
 
                 <div className={styles.featWorkBox}>
-                    <h3>{props.agency}</h3>
-                    <h3>{props.brand}</h3>
+                    <h3 className={styles.agency}>{props.agency}</h3>
+                    <h3 className={styles.brand}>{props.brand}</h3>
                     <h3>{props.work_director.director_name}</h3>
                     {
                         showModal ? (

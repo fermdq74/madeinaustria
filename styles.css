@@ -6,6 +6,21 @@
 }
 
 @font-face { 
+    font-family: "gtFlexaTrial2"; 
+    src: url('./fonts/gt_flexa/GT-Flexa-X-Expanded-Lazer-Trial.woff2'); 
+    font-weight: 250; 
+    font-style: normal; 
+}
+
+@font-face { 
+    font-family: "gtFlexaTrial3"; 
+    src: url('./fonts/gt_flexa/GT-Flexa-X-Expanded-Regular-Trial.woff2'); 
+    font-weight: 400; 
+    font-style: normal; 
+}
+
+/*
+@font-face { 
     font-family: "radioGrotesk"; 
     src: url('./fonts/pp_radio_grotesk/PPRadioGrotesk-Black.woff2'); 
     font-weight: 900;
@@ -31,6 +46,21 @@
     src: url('./fonts/pp_radio_grotesk/PPRadioGrotesk-RegularItalic.woff2'); 
     font-weight: 400;
     font-style: italic;
+}
+*/
+
+@font-face { 
+    font-family: "radioGrotesk"; 
+    src: url('./fonts/GT_Walsheim/GT-Walsheim-Medium.woff2'); 
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face { 
+    font-family: "radioGrotesk"; 
+    src: url('./fonts/GT_Walsheim/GT-Walsheim-Regular.woff2'); 
+    font-weight: 400;
+    font-style: normal;
 }
 
 html {
@@ -58,7 +88,8 @@ body.sd {
 h1,h2,h3,h4,h5,h6,div,p,span,input,label,button,a {
     font-family: "radioGrotesk";
     font-style: normal;
-    font-weight: 900;
+    font-weight: 500;
+    letter-spacing: 2.8px;
 }
 
 .container {
