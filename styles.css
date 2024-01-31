@@ -1,6 +1,13 @@
-@font-face { 
+/*@font-face { 
     font-family: "gtFlexaTrial"; 
     src: url('./fonts/gt_flexa/GT-Flexa-X-Expanded-Black-Trial.woff2'); 
+    font-weight: bold; 
+    font-style: normal; 
+}*/
+
+@font-face { 
+    font-family: "gtFlexaTrial"; 
+    src: url('./fonts/gt_flexa/GT-Flexa-X-Expanded-Bold-Trial.woff2'); 
     font-weight: bold; 
     font-style: normal; 
 }
@@ -60,6 +67,13 @@
     font-family: "radioGrotesk"; 
     src: url('./fonts/GT_Walsheim/GT-Walsheim-Regular.woff2'); 
     font-weight: 400;
+    font-style: normal;
+}
+
+@font-face { 
+    font-family: "radioGrotesk"; 
+    src: url('./fonts/GT_Walsheim/GT-Walsheim-Light.woff2'); 
+    font-weight: 300;
     font-style: normal;
 }
 

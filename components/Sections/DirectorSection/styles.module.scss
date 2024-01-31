@@ -8,14 +8,15 @@
         .title {
             position: absolute;
             //top: 5.625rem;
-            top: 39%;
+            //top: 39%;
+            bottom: calc(50% + 16.8px + 21.5px);
             left: 0;
             width: 100%;
             h2 {
                 font-family: 'gtFlexaTrial';
                 color: #FFF;
                 text-align: center;
-                font-size: 40px;
+                font-size: 60px;
                 font-style: normal;
                 font-weight: 900;
                 line-height: 60px;
