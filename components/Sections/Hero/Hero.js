@@ -194,7 +194,8 @@ const Hero = (props) => {
                     <div className={styles.bgImgAnimationWrapper}>
                         <div 
                             className={styles.bgImgAnimation} 
-                            style={{backgroundImage: `url("${props.hero_image[0]}")`}}
+                            //style={{backgroundImage: `url("${props.hero_image[0]}")`}}
+                            style={{backgroundImage: `url("${props.hero_image[Math.floor(Math.random() * props.hero_image.length)]}")`}}
                             ref={bgAnimationRef}
                         />
                     </div>

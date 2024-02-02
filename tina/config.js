@@ -92,7 +92,7 @@ const schema = defineSchema({
         },
       ],
     },
-    {
+    /*{
       label: "Page Content",
       name: "page",
       path: "content/page",
@@ -152,7 +152,7 @@ const schema = defineSchema({
           return `/posts/${document._sys.filename}`;
         },
       },
-    },
+    },*/
     {
       label: "Works",
       name: "works",
