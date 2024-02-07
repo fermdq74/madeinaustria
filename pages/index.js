@@ -4,10 +4,12 @@ import { client } from "../tina/__generated__/client";
 import { Layout } from "../components/Layout/Layout";
 import Hero from "../components/Sections/Hero/Hero";
 import FeaturedWorks from "../components/Sections/FeaturedWorks/FeaturedWorks";
-import ContactForm from "../components/Sections/ContactForm/ContactForm";
+//import ContactForm from "../components/Sections/ContactForm/ContactForm";
 import NavContextProvider from "../context/NavContextProvider";
 
 export default function Home(props) {
+
+  const randomIndex = Math.floor(Math.random() * props.hh_data.homepage_hero_gallery.length);
 
   return (
       <NavContextProvider>
@@ -20,7 +22,7 @@ export default function Home(props) {
         >
           <Hero 
             logo={props.hh_data.homepage_hero_logo} 
-            hero_image={props.hh_data.homepage_hero_gallery} 
+            hero_image={props.hh_data.homepage_hero_gallery[randomIndex]} 
           />
           <FeaturedWorks 
             key={props.works_data.id} 
@@ -80,9 +82,7 @@ const getWorkDataArray = (works) => {
       brand: work.node.brand,
       featured_image: work.node.featured_image,
       featured_work: work.node.featured_work,
-      hidde_reel: work.node.hidde_reel,
       pemalink: work.node.permalink,
-      video_thumbnail: work.node.video_thumbnail,
       video_url: work.node.video_url,
       work_director: work.node.work_director,
       id: work.node.id,

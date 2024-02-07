@@ -78,6 +78,12 @@ const schema = defineSchema({
       label: "Homepage hero",
       name: "homepage_hero",
       path: "content/hero",
+      ui: {
+        allowedActions: {
+          create: false,
+          delete: false,
+        },
+      },
       fields: [
         {
           type: "image",
@@ -183,11 +189,11 @@ const schema = defineSchema({
           label: "Video URL",
           name: "video_url",
         },
-        {
+        /*{
           type: "image",
           label: "Video thumbnail",
           name: "video_thumbnail",
-        },
+        },*/
         {
           type: "image",
           label: "Featured image",
@@ -204,11 +210,11 @@ const schema = defineSchema({
           name: "work_director",
           collections: ['directors'],
         },
-        {
+        /*{
           type: "boolean",
           label: "Hidde reel",
           name: "hidde_reel",
-        },
+        },*/
         {
           type: "boolean",
           label: "Featured work",
@@ -333,6 +339,12 @@ const schema = defineSchema({
       label: "Contact",
       name: "contact",
       path: "content/contact",
+      ui: {
+        allowedActions: {
+          create: false,
+          delete: false,
+        },
+      },
       fields: [
         {
           type: "string",
@@ -360,6 +372,12 @@ const schema = defineSchema({
       label: "About",
       name: "about",
       path: "content/about",
+      ui: {
+        allowedActions: {
+          create: false,
+          delete: false,
+        },
+      },
       fields: [
         {
           type: "rich-text",

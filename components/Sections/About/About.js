@@ -38,12 +38,12 @@ const About = (props) => {
 
             <div className={styles.aboutContent}>
                 {lp.languaje == 'es' ? 
-                    props.about_data.description_es.children.map((description) => (
-                        <p>{description.children[0].text}</p>
+                    props.about_data.description_es.children.map((description, idx) => (
+                        <p key={idx}>{description.children[0].text}</p>
                     ))
                 : 
-                    props.about_data.description_en.children.map((description) => (
-                        <p>{description.children[0].text}</p>
+                    props.about_data.description_en.children.map((description, idx) => (
+                        <p key={idx}>{description.children[0].text}</p>
                     ))
                 }
             </div>

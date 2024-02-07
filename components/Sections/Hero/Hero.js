@@ -18,6 +18,8 @@ const Hero = (props) => {
     const bgAnimationRef = useRef(null);
     const introRef = useRef(null);
 
+    //const randomIndex = Math.floor(Math.random() * props.hero_image.length);
+
     Number.prototype.map = function (in_min, in_max, out_min, out_max) {
         return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
@@ -195,7 +197,7 @@ const Hero = (props) => {
                         <div 
                             className={styles.bgImgAnimation} 
                             //style={{backgroundImage: `url("${props.hero_image[0]}")`}}
-                            style={{backgroundImage: `url("${props.hero_image[Math.floor(Math.random() * props.hero_image.length)]}")`}}
+                            style={{backgroundImage: `url("${props.hero_image}")`}}
                             ref={bgAnimationRef}
                         />
                     </div>
