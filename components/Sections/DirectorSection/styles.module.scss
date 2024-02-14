@@ -37,7 +37,11 @@
             }
 
             @media screen and (max-width: 576px) {
-                top: 5.625rem;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                height: 44%;
             }
         }
     }

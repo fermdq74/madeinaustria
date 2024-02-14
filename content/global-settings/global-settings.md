@@ -1,5 +1,5 @@
 ---
-logo: /uploads/logo-autria.png
+logo: /uploads/logo-austria.png
 name: A U S T R I A
 menu:
   - menu_item: Trabajos destacados
@@ -35,6 +35,7 @@ menu:
     menu_item_en: About
     slug: about
 ---
+
 
 
 

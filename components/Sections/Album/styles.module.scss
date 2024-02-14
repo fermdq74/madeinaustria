@@ -38,6 +38,13 @@
             margin: 0 1.25rem;
         }
 
+        @media screen and (max-width: 576px) {
+            flex-direction: column;
+            .separator {
+                display: none;
+            }
+        }
+
     }
 }
 
@@ -83,7 +90,7 @@
         @media screen and (max-width: 576px) {
             flex-direction: column;
             .separator {
-                background: transparent;
+                display: none;
             }
         }
     }
