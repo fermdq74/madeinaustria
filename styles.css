@@ -154,29 +154,11 @@ h1,h2,h3,h4,h5,h6,div,p,span,input,label,button,a {
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 576px) {
-    .swiper-button-prev {
-        left: 0.5rem!important;
+@media screen and (max-width: 768px) {
+    .swiper-pagination {
+        bottom: 70px!important;
     }
-    
-    .swiper-button-next {
-        right: 0.5rem!important;
+    .wa .swiper-button-prev, .wa .swiper-button-next {
+        display: none!important;
     }
 }
-
-@media screen and (min-width: 576px) {
-
-}
-
-@media screen and (min-width: 768px) {
-
-}
-
-@media screen and (min-width: 992px) {
-
-}
-
-@media screen and (min-width: 1200px) {
-
-}
-

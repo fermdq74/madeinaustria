@@ -97,6 +97,7 @@ export const getStaticProps = async () => {
         name: photographer.node.photographer_name,
         description: photographer.node.photographer_description,
         order: photographer.node.photographer_order,
+        photographer_slug: photographer.node.photographer_slug
       }
     });
     return photographersData;

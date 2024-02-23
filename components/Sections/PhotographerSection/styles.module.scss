@@ -9,7 +9,8 @@
             top: 5.625rem;
             left: 0;
             width: 100%;
-            h2 {
+            a {
+                display: block;
                 font-family: 'gtFlexaTrial';
                 color: #FFF;
                 text-align: center;
@@ -21,6 +22,7 @@
                 position: relative;
                 z-index: 1;
                 margin: 0;
+                text-decoration: none;
                 @media screen and (max-width: 768px) {
                     font-size: 1.5rem;
                     line-height: 100%;
@@ -34,11 +36,7 @@
             }
 
             @media screen and (max-width: 576px) {
-                top: 0;
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
-                height: 44%;
+                top: calc(4.625rem + 10px);
             }
         }
         .slide {

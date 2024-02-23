@@ -103,6 +103,7 @@ export const getStaticProps = async () => {
         director_name: director.node.director_name,
         director_description: director.node.director_description,
         director_order: director.node.director_order,
+        director_slug: director.node.director_slug
       }
     });
     return directorsData;

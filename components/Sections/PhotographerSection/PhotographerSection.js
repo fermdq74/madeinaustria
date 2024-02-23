@@ -5,6 +5,7 @@ import { FreeMode, Navigation } from 'swiper/modules';
 import { useState, useRef, useEffect } from "react";
 import { LangContextProvider, useLangContext } from "../../../context/LangContextProvider";
 import { NavContextProvider, useNavContext } from "../../../context/NavContextProvider";
+import Link from "next/link";
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -39,7 +40,9 @@ const PhotographerSection = (props) => {
                 className={styles.slider}
             >
                 <div className={styles.title}>
-                    <h2>{props.photographer.name}</h2>
+                    <Link href={`/photographers/${props.photographer.photographer_slug}`}>
+                        <a>{props.photographer.name}</a>
+                    </Link>
                 </div>
 
                 {props.photographs.map((photo, index) => (

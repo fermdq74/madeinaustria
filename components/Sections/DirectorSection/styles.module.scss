@@ -12,7 +12,8 @@
             bottom: calc(50% + 16.8px + 21.5px);
             left: 0;
             width: 100%;
-            h2 {
+            a {
+                display: block;
                 font-family: 'gtFlexaTrial';
                 color: #FFF;
                 text-align: center;
@@ -24,6 +25,7 @@
                 position: relative;
                 z-index: 1;
                 margin: 0;
+                text-decoration: none;
                 @media screen and (max-width: 768px) {
                     font-size: 1.5rem;
                     line-height: 100%;

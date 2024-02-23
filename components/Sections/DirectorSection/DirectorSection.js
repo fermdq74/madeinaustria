@@ -4,6 +4,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { useState, useRef, useEffect } from "react";
 import { LangContextProvider, useLangContext } from "../../../context/LangContextProvider";
 import { NavContextProvider, useNavContext } from "../../../context/NavContextProvider";
+import Link from "next/link";
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -52,7 +53,7 @@ const DirectorSection = (props) => {
 
     return (
         <section 
-            className={styles.directorsSection} 
+            className={`wa ${styles.directorsSection}`} 
             ref={sectionRef}
         >
 
@@ -74,7 +75,9 @@ const DirectorSection = (props) => {
             >
 
                 <div className={styles.title}>
-                    <h2>{props.director.director_name}</h2>
+                    <Link href={`/directors/${props.director.director_slug}`}>
+                        <a>{props.director.director_name}</a>
+                    </Link>
                 </div>
 
                 {props.works.map((work, idx) => (

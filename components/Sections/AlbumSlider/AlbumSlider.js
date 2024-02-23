@@ -95,14 +95,14 @@ const AlbumSlider = (props) => {
                     ref={prevButtonRef}
                     onClick={changePrevAlbum}
                 >
-                    ← ALBÚM ANTERIOR
+                    {window.innerWidth >= 768 ? '←' : null} ALBÚM ANTERIOR
                 </button>
                 <button 
                     className={`${styles.nextButton} ${(props.albumNext + 1) > props.albumLength ? styles.disabled : null}`} 
                     ref={nextButtonRef}
                     onClick={changeNextAlbum}
                 >
-                    ALBÚM SIGUIENTE →
+                    ALBÚM SIGUIENTE {window.innerWidth >= 768 ? '→' : null}
                 </button>
             </div>
 

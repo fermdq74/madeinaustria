@@ -56,6 +56,9 @@
         &.hidden {
             visibility: hidden;
         }
+        @media screen and (max-width: 768px) {
+            left: 1rem;
+        }
     }
     
     .playerInfo {
@@ -94,6 +97,9 @@
             &:before {
                 content: '+ ';
             }
+            @media screen and (max-width: 768px) {
+                right: 1rem;
+            }
         }
         .overlay {
             //background: rgba(0, 0, 0, 0.30);
@@ -120,6 +126,9 @@
             position: relative;
             z-index: 11;
             transition: opacity 0.3s ease-in-out;
+            @media screen and (max-width: 768px) {
+                padding: 0 1rem;
+            }
         }
         &.open {
             height: auto;

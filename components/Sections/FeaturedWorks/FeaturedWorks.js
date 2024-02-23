@@ -46,7 +46,7 @@ const FeaturedWorks = (props) => {
 
     return (
         <section 
-            className={styles.featuredWorks} 
+            className={`wa ${styles.featuredWorks}`} 
             ref={sectionRef}
         >
 
