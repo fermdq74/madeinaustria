@@ -352,7 +352,7 @@ export const VideoJS = (props) => {
                                 className={props.workPrev ? null : styles.disabled}
                             >
                                 {
-                                    lp.languaje == 'es' ? '←video anterior' : '←previous video'
+                                    lp.languaje == 'es' ? `${window.innerWidth >= 768 ? '←': ''}video anterior` : `${window.innerWidth >= 768 ? '←': ''}previous video`
                                 }
                             </button>
 
@@ -362,7 +362,7 @@ export const VideoJS = (props) => {
                             >
                                 
                                 {
-                                    lp.languaje == 'es' ? 'video siguiente →' : 'next video→'
+                                    lp.languaje == 'es' ? `video siguiente ${window.innerWidth >= 768 ? '→': ''}` : `next video ${window.innerWidth >= 768 ? '→' : ''}`
                                 }
                             </button>
                         </div>

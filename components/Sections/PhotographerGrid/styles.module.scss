@@ -59,6 +59,9 @@
             right: 44px;
             bottom: 20px;
             cursor: pointer;
+            @media screen and (max-width: 768px) {
+                right: 1rem;
+            }
         }
         &.open {
             height: auto;
@@ -76,6 +79,9 @@
                 height: auto;
                 visibility: visible;
                 
+            }
+            @media screen and (max-width: 768px) {
+                padding: 8.375rem 1rem;
             }
         }
     }
