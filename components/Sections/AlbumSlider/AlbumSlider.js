@@ -71,11 +71,12 @@ const AlbumSlider = (props) => {
                                 + '<span class="' + totalClass + '"></span>';
                     }
                 }}
+                loop={true}
                 simulateTouch={false}
                 navigation={true}
                 //navigation={{ prevEl: prevButtonRef.current, nextEl: nextButtonRef.current }}
                 modules={[Pagination, Navigation]}
-                className={styles.slider}
+                className={`albumS ${styles.slider}`}
                 ref={swiperRef}
             >
 

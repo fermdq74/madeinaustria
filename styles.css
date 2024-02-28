@@ -156,8 +156,12 @@ h1,h2,h3,h4,h5,h6,div,p,span,input,label,button,a {
 
 @media screen and (max-width: 768px) {
     .swiper-pagination {
-        bottom: 110px!important;
+        bottom: 37%!important;
     }
+    .albumS .swiper-pagination {
+        bottom: 3.8rem!important;
+    }
+
     .swiper-button-prev {
         left: 10px!important;
     }

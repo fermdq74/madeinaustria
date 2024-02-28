@@ -59,6 +59,7 @@ const FeaturedWorks = (props) => {
                                 + '<span class="' + totalClass + '"></span>';
                     }
                 }}
+                loop={true}
                 simulateTouch={false}
                 navigation={true}
                 modules={[Pagination, Navigation]}

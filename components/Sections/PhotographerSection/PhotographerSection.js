@@ -33,6 +33,7 @@ const PhotographerSection = (props) => {
         <section className={styles.photographerSection}>
             
             <Swiper
+                loop={true}
                 freeMode={true}
                 slidesPerView={'auto'}
                 navigation={true}
