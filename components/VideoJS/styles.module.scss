@@ -296,6 +296,9 @@
                     opacity: 0.5;
                 }
             }
+            @media screen and (max-width: 768px) {
+                justify-content: space-between;
+            }
         }
         /*.subs {
             width: 24px;
