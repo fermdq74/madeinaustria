@@ -59,7 +59,7 @@
         background: #000;
         opacity: 0.35;
         @media screen and (max-width: 768px) {
-            height: calc(100% + 25px);
+            //height: calc(100% + 25px);
         }
     }
     .siteLocation {
@@ -79,11 +79,22 @@
 
         @media screen and (max-width: 768px) {
             position: absolute;
-            bottom: -15px;
+            left: 0.625rem;
+            height: 4.625rem;
             width: 100%;
-            left: 0;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
+            max-width: 6.125rem;
+            color: transparent;
+            a {
+                display: none;
+            }
+            .separator {
+                display: none;
+            }
+            button {
+                text-align: left!important;
+            }
         }
         .separator {
             width: 1px;

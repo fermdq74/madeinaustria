@@ -9,9 +9,7 @@ const ContactForm = () => {
   
     const onSubmit = async (e) => {
         e.preventDefault()
-        console.log("entro-------------------------------------------------");
         try {
-            console.log("entro2");
             const res = await fetch('/api/sendEmail', {
                 method: 'POST',
                 body: JSON.stringify({
