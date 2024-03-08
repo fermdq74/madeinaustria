@@ -25,7 +25,7 @@
             cursor: pointer;
             @media screen and (max-width: 768px) {
                 position: relative;
-                left: auto;
+                left: calc(50% - 2.7685rem);
             }
         }
         .closeButton {
