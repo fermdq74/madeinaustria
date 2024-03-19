@@ -1,6 +1,6 @@
 ---
+name: M A D E  I N  A U S T R I A
 logo: /uploads/logo-austria.svg
-name: A U S T R I A
 menu:
   - menu_item: Trabajos destacados
     menu_item_en: Featured Works
@@ -35,13 +35,4 @@ menu:
     menu_item_en: About
     slug: about
 ---
-
-
-
-
-
-
-
-
-
 
