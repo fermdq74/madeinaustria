@@ -34,6 +34,9 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
+      - menu_item: Ivan Resnik
+        menu_item_en: Ivan Resnik
+        slug: ivan-resnik
       - menu_item: Los Vocalino
         menu_item_en: Los Vocalino
         slug: los-vocalino
