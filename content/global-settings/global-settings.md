@@ -34,6 +34,9 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
+      - menu_item: Julieta Alzua
+        menu_item_en: Julieta Alzua
+        slug: julieta-alzua
       - menu_item: Ivan Resnik
         menu_item_en: Ivan Resnik
         slug: ivan-resnik
