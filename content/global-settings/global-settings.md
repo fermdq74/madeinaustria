@@ -34,6 +34,9 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
+      - menu_item: Toto Pons
+        menu_item_en: Toto Pons
+        slug: toto-pons
       - menu_item: Juan Soler
         menu_item_en: Juan Soler
         slug: juan_soler
