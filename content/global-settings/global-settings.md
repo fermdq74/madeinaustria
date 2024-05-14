@@ -34,6 +34,9 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
+      - menu_item: Segundo Luchia Puig
+        menu_item_en: Segundo Luchia Puig
+        slug: segundo-luchia-puig
       - menu_item: Julieta Alzua
         menu_item_en: Julieta Alzua
         slug: julieta-alzua
