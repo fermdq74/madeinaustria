@@ -8,5 +8,8 @@ video_url: >-
 featured_image: /uploads/nubank-1800x1010.jpg
 permalink: marca
 work_director: content/director/ranchez.md
+featured_work: true
+info_work: ''
+info_work_eng: ''
 ---
 
