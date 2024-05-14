@@ -8,5 +8,8 @@ video_url: >-
 featured_image: /uploads/nosotras-1800x1010.jpg
 permalink: zona_v
 work_director: content/director/ranchez.md
+featured_work: true
+info_work: ''
+info_work_eng: ''
 ---
 
