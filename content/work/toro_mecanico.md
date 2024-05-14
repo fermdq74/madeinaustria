@@ -8,6 +8,8 @@ video_url: >-
 featured_image: /uploads/Fitzer-__-Toro-Mecánico-low-1.gif
 permalink: toro_mecanico
 work_director: content/director/sanchez.md
+featured_work: true
+info_work: ''
+info_work_eng: ''
 ---
-
 
