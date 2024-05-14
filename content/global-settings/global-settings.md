@@ -9,6 +9,9 @@ menu:
     menu_item_en: Directors
     slug: directors
     children:
+      - menu_item: MP Curtet
+        menu_item_en: MP Curtet
+        slug: mp-curtet
       - menu_item: Blake
         menu_item_en: Blake
         slug: blake
