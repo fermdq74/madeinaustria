@@ -9,6 +9,9 @@ menu:
     menu_item_en: Directors
     slug: directors
     children:
+      - menu_item: Filipe Penajoia
+        menu_item_en: Filipe Penajoia
+        slug: filipe-penajoia
       - menu_item: MP Curtet
         menu_item_en: MP Curtet
         slug: mp-curtet
