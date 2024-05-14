@@ -9,6 +9,9 @@ menu:
     menu_item_en: Directors
     slug: directors
     children:
+      - menu_item: Blake
+        menu_item_en: Blake
+        slug: blake
       - menu_item: Mora
         menu_item_en: Mora
         slug: mora
