@@ -8,7 +8,8 @@ video_url: >-
 featured_image: /uploads/Captura-de-Pantalla-2019-11-28-a-las-16.30.46-1800x1010.png
 permalink: pizza_artois
 work_director: content/director/sanchez.md
-featured_work: true
+featured_work: false
+info_work: ''
+info_work_eng: ''
 ---
-
 
