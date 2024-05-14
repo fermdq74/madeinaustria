@@ -8,5 +8,8 @@ video_url: >-
 featured_image: /uploads/Piero-1800x1010.jpg
 permalink: psicatrices
 work_director: content/director/santa.md
+featured_work: false
+info_work: ''
+info_work_eng: ''
 ---
 
