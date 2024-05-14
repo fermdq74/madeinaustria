@@ -8,6 +8,8 @@ video_url: >-
 featured_image: /uploads/WPlay-__-Power-high.gif
 permalink: power
 work_director: content/director/ranchez.md
+featured_work: true
+info_work: ''
+info_work_eng: ''
 ---
-
 
