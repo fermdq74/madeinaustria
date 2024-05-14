@@ -34,6 +34,9 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
+      - menu_item: Los Vocalino
+        menu_item_en: Los Vocalino
+        slug: los-vocalino
       - menu_item: Toto Pons
         menu_item_en: Toto Pons
         slug: toto-pons
