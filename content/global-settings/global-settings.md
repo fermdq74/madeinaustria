@@ -9,6 +9,9 @@ menu:
     menu_item_en: Directors
     slug: directors
     children:
+      - menu_item: Mora
+        menu_item_en: Mora
+        slug: mora
       - menu_item: Ranchez
         menu_item_en: Ranchez
         slug: ranchez
