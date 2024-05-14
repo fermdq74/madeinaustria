@@ -8,7 +8,7 @@ video_url: >-
 featured_image: /uploads/psicatrices.jpg
 permalink: psicatrices
 work_director: content/director/santa.md
-featured_work: false
+featured_work: true
 info_work: ''
 info_work_eng: ''
 ---
