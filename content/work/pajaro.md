@@ -8,5 +8,8 @@ video_url: >-
 featured_image: /uploads/pajaro-1800x1010.jpg
 permalink: pajaro
 work_director: content/director/sanchez.md
+featured_work: true
+info_work: ''
+info_work_eng: ''
 ---
 
