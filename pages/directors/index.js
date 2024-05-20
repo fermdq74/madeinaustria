@@ -127,8 +127,12 @@ export const getStaticProps = async () => {
     
     const dw = [];
     works.map((work) => {
-      if(work.work_director.id == id) {
-        dw.push(work);
+      if(work.work_director != null) {
+
+        if(work.work_director.id == id) {
+          dw.push(work);
+        }
+
       }
     });
   
