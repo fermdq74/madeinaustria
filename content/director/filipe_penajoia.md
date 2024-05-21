@@ -1,6 +1,7 @@
 ---
 director_name: Filipe Penajoia
-director_slug: filipe_penajoia
+director_description: ''
+director_description_eng: ''
+director_slug: filipe-penajoia
 ---
-
 
