@@ -2,7 +2,7 @@
 title_es: Power
 title_eng: Power
 agency: Coctel Brand
-brand: 'WPlay https://vimeo.com/542776624'
+brand: 'WPlay '
 video_url: 'https://vimeo.com/542776624'
 featured_image: /uploads/WPlay-__-Power-high.gif
 permalink: power
