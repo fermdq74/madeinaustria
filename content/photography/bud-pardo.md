@@ -1,6 +1,6 @@
 ---
 client: Bud+Pardo
-photographer: content/photographer/ivan-resnik.md
+photographer: content/photographer/ivan_resnik.md
 p_agency: Africa
 year: 2020
 image_gallery:
@@ -13,4 +13,3 @@ image_gallery:
   - /uploads/BudXPardo_0573.jpg
   - /uploads/BudXPardo_0138.jpg
 ---
-

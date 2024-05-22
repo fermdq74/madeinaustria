@@ -1,6 +1,6 @@
 ---
 client: Banco Ciudad
-photographer: content/photographer/los-vocalino.md
+photographer: content/photographer/los_vocalino.md
 p_agency: Sentidos
 year: 2021
 image_gallery:
@@ -9,4 +9,3 @@ image_gallery:
   - /uploads/CIUDAD-PAREJA-v3.jpg
   - /uploads/CIUDAD-PYME-V2.jpg
 ---
-

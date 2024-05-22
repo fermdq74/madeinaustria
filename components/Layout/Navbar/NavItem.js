@@ -10,6 +10,8 @@ const NavItem = (props) => {
     props.setAboutState(true);
   }
 
+  console.log("MENUITEMS: ", props.menuItem);
+
   return (
     
     props.menuItem.children ?
@@ -24,7 +26,7 @@ const NavItem = (props) => {
         {
           props.menuItem.children.map((subItem, idx) => (
             <Link 
-              href={`/${props.menuItem.slug == "directors" ? "directors/" + subItem.slug : "photographers/" + subItem.slug}`}
+              href={`/${props.menuItem.slug == "directors" ? "directors/" + subItem.slug.replace(/-/g, "_") : "photographers/" + subItem.slug.replace(/-/g, "_")}`}
               key={idx}
             >
               <a>

@@ -1,6 +1,6 @@
 ---
 client: beck's
-photographer: content/photographer/segundo-luchia-puig.md
+photographer: content/photographer/segundo_luchia_puig.md
 year: 2019
 image_gallery:
   - /uploads/211813S-scaled.jpg
@@ -18,4 +18,3 @@ image_gallery:
   - /uploads/173320S-scaled.jpg
   - /uploads/155514S-scaled.jpg
 ---
-

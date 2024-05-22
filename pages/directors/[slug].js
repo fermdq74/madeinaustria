@@ -27,6 +27,8 @@ export const getStaticPaths = async () => {
 
   const directors = await client.queries.directorsConnection();
 
+  console.log("PATHS: ", directors.data.directorsConnection.edges);
+
   const paths = directors.data.directorsConnection.edges.map((director) => (
     {
       params: {slug: director.node.director_slug},

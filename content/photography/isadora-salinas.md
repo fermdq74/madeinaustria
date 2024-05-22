@@ -1,6 +1,6 @@
 ---
 client: Isadora Salinas
-photographer: content/photographer/julieta-alzua.md
+photographer: content/photographer/julieta_alzua.md
 campaign: Primavera Verano
 year: 2019
 image_gallery:
@@ -14,4 +14,3 @@ image_gallery:
   - /uploads/IMG_IS01_09.jpg
   - /uploads/IMG_IS01_00.jpg
 ---
-
