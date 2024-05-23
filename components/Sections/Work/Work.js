@@ -59,27 +59,29 @@ const Work = (props) => {
             {
                 props.from === "featuredWorks" ? (
 
-                <div className={styles.featWorkBox}>
-                    <h3 className={styles.agency}>{props.agency}</h3>
-                    <h3 className={styles.brand}>{props.brand}</h3>
-                    <h3>{props.work_director.director_name}</h3>
+                <div className={styles.featWorkWrapper}>
+                    <div className={styles.featWorkBox}>
+                        <h3 className={styles.agency}>{props.agency}</h3>
+                        <h3 className={styles.brand}>{props.brand}</h3>
+                        <h3>{props.work_director.director_name}</h3>
+                    </div>
                     {
-                        showModal ? (
-                            <VideoJS 
-                                options={videoJsOptions} 
-                                onReady={handlePlayerReady} 
-                                setModal={setModal} 
-                                workInfo={props.info} 
-                                workInfoEn={props.info_en} 
-                                fromSlider={props.fromSlider} 
-                                from={props.from}
-                            />
-                        ) : null
-                    }
+                            showModal ? (
+                                <VideoJS 
+                                    options={videoJsOptions} 
+                                    onReady={handlePlayerReady} 
+                                    setModal={setModal} 
+                                    workInfo={props.info} 
+                                    workInfoEn={props.info_en} 
+                                    fromSlider={props.fromSlider} 
+                                    from={props.from}
+                                />
+                            ) : null
+                        }
                 </div>
 
                 ) : props.from === "directorGrid" ? (
-                    <div className={styles.DgWorkBox}>
+                    <div className={`${styles.DgWorkBox} dgWrapper`}>
                         <div className={styles.workData}>
                             
                             {

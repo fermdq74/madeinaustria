@@ -10,8 +10,6 @@ const NavItem = (props) => {
     props.setAboutState(true);
   }
 
-  console.log("MENUITEMS: ", props.menuItem);
-
   return (
     
     props.menuItem.children ?

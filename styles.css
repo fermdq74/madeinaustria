@@ -154,6 +154,10 @@ h1,h2,h3,h4,h5,h6,div,p,span,input,label,button,a {
     text-transform: uppercase;
 }
 
+.dgWrapper .popupContainer {
+    left: 0;
+}
+
 @media screen and (max-width: 768px) {
     .swiper-pagination {
         bottom: 37%!important;

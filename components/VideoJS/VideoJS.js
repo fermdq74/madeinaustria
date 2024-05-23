@@ -292,7 +292,7 @@ export const VideoJS = (props) => {
     }
 
     return (
-        <div className={styles.popupContainer}>
+        <div className={`${styles.popupContainer} popupContainer`}>
             <div data-vjs-player className={`${styles.player} ${styles.paused}`} ref={playerWrapperRef}>
                 <div ref={videoRef} />
 
