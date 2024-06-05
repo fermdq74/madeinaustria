@@ -2,21 +2,20 @@
 country_es: México
 country_en: México
 contact_info: |
-  Productor Ejecutivo
+  Co-Fundador & Productor Ejecutivo
 
-  Antonio Vallarta
+  Juan Manuel Menvielle
 
-  Cel: +52 55 81846244
+  Cel: +54 11 6544 2732
 
-  toni@madeinaustria.net
+  [juanma@madeinaustria.net](mailto:juanma@madeinaustria.net)
 contact_info_eng: |
-  Executive Producer
+  Co-Founder & Executive Producer
 
-  Antonio Vallarta
+  Juan Manuel Menvielle
 
-  Cel: +52 55 81846244
+  Cel: +54 11 6544 2732
 
-  toni@madeinaustria.net
+  [juanma@madeinaustria.net](mailto:juanma@madeinaustria.net)
 ---
-
 
