@@ -1,6 +1,6 @@
 ---
 title_es: Voces - Psicologa
-title_eng: Voices -  Psychologist
+title_eng: Voices - Psychologist
 agency: The Juju
 brand: Supradyn
 video_url: 'https://vimeo.com/947027415'
