@@ -12,7 +12,7 @@ contact_info: |
 
   Cel: +54 11 6544 2732
 
-  [juanma@madeinaustria.net](<mailto: juanma@madeinaustria.net>)
+  juanma\@madeinaustria.net
 contact_info_eng: |
   Darwin 1154 A - 1º E.
 
