@@ -10,9 +10,9 @@ contact_info: |
 
   Juan Manuel Menvielle
 
-  Cel: +54 11 6544 2732 
+  Cel: +54 11 6544 2732
 
-  j[uanma@madeinaustria.net](mailto:juanma@madeinaustria.net)
+  [juanma@madeinaustria.net](<mailto: juanma@madeinaustria.net>)
 contact_info_eng: |
   Darwin 1154 A - 1º E.
 
@@ -24,6 +24,6 @@ contact_info_eng: |
 
   Cel: +54 11 6544 2732
 
-   [juanma@madeinaustria.net](mailto:juanma@madeinaustria.net)
+  [juanma@madeinaustria.net](mailto:juanma@madeinaustria.net)
 ---
 
