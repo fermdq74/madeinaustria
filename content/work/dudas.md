@@ -3,7 +3,12 @@ title_es: Dudas
 title_eng: Doubts
 agency: Gut
 brand: Stella Artois 0.0
-video_url: 'https://vimeo.com/894255952'
+video_url: >-
+  <iframe
+  src="https://player.vimeo.com/video/894255952?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen;
+  picture-in-picture; clipboard-write" title="Stella Artois // Dudas
+  &quot;45"></iframe>
 featured_image: /uploads/Dudas.jpg
 permalink: dudas
 work_director: content/director/sanchez.md
