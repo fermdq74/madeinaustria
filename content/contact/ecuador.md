@@ -2,7 +2,7 @@
 country_es: Ecuador
 country_en: Ecuador
 contact_info: |
-  Julian Surries Casa Numero N47-118
+  Julian Surries N47-118
 
   El Pinar, Quito
 
@@ -14,7 +14,7 @@ contact_info: |
 
   [albertotapia@madeinaustria.net](mailto:albertotapia@madeinaustria.net)
 contact_info_eng: |
-  Julian Surries Casa Numero N47-118
+  Julian Surries  N47-118
 
   El Pinar, Quito
 
