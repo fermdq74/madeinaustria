@@ -8,7 +8,6 @@ director_description: >
   destacan especialmente en las técnicas de producción de realidad mixta.
 
 
-
   Entre sus trabajos premiados se incluyen comerciales para marcas como Audi,
   Cadillac, Mercedes, Nissan, Toyota, Genesis, Hyundai, Mazda, Air France y
   Google, entre otros.
