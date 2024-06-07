@@ -1,6 +1,7 @@
 ---
 client: beck's
-photographer: content/photographer/segundo_luchia_puig.md
+photographer: content/photographer/recent_works.md
+campaign: Lucia Puig
 year: 2019
 image_gallery:
   - /uploads/211813S-scaled.jpg
@@ -18,3 +19,4 @@ image_gallery:
   - /uploads/173320S-scaled.jpg
   - /uploads/155514S-scaled.jpg
 ---
+
