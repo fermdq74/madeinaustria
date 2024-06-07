@@ -44,6 +44,9 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
+      - menu_item: RECENT WORKS
+        menu_item_en: RECENT WORKS
+        slug: recent_works
       - menu_item: Los Vocalino
         menu_item_en: Los Vocalino
         slug: los-vocalino
