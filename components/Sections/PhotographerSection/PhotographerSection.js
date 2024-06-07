@@ -26,7 +26,7 @@ const PhotographerSection = (props) => {
     }, []);
 
     useEffect(() => {
-        np.setSiteLocation(lp.languaje == 'es' ? 'Fotografos' : 'Photographs');
+        np.setSiteLocation(lp.languaje == 'es' ? 'Fotografos' : 'Photographers');
     }, [lp.languaje]);
 
     return (
