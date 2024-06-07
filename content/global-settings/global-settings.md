@@ -10,9 +10,6 @@ menu:
     menu_item_en: Directors
     slug: directors
     children:
-      - menu_item: Nats Gomez
-        menu_item_en: Nats Gomez
-        slug: nats_gomez
       - menu_item: Sanchez
         menu_item_en: Sanchez
         slug: sanchez
@@ -37,6 +34,9 @@ menu:
       - menu_item: Filipe Penajoia
         menu_item_en: Filipe Penajoia
         slug: filipe-penajoia
+      - menu_item: Nats Gomez
+        menu_item_en: Nats Gomez
+        slug: nats_gomez
   - menu_item: Fotógrafos
     menu_item_en: Photographers
     slug: photographers
