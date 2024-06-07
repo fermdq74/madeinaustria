@@ -10,9 +10,6 @@ menu:
     menu_item_en: Directors
     slug: directors
     children:
-      - menu_item: Mateo Hincapie
-        menu_item_en: Mateo Hincapie
-        slug: mateo_hincapie
       - menu_item: Sanchez
         menu_item_en: Sanchez
         slug: sanchez
@@ -37,6 +34,9 @@ menu:
       - menu_item: Filipe Penajoia
         menu_item_en: Filipe Penajoia
         slug: filipe-penajoia
+      - menu_item: Mateo Hincapie
+        menu_item_en: Mateo Hincapie
+        slug: mateo_hincapie
       - menu_item: Nats Gomez
         menu_item_en: Nats Gomez
         slug: nats_gomez
