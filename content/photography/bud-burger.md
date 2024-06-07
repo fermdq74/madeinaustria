@@ -1,6 +1,6 @@
 ---
 client: Bud+Burger
-photographer: content/photographer/toto_pons.md
+photographer: content/photographer/recent_works.md
 p_agency: Africa
 campaign: Toto Pons
 year: 2021
