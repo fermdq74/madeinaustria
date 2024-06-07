@@ -44,24 +44,9 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
-      - menu_item: Segundo Luchia Puig
-        menu_item_en: Segundo Luchia Puig
-        slug: segundo-luchia-puig
-      - menu_item: Julieta Alzua
-        menu_item_en: Julieta Alzua
-        slug: julieta-alzua
-      - menu_item: Ivan Resnik
-        menu_item_en: Ivan Resnik
-        slug: ivan-resnik
       - menu_item: Los Vocalino
         menu_item_en: Los Vocalino
         slug: los-vocalino
-      - menu_item: Toto Pons
-        menu_item_en: Toto Pons
-        slug: toto-pons
-      - menu_item: Juan Soler
-        menu_item_en: Juan Soler
-        slug: juan_soler
       - menu_item: Mp Curtet
         menu_item_en: Mp Curtet
         slug: mp_curtet
