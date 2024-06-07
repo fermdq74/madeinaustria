@@ -10,6 +10,9 @@ menu:
     menu_item_en: Directors
     slug: directors
     children:
+      - menu_item: Mateo Hincapie
+        menu_item_en: Mateo Hincapie
+        slug: mateo_hincapie
       - menu_item: Sanchez
         menu_item_en: Sanchez
         slug: sanchez
