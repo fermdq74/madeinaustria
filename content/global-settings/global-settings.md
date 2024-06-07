@@ -9,27 +9,27 @@ menu:
     menu_item_en: Directors
     slug: directors
     children:
-      - menu_item: Filipe Penajoia
-        menu_item_en: Filipe Penajoia
-        slug: filipe-penajoia
+      - menu_item: Sanchez
+        menu_item_en: Sanchez
+        slug: sanchez
+      - menu_item: Ranchez
+        menu_item_en: Ranchez
+        slug: ranchez
+      - menu_item: Santa
+        menu_item_en: Santa
+        slug: santa
+      - menu_item: Mora
+        menu_item_en: Mora
+        slug: mora
       - menu_item: MP Curtet
         menu_item_en: MP Curtet
         slug: mp-curtet
       - menu_item: Blake
         menu_item_en: Blake
         slug: blake
-      - menu_item: Mora
-        menu_item_en: Mora
-        slug: mora
-      - menu_item: Ranchez
-        menu_item_en: Ranchez
-        slug: ranchez
-      - menu_item: Sanchez
-        menu_item_en: Sanchez
-        slug: sanchez
-      - menu_item: Santa
-        menu_item_en: Santa
-        slug: santa
+      - menu_item: Filipe Penajoia
+        menu_item_en: Filipe Penajoia
+        slug: filipe-penajoia
   - menu_item: Fotógrafos
     menu_item_en: Photographers
     slug: photographers
