@@ -1,13 +1,13 @@
 ---
-title_es: Voces-Psicologa
-title_eng: Voices-Psychologist
+title_es: Voces Psicologa
+title_eng: Voices Psychologist
 agency: 'The Juju '
 brand: Supradyn
 video_url: >-
   https://player.vimeo.com/progressive_redirect/playback/947027415/rendition/1080p/file.mp4?loc=external&log_user=0&signature=ba41e542e1012f77df1cf6eecfd7eacb508806101cf57f292127f3cb6777589b
 featured_image: /uploads/Voces.jpg
 permalink: voces_psicologa
-work_director: content/director/santa.md
+work_director: content/director/andiamo.md
 featured_work: true
 info_work: |
   CCOs & Partners: Nicolás Zarlenga y Federico Plaza Montero
