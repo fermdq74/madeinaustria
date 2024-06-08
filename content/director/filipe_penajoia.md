@@ -13,7 +13,7 @@ director_description: >
   músicos, como Switchdance para el renombrado local de Lisboa Lux Frágil, hasta
   el crudo documental 'Hic Sunct Dracones', sobre una calle mítica de Lisboa,
   Almirante Reis.
-director_description_eng: >+
+director_description_eng: >
   Born and bred amidst the vibrant streets of Lisbon, Filipe Penajoia's creative
   journey has been a cross-continental tapestry, weaving through the bustling
   realms of London and the artistic alleys of Berlin. Infused with an unyielding
@@ -25,9 +25,7 @@ director_description_eng: >+
   this ethos: from collaborations with musicians, as Switchdance for the renown
   Lisbon venue Lux Frágil to the gritty documentary 'Hic Sunct Dracones,' about
   a mythic street of Lisbon, Almirante Reis.
-
-
-director_order: 7
+director_order: 8
 director_slug: filipe_penajoia
 ---
 
