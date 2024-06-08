@@ -1,6 +1,8 @@
 ---
 director_name: Mateo Hincapie
-director_order: 7
+director_description: ''
+director_description_eng: ''
+director_order: 9
 director_slug: mateo_hincapie
 ---
 
