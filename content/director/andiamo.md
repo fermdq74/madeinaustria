@@ -36,7 +36,7 @@ director_description_eng: >
   They have been recognized for their work both nationally and internationally,
   boasting an impressive list of clients, including renowned brands such as
   McDonalds, Sprite, Puma, Adidas, Zalando, and Tyskie.
-director_order: 9
+director_order: 5
 director_slug: andiamo
 ---
 
