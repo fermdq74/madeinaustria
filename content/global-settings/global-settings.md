@@ -2,10 +2,6 @@
 name: 'A U S T R I A '
 logo: /uploads/logo-austria.svg
 menu:
-  - menu_item: Trabajos destacados
-    menu_item_en: Featured Works
-    slug: ''
-    children: []
   - menu_item: Directores
     menu_item_en: Directors
     slug: directors
