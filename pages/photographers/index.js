@@ -39,6 +39,7 @@ export default function Photographers(props) {
 
 export const getStaticProps = async () => {
     
+  try {
     const photographs = await client.queries.photographsConnection();
   
     const photographs_data = getPhotoDataArray(photographs);
@@ -72,6 +73,11 @@ export const getStaticProps = async () => {
         contacts_data
       },
     };
+
+  } catch (error) {
+    console.error(error);
+  }
+
   };
   
   const getPhotoDataArray = (photographs) => {

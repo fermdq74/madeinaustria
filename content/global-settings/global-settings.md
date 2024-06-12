@@ -40,12 +40,12 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
-      - menu_item: RECENT WORKS
-        menu_item_en: RECENT WORKS
+      - menu_item: Trabajos recientes
+        menu_item_en: Recent Works
         slug: recent_works
       - menu_item: Los Vocalino
         menu_item_en: Los Vocalino
-        slug: los-vocalino
+        slug: los_vocalino
       - menu_item: Mp Curtet
         menu_item_en: Mp Curtet
         slug: mp_curtet
@@ -56,4 +56,7 @@ menu:
     menu_item_en: About
     slug: about
 ---
+
+
+
 

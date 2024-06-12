@@ -51,7 +51,7 @@ const PhotographerGrid = (props) => {
                 </button>
             </div>
 
-            {props.photographs.map((photo, index) => {
+            {props.photographs?.map((photo, index) => {
                   
                 return(
                     index == 0 ? (
