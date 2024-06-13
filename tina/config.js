@@ -31,6 +31,12 @@ const schema = defineSchema({
           name: "menu",
           label: "Menu",
           list: true,
+          ui: {
+            itemProps: (item) => {
+              // Field values are accessed by item?.<Field name>
+              return { label: item?.menu_item };
+            },
+          },
           fields: [
             {
               type:"string",
@@ -52,6 +58,12 @@ const schema = defineSchema({
               label: "Items",
               name: "children",
               list:true,
+              ui: {
+                itemProps: (item) => {
+                  // Field values are accessed by item?.<Field name>
+                  return { label: item?.menu_item };
+                },
+              },
               fields:[
                 {
                   type:"string",
