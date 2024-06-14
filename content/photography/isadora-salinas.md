@@ -1,6 +1,6 @@
 ---
 client: Isadora Salinas
-photographer: content/photographer/recent_works.md
+photographer: 
 campaign: Julieta Alzua
 year: 2019
 image_gallery:

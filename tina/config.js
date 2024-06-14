@@ -222,11 +222,11 @@ const schema = defineSchema({
           name: "work_director",
           collections: ['directors'],
         },
-        /*{
+        {
           type: "boolean",
           label: "Hidde reel",
           name: "hidde_reel",
-        },*/
+        },
         {
           type: "boolean",
           label: "Featured work",

@@ -10,8 +10,6 @@ export const Layout = (props) => {
 
   const [aboutState, setAboutState] = useState(null);
 
-  console.log("MENU: ", props.menu);
-
   return (
     <div>
       <Head>

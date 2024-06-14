@@ -1,6 +1,6 @@
 ---
 client: Milka
-photographer: content/photographer/recent_works.md
+photographer: 
 p_agency: David
 campaign: Juan Soler
 year: 2022

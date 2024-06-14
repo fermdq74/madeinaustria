@@ -51,49 +51,54 @@ const PhotographerGrid = (props) => {
                 </button>
             </div>
 
-            {props.photographs?.map((photo, index) => {
-                  
-                return(
-                    index == 0 ? (
+            {
+            
+            props.photographs != null ?
+                props.photographs.map((photo, index) => {
                     
-                        <div 
-                            className={styles.mainPhoto}
-                            key={index}
-                        >
-                            
-                            <Album 
-                                key={photo.id}
-                                client={photo.client}
-                                agency={photo.agency}
-                                campaign={photo.campaign}
-                                gallery={photo.image_gallery}
-                                fromGrid={true}
-                                setModal={setModal}
-                                setAlbumIndex={setAlbumIndex}
-                                index={index}
-                            />
-                        </div>
-                    ) : (
-                        <div 
-                            className={styles.secondaryPhoto}
-                            key={index}
-                        >
-                            <Album 
-                                key={photo.id}
-                                client={photo.client}
-                                agency={photo.agency}
-                                campaign={photo.campaign}
-                                gallery={photo.image_gallery}
-                                fromGrid={true}
-                                setModal={setModal}
-                                setAlbumIndex={setAlbumIndex}
-                                index={index}
-                            />
-                        </div>
+                    return(
+                        index == 0 ? (
+                        
+                            <div 
+                                className={styles.mainPhoto}
+                                key={index}
+                            >
+                                
+                                <Album 
+                                    key={photo.id}
+                                    client={photo.client}
+                                    agency={photo.agency}
+                                    campaign={photo.campaign}
+                                    gallery={photo.image_gallery}
+                                    fromGrid={true}
+                                    setModal={setModal}
+                                    setAlbumIndex={setAlbumIndex}
+                                    index={index}
+                                />
+                            </div>
+                        ) : (
+                            <div 
+                                className={styles.secondaryPhoto}
+                                key={index}
+                            >
+                                <Album 
+                                    key={photo.id}
+                                    client={photo.client}
+                                    agency={photo.agency}
+                                    campaign={photo.campaign}
+                                    gallery={photo.image_gallery}
+                                    fromGrid={true}
+                                    setModal={setModal}
+                                    setAlbumIndex={setAlbumIndex}
+                                    index={index}
+                                />
+                            </div>
 
+                        )
                     )
-                )
-            })}
+                })
+            :null
+            }
 
             {
                 showModal != -1 ? (

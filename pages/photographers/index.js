@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import NavContextProvider from "../../context/NavContextProvider";
 import { Layout } from "../../components/Layout/Layout";
 import PhotographerSection from "../../components/Sections/PhotographerSection/PhotographerSection";
@@ -5,7 +7,7 @@ import { client } from "../../tina/__generated__/client";
 
 export default function Photographers(props) {
 
-
+  
 
     return (
         <NavContextProvider>
@@ -39,9 +41,26 @@ export default function Photographers(props) {
 
 export const getStaticProps = async () => {
     
-  try {
-    const photographs = await client.queries.photographsConnection();
-  
+    
+    //const photographs = await client.queries.photographsConnection();
+    let photographs = {};
+
+    try {
+      photographs = await client.queries.photographsConnection();  
+    }catch(error) {
+      if (error.message.includes('Unable to find record')) {
+        const missingRecords = error.message.match(/content\/photographer\/\S+\.md/g);
+
+        if (missingRecords) {
+          console.log('Cleaning orphan references...');
+          await cleanOrphanReferences(missingRecords);
+          photographs = await client.queries.photographsConnection();
+        }
+
+      }
+    }
+    
+    
     const photographs_data = getPhotoDataArray(photographs);
   
     const gs = await client.queries.global_settings({
@@ -74,13 +93,34 @@ export const getStaticProps = async () => {
       },
     };
 
-  } catch (error) {
-    console.error(error);
-  }
-
   };
+
+  async function cleanOrphanReferences(missingRecords) {
+
+    const photographsPath = path.join(process.cwd(), 'content', 'photography');
+
+    if (!fs.existsSync(photographsPath)) {
+      console.error(`Directory ${photographsPath} does not exist`);
+      return;
+    }
+  
+    const photographs = fs.readdirSync(photographsPath).map(file => path.join(photographsPath, file));
+
+    photographs.forEach(file => {
+      let content = fs.readFileSync(file, 'utf-8');
+      missingRecords.forEach(record => {
+        const regex = new RegExp(`photographer:\\s*${record}`, 'g');
+        if (content.match(regex)) {
+          console.log(`Cleaning orphan reference in ${file}`);
+          content = content.replace(regex, 'photographer: ');
+          fs.writeFileSync(file, content);
+        }
+      });
+    });
+  }
   
   const getPhotoDataArray = (photographs) => {
+    
     const photographsData = photographs.data.photographsConnection.edges.map((photo) => {
       return { 
         client: photo.node.client,
@@ -127,8 +167,10 @@ export const getStaticProps = async () => {
     
     const pp = [];
     photographs.map((photo) => {
-      if(photo.photographer.id == id) {
-        pp.push(photo);
+      if(photo.photographer != null) {
+        if(photo.photographer.id == id) {
+          pp.push(photo);
+        }
       }
     });
   

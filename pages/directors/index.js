@@ -40,7 +40,22 @@ export default function Directors(props) {
 
 export const getStaticProps = async () => {
   
-    const works = await client.queries.worksConnection();
+    let works = {};
+
+    try {
+    works = await client.queries.worksConnection();
+    }catch(error) {
+      if (error.message.includes('Unable to find record')) {
+        const missingRecords = error.message.match(/content\/work_director\/\S+\.md/g);
+        
+        if (missingRecords) {
+          console.log('Cleaning orphan references...');
+          await cleanOrphanReferences(missingRecords);
+          works = await client.queries.worksConnection();
+        }
+
+      }
+    }
   
     const works_data = getWorkDataArray(works);
   
@@ -74,6 +89,30 @@ export const getStaticProps = async () => {
       },
     };
   };
+
+  async function cleanOrphanReferences(missingRecords) {
+
+    const worksPath = path.join(process.cwd(), 'content', 'work');
+
+    if (!fs.existsSync(worksPath)) {
+      console.error(`Directory ${worksPath} does not exist`);
+      return;
+    }
+  
+    const works = fs.readdirSync(worksPath).map(file => path.join(worksPath, file));
+
+    works.forEach(file => {
+      let content = fs.readFileSync(file, 'utf-8');
+      missingRecords.forEach(record => {
+        const regex = new RegExp(`work_director:\\s*${record}`, 'g');
+        if (content.match(regex)) {
+          console.log(`Cleaning orphan reference in ${file}`);
+          content = content.replace(regex, 'work_director: ');
+          fs.writeFileSync(file, content);
+        }
+      });
+    });
+  }
   
   const getWorkDataArray = (works) => {
     const worksData = works.data.worksConnection.edges.map((work) => {
@@ -87,6 +126,7 @@ export const getStaticProps = async () => {
         pemalink: work.node.permalink,
         video_url: work.node.video_url,
         work_director: work.node.work_director,
+        hidde_reel: work.node.hidde_reel,
         id: work.node.id,
         info: work.node.info_work.children,
         info_en: work.node.info_work_eng.children,

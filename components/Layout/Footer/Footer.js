@@ -11,8 +11,6 @@ const Footer = (props) => {
         props.setAboutState(true);
     }
 
-    //console.log("MENU FOOTER: ", props);
-
     return (
         <div className={`container ${styles.footer}`}>
             <div className={styles.fcw}>

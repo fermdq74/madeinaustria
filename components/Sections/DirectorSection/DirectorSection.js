@@ -82,6 +82,7 @@ const DirectorSection = (props) => {
                 </div>
 
                 {props.works.map((work, idx) => (
+                    work.hidde_reel != null ?
                     <SwiperSlide key={idx}>
                         <Work 
                             key={work.id}
@@ -102,6 +103,7 @@ const DirectorSection = (props) => {
                             slideIndex={idx}
                         />  
                     </SwiperSlide>
+                    : null
                 ))}
 
             </Swiper>
