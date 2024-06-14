@@ -8,9 +8,8 @@ video_url: >-
 featured_image: /uploads/Bimbo-1.jpg
 permalink: be-2-fit
 work_director: content/director/ranchez.md
-hidde_reel: true
+hidde_reel: false
 info_work: ''
 info_work_eng: ''
 ---
-
 
