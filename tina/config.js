@@ -245,13 +245,6 @@ const schema = defineSchema({
           name: "info_work_eng",
         },
       ],
-      ui: {
-        // Define how the documents are displayed in the list view
-        list: {
-          // Add 'title' to be displayed in the list view
-          fields: ['title_es'],
-        },
-      },
     },
     {
       label: "Directors",
@@ -285,14 +278,7 @@ const schema = defineSchema({
           name: "director_slug",
           label: "Director slug",
         }
-      ],
-      ui: {
-        // Define how the documents are displayed in the list view
-        list: {
-          // Add 'title' to be displayed in the list view
-          fields: ['director_name'],
-        },
-      },      
+      ],      
     },
     {
       label: "Photographs",
@@ -303,6 +289,8 @@ const schema = defineSchema({
           type: "string",
           name: "client",
           label: "Client",
+          isTitle: true,
+          required: true,
         },
         {
           type: "reference",
