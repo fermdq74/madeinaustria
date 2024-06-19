@@ -180,6 +180,8 @@ const schema = defineSchema({
           type: "string",
           label: "Title(Es)",
           name: "title_es",
+          isTitle: true,
+          required: true,
         },
         {
           type: "string",
@@ -243,6 +245,13 @@ const schema = defineSchema({
           name: "info_work_eng",
         },
       ],
+      ui: {
+        // Define how the documents are displayed in the list view
+        list: {
+          // Add 'title' to be displayed in the list view
+          fields: ['title_es'],
+        },
+      },
     },
     {
       label: "Directors",
@@ -253,6 +262,8 @@ const schema = defineSchema({
           type: "string",
           name: "director_name",
           label: "Director name",
+          isTitle: true,
+          required: true,
         },
         {
           type: "rich-text",
@@ -275,6 +286,13 @@ const schema = defineSchema({
           label: "Director slug",
         }
       ],
+      ui: {
+        // Define how the documents are displayed in the list view
+        list: {
+          // Add 'title' to be displayed in the list view
+          fields: ['director_name'],
+        },
+      },      
     },
     {
       label: "Photographs",
@@ -324,6 +342,8 @@ const schema = defineSchema({
           type: "string",
           name: "photographer_name",
           label: "Photographer name",
+          isTitle: true,
+          required: true,
         },
         {
           type: "rich-text",
