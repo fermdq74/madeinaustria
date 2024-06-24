@@ -56,10 +56,10 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
-  - title: Bucket Life
-    work: content/work/bucket-life.md
   - title: Compartamos ternura
     work: content/work/compartamos-ternura.md
+  - title: Bucket Life
+    work: content/work/bucket-life.md
   - title: CX90 PHEV
     work: content/work/cx90-phev.md
   - title: Dudas
@@ -83,10 +83,4 @@ featured_works:
   - title: Trading Made Clear
     work: content/work/trading-made-clear.md
 ---
-
-
-
-
-
-
 
