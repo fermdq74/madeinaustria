@@ -6,11 +6,6 @@ menu:
     menu_item_en: Directors
     slug: directors
     children:
-      - menu_item: Test
-        menu_item_en: Test
-        slug: test_director
-        children:
-          - work: content/work/test_work.md
       - menu_item: Sanchez
         menu_item_en: Sanchez
         slug: sanchez
@@ -147,3 +142,4 @@ featured_works:
   - title: Trading Made Clear
     work: content/work/trading-made-clear.md
 ---
+
