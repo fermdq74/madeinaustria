@@ -27,7 +27,7 @@ export const getStaticPaths = async () => {
 
   const directors = await client.queries.directorsConnection();
 
-  console.log("PATHS: ", directors.data.directorsConnection.edges);
+  //console.log("PATHS: ", directors.data.directorsConnection.edges);
 
   const paths = directors.data.directorsConnection.edges.map((director) => (
     {
@@ -56,7 +56,45 @@ export const getStaticProps = async ({params}) => {
   });
 
   const gs_data = gs.data.global_settings;
+  //console.log("GS DATA: ", gs_data);
 
+  const ordered_works = gs_data.menu.map((item) => {
+    if (item.slug === "directors") {
+      const director_works = item.children.map((child) => {
+        if (child.slug === director.director_slug) {
+          const work_items = child.children?.map((work) => {
+            if (work.work) {
+              return {
+                title_es: work.work.title_es,
+                title_eng: work.work.title_eng,
+                agency: work.work.agency,
+                brand: work.work.brand,
+                video_url: work.work.video_url,
+                featured_image: work.work.featured_image,
+                permalink: work.work.permalink,
+                work_director: work.work.work_director,
+                hidde_reel: work.work.hidde_reel,
+                featured_work: work.work.featured_work,
+                info_work: work.work.info_work,
+                info_work_eng: work.work.info_work_eng,
+                _sys: work.work._sys,
+                id: work.work.id
+              };
+            }
+          }).filter(Boolean);
+          return work_items;
+        }
+      }).filter(Boolean);
+      return director_works;
+    }
+  });
+
+  let works;
+  if (ordered_works.filter(Boolean)[0][0])
+    works = ordered_works.filter(Boolean)[0][0];
+  else
+    works = await fetchWorksByDirector(director)
+    
   const about = await client.queries.about({
     relativePath: "about.md",
   });
@@ -66,9 +104,7 @@ export const getStaticProps = async ({params}) => {
   const contacts = await client.queries.contactConnection();
 
   const contacts_data = getContactDataArray(contacts);
-
-  const works = await fetchWorksByDirector(director);
-
+    
   return {
     props: {
       director,
@@ -115,6 +151,7 @@ export async function fetchWorksByDirector(director) {
       }
     }).filter(Boolean);
 
+    //console.log("WORKS: ", works);
     return works;
   } catch (error) {
     console.error('Error fetching works:', error);

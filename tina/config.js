@@ -80,6 +80,26 @@ const schema = defineSchema({
                   label: "slug",
                   name: "slug",
                 },
+                {
+                  type: "object",
+                  label: "Works order",
+                  name: "children",
+                  list: true,
+                  ui: {
+                    itemProps: (item) => {
+                      // Field values are accessed by item?.<Field name>
+                      return { label: item?.work };
+                    },
+                  },
+                  fields: [
+                    {
+                      type: "reference",
+                      label: "Work",
+                      name: "work",
+                      collections: ["works"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -251,12 +271,12 @@ const schema = defineSchema({
         },
         {
           type: "boolean",
-          label: "Hidde reel",
+          label: "Hide from reel - DEPRECATED",
           name: "hidde_reel",
         },
         {
           type: "boolean",
-          label: "Featured work",
+          label: "Featured work - DEPRECATED",
           name: "featured_work",
         },
         {
