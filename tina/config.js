@@ -27,7 +27,7 @@ const schema = defineSchema({
           type: "image",
         },
         {
-          type:"object",
+          type: "object",
           name: "menu",
           label: "Menu",
           list: true,
@@ -39,51 +39,76 @@ const schema = defineSchema({
           },
           fields: [
             {
-              type:"string",
-              label:"Menu item (ES)",
+              type: "string",
+              label: "Menu item (ES)",
               name: "menu_item",
             },
             {
-              type:"string",
-              label:"Menu item (EN)",
+              type: "string",
+              label: "Menu item (EN)",
               name: "menu_item_en",
             },
             {
-              type:"string",
-              label:"slug",
+              type: "string",
+              label: "slug",
               name: "slug",
             },
             {
               type: "object",
               label: "Items",
               name: "children",
-              list:true,
+              list: true,
               ui: {
                 itemProps: (item) => {
                   // Field values are accessed by item?.<Field name>
                   return { label: item?.menu_item };
                 },
               },
-              fields:[
+              fields: [
                 {
-                  type:"string",
-                  label:"Menu item (ES)",
+                  type: "string",
+                  label: "Menu item (ES)",
                   name: "menu_item",
                 },
                 {
-                  type:"string",
-                  label:"Menu item (EN)",
+                  type: "string",
+                  label: "Menu item (EN)",
                   name: "menu_item_en",
                 },
                 {
-                  type:"string",
-                  label:"slug",
+                  type: "string",
+                  label: "slug",
                   name: "slug",
-                }
-              ]
-            }
-          ]
-        }
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: "object",
+          label: "Featured Works",
+          name: "featured_works",
+          list: true,
+          ui: {
+            itemProps: (item) => {
+              // Field values are accessed by item?.<Field name>
+              return { label: item?.title };
+            },
+          },
+          fields: [
+            {
+              type: "string",
+              label: "Title",
+              name: "title",
+            },
+            {
+              type: "reference",
+              label: "Work",
+              name: "work",
+              collections: ["works"],
+            },
+          ],
+        },
       ],
     },
     {
@@ -222,7 +247,7 @@ const schema = defineSchema({
           type: "reference",
           label: "Work director",
           name: "work_director",
-          collections: ['directors'],
+          collections: ["directors"],
         },
         {
           type: "boolean",
@@ -246,6 +271,45 @@ const schema = defineSchema({
         },
       ],
     },
+    // {
+    //   label: "Featured works",
+    //   name: "featured_works",
+    //   path: "content/featured-works",
+    //   ui: {
+    //     global: true,
+    //     allowedActions: {
+    //       create: true,
+    //       delete: false,
+    //     },
+    //   },
+    //   fields: [
+    //     {
+    //       type: "string",
+    //       label: "Title",
+    //       name: "title",
+    //       list: true,
+    //       ui: {
+    //         itemProps: (item) => {
+    //           // Field values are accessed by item?.<Field name>
+    //           return { label: item?.title };
+    //         },
+    //       },
+    //       fields: [
+    //         {
+    //           type: "string",
+    //           label: "Title",
+    //           name: "title",
+    //         },
+    //         {
+    //           type: "reference",
+    //           label: "Work",
+    //           name: "work",
+    //           collections: ["works"],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
     {
       label: "Directors",
       name: "directors",
@@ -277,8 +341,8 @@ const schema = defineSchema({
           type: "string",
           name: "director_slug",
           label: "Director slug",
-        }
-      ],      
+        },
+      ],
     },
     {
       label: "Photographs",
@@ -296,7 +360,7 @@ const schema = defineSchema({
           type: "reference",
           label: "Photographer",
           name: "photographer",
-          collections: ['photographers'],
+          collections: ["photographers"],
         },
         {
           type: "string",
@@ -352,7 +416,7 @@ const schema = defineSchema({
           type: "string",
           name: "photographer_slug",
           label: "Photographer slug",
-        }
+        },
       ],
     },
     {
@@ -385,7 +449,7 @@ const schema = defineSchema({
           type: "rich-text",
           name: "contact_info_eng",
           label: "Info(Eng)",
-        }
+        },
       ],
     },
     {
@@ -413,7 +477,7 @@ const schema = defineSchema({
           type: "image",
           label: "About logo",
           name: "about_logo",
-        }
+        },
       ],
     },
   ],

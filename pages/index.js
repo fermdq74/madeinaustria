@@ -42,8 +42,8 @@ export const getStaticProps = async () => {
   const gs_data = gs.data.global_settings;
 
   const works = await client.queries.worksConnection();
-
-  const works_data = getWorkDataArray(works);
+  
+  const works_data = getWorkDataArray(gs_data.featured_works);
 
   const hh = await client.queries.homepage_hero({
     relativePath: "homepage_hero.md",
@@ -74,20 +74,20 @@ export const getStaticProps = async () => {
 
 const getWorkDataArray = (works) => {
   
-  const worksData = works.data.worksConnection.edges.map((work) => {
+  const worksData = works.map((work) => {
     return { 
-      title_eng: work.node.title_eng,
-      title_es: work.node.title_es,
-      agency: work.node.agency,
-      brand: work.node.brand,
-      featured_image: work.node.featured_image,
-      featured_work: work.node.featured_work,
-      pemalink: work.node.permalink,
-      video_url: work.node.video_url,
-      work_director: work.node.work_director,
-      id: work.node.id,
-      info: work.node.info_work.children,
-      info_en: work.node.info_work_eng.children,
+      title_eng: work.work.title_eng,
+      title_es: work.work.title_es,
+      agency: work.work.agency,
+      brand: work.work.brand,
+      featured_image: work.work.featured_image,
+      featured_work: true,
+      pemalink: work.work.permalink,
+      video_url: work.work.video_url,
+      work_director: work.work.work_director,
+      id: work.work.id,
+      info: work.work.info_work !== undefined ? work.work.info_work.children : '',
+      info_en: work.work.info_work_eng !== undefined ? work.work.info_work_eng.children : '',
     }
   });
 
