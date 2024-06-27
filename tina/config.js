@@ -271,7 +271,7 @@ const schema = defineSchema({
         },
         {
           type: "boolean",
-          label: "Hide from reel - DEPRECATED",
+          label: "Hide from reel",
           name: "hidde_reel",
         },
         {
