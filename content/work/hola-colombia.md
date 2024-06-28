@@ -8,7 +8,7 @@ video_url: >-
 featured_image: /uploads/Uala-2.jpg
 permalink: hola-colombia
 work_director: content/director/ranchez.md
-featured_work: true
+featured_work: false
 info_work: ''
 info_work_eng: ''
 ---
