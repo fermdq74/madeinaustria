@@ -8,7 +8,7 @@ video_url: >-
 featured_image: /uploads/MAQ-DE-ESCRIBIR-v02-1.gif
 permalink: maquina_de_escribir
 work_director: content/director/sanchez.md
-featured_work: true
+featured_work: false
 info_work: >
   Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
   nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
@@ -30,7 +30,4 @@ info_work_eng: >
   hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
   feugiat nulla.
 ---
-
-
-
 
