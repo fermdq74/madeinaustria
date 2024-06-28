@@ -8,7 +8,7 @@ video_url: >-
 featured_image: /uploads/Milka-scaled.jpg
 permalink: compartamos-ternura
 work_director: content/director/mora.md
-featured_work: true
+featured_work: false
 info_work: ''
 info_work_eng: ''
 ---
