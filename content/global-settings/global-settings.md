@@ -133,5 +133,7 @@ featured_works:
     work: content/work/bucket-life.md
   - title: CX90 PHEV
     work: content/work/cx90-phev.md
+  - title: Voces
+    work: content/work/voces_psicologa.md
 ---
 
