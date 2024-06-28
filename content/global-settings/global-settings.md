@@ -117,8 +117,12 @@ menu:
 featured_works:
   - title: Dudas
     work: content/work/dudas.md
+  - title: Marca
+    work: content/work/marca.md
   - title: Not Snack
     work: content/work/not_snack.md
+  - title: Psicatrices
+    work: content/work/pricatrices.md
   - title: Salad days
     work: content/work/salad_days.md
   - title: Pájaro
@@ -131,9 +135,5 @@ featured_works:
     work: content/work/cx90-phev.md
   - title: Hola Colombia
     work: content/work/hola-colombia.md
-  - title: Marca
-    work: content/work/marca.md
-  - title: Psicatrices
-    work: content/work/pricatrices.md
 ---
 
