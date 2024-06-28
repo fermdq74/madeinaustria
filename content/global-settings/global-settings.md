@@ -115,14 +115,22 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
+  - title: Dudas
+    work: content/work/dudas.md
+  - title: Not Snack
+    work: content/work/not_snack.md
+  - title: Salad days
+    work: content/work/salad_days.md
+  - title: Pájaro
+    work: content/work/pajaro.md
+  - title: Trading Made Clear
+    work: content/work/trading-made-clear.md
   - title: Compartamos ternura
     work: content/work/compartamos-ternura.md
   - title: Bucket Life
     work: content/work/bucket-life.md
   - title: CX90 PHEV
     work: content/work/cx90-phev.md
-  - title: Dudas
-    work: content/work/dudas.md
   - title: Hola Colombia
     work: content/work/hola-colombia.md
   - title: Mandamientos
@@ -131,15 +139,7 @@ featured_works:
     work: content/work/maquina_de_escribir.md
   - title: Marca
     work: content/work/marca.md
-  - title: Not Snack
-    work: content/work/not_snack.md
-  - title: Pájaro
-    work: content/work/pajaro.md
   - title: Psicatrices
     work: content/work/pricatrices.md
-  - title: Salad days
-    work: content/work/salad_days.md
-  - title: Trading Made Clear
-    work: content/work/trading-made-clear.md
 ---
 
