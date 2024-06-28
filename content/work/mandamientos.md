@@ -8,7 +8,7 @@ video_url: >-
 featured_image: /uploads/Fiat.jpg
 permalink: mandamientos
 work_director: content/director/sanchez.md
-featured_work: true
+featured_work: false
 info_work: ''
 info_work_eng: ''
 ---
