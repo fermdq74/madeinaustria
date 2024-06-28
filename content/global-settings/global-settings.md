@@ -35,9 +35,9 @@ menu:
         slug: santa
         children:
           - work: content/work/bucket-life.md
+          - work: content/work/pricatrices.md
           - work: content/work/incansables.md
           - work: content/work/menstruar-es-salud.md
-          - work: content/work/pricatrices.md
           - work: content/work/red-bull.md
       - menu_item: Mora
         menu_item_en: Mora
