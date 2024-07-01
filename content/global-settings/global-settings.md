@@ -103,6 +103,9 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
+      - menu_item: Pocho
+        menu_item_en: Pocho
+        slug: pocho
       - menu_item: Trabajos Recientes
         menu_item_en: Recent Works
         slug: recent_works
