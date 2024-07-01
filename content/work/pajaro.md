@@ -9,7 +9,7 @@ featured_image: /uploads/pajaro-1800x1010.jpg
 permalink: pajaro
 work_director: content/director/sanchez.md
 featured_work: true
-info_work: ''
-info_work_eng: ''
+info_work: "Director General Creativo:\_Diana Traiana\L\nDirector Creativo:\_Jaime Perea y Alberto Morales\L\nDirector Fotografía:\_Camilo Monsalve Camo\L\nRedactor:\_Esteban Sierra\nDirector Arte:\_Maria Hernandez\L\nProductor Agencia:\_Patricia Mendez\L\n\n\nProductor Ejecutivo:\_Camila Botero\L\nSonido:\_Oiga Música\L\nPostProducción:\_Bogotá Post\n"
+info_work_eng: "ECD:\_Diana Traiana\L\nCreative Directors:\_Jaime Perea y Alberto Morales\L\nDOP:\_Camilo Monsalve Camo\L\nCopywriter:\_Esteban Sierra\nArt Director:\_Maria Hernandez\L\nAgency Producer:\_Patricia Mendez\L\n\n\nExecutive Producer:\_Camila Botero\L\nSound:\_Oiga Música\L\nPost Production:\_Bogotá Post\n"
 ---
 
