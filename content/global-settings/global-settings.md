@@ -119,26 +119,26 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
-  - title: sabe_a_alpina
-    work: content/work/sabe_a_alpina.md
+  - title: black_&_white
+    work: content/work/Black--White-day.md
   - title: Dudas
     work: content/work/dudas.md
   - title: Voces
     work: content/work/voces_psicologa.md
-  - title: Marca
-    work: content/work/marca.md
+  - title: sabe_a_alpina
+    work: content/work/sabe_a_alpina.md
   - title: Not Snack
     work: content/work/not_snack.md
   - title: Psicatrices
     work: content/work/pricatrices.md
   - title: Salad days
     work: content/work/salad_days.md
+  - title: Marca
+    work: content/work/marca.md
   - title: Pájaro
     work: content/work/pajaro.md
   - title: Trading Made Clear
     work: content/work/trading-made-clear.md
-  - title: Bucket Life
-    work: content/work/bucket-life.md
   - title: CX90 PHEV
     work: content/work/cx90-phev.md
 ---
