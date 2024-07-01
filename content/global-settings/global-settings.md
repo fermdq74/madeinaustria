@@ -80,8 +80,8 @@ menu:
         menu_item_en: Filipe Penajoia
         slug: filipe_penajoia
         children:
+          - work: content/work/Lights-on.md
           - work: content/work/laranjas-do-algarve.md
-          - work: content/work/winter_spend_it_together.md
           - work: content/work/trading-made-clear.md
           - work: content/work/undressed.md
           - work: content/work/remote-selling.md
