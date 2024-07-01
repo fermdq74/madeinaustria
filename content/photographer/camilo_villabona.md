@@ -24,7 +24,7 @@ photographer_description_eng: >
   campaigns. His ability to merge the worlds of fashion and advertising results
   in powerful images that not only sell products but also tell stories and
   create emotional connections with the viewer.
-photographer_order: 5
+photographer_order: 6
 photographer_slug: camilo_villabona
 ---
 
