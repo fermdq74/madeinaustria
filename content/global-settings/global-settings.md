@@ -119,6 +119,8 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
+  - title: sabe_a_alpina
+    work: content/work/sabe_a_alpina.md
   - title: Dudas
     work: content/work/dudas.md
   - title: Voces
