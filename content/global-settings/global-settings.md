@@ -65,11 +65,11 @@ menu:
         children:
           - work: content/work/Black--White-day.md
           - work: content/work/dont-stop-me.md
-          - work: content/work/countdown.md
-          - work: content/work/fly.md
           - work: content/work/real-me.md
-          - work: content/work/serie-8.md
           - work: content/work/so-quiet.md
+          - work: content/work/serie-8.md
+          - work: content/work/fly.md
+          - work: content/work/countdown.md
       - menu_item: MP Curtet
         menu_item_en: MP Curtet
         slug: mp_curtet
