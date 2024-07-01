@@ -50,15 +50,6 @@ menu:
           - work: content/work/luis-miguel-la-serie-ii.md
           - work: content/work/me-enamore.md
           - work: content/work/oso.md
-      - menu_item: Andiamo
-        menu_item_en: Andiamo
-        slug: andiamo
-        children:
-          - work: content/work/carried_away_to_friends.md
-          - work: content/work/winter_spend_it_together.md
-          - work: content/work/more_veggies.md
-          - work: content/work/salad_days.md
-          - work: content/work/sky_is_low.md
       - menu_item: Blake
         menu_item_en: Blake
         slug: blake
@@ -70,6 +61,15 @@ menu:
           - work: content/work/serie-8.md
           - work: content/work/Toma-Essa.md
           - work: content/work/countdown.md
+      - menu_item: Andiamo
+        menu_item_en: Andiamo
+        slug: andiamo
+        children:
+          - work: content/work/carried_away_to_friends.md
+          - work: content/work/winter_spend_it_together.md
+          - work: content/work/more_veggies.md
+          - work: content/work/salad_days.md
+          - work: content/work/sky_is_low.md
       - menu_item: MP Curtet
         menu_item_en: MP Curtet
         slug: mp_curtet
