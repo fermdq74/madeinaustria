@@ -81,6 +81,7 @@ menu:
         slug: filipe_penajoia
         children:
           - work: content/work/laranjas-do-algarve.md
+          - work: content/work/winter_spend_it_together.md
           - work: content/work/trading-made-clear.md
           - work: content/work/undressed.md
           - work: content/work/remote-selling.md
