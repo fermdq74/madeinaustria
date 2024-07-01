@@ -2,7 +2,8 @@
 title_es: Salad days
 title_eng: Salad days
 brand: House
-video_url: 'https://vimeo.com/849754211'
+video_url: >-
+  https://player.vimeo.com/progressive_redirect/playback/903392548/rendition/1080p/file.mp4?loc=external&signature=f857a31b3e593d95c8506097c403eaf37529b683830666967c3a279088403bfa
 featured_image: /uploads/salad days.jpg
 permalink: salad_days
 work_director: content/director/andiamo.md
