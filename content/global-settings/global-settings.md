@@ -103,7 +103,7 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
-      - menu_item: Trabajos recientes
+      - menu_item: Trabajos Recientes
         menu_item_en: Recent Works
         slug: recent_works
       - menu_item: Los Vocalino
