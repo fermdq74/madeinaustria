@@ -63,6 +63,7 @@ menu:
         menu_item_en: Blake
         slug: blake
         children:
+          - work: content/work/Black--White-day.md
           - work: content/work/dont-stop-me.md
           - work: content/work/countdown.md
           - work: content/work/fly.md
