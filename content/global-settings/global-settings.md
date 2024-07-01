@@ -55,6 +55,7 @@ menu:
         slug: andiamo
         children:
           - work: content/work/carried_away_to_friends.md
+          - work: content/work/winter_spend_it_together.md
           - work: content/work/more_veggies.md
           - work: content/work/salad_days.md
           - work: content/work/sky_is_low.md
