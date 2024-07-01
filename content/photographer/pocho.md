@@ -23,7 +23,7 @@ photographer_description_eng: >
   adapting to different photography styles and formats, as well as working with
   multidisciplinary teams, makes him a valuable asset for any successful
   advertising project.
-photographer_order: 1
+photographer_order: 2
 photographer_slug: pocho
 ---
 
