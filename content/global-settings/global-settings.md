@@ -109,8 +109,7 @@ menu:
       - menu_item: Pocho
         menu_item_en: Pocho
         slug: pocho
-        children:
-          - work: content/work/Lanzamiento.md
+        children: []
       - menu_item: Los Vocalino
         menu_item_en: Los Vocalino
         slug: los_vocalino
