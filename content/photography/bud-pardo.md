@@ -1,6 +1,6 @@
 ---
 client: Bud+Pardo
-photographer: 
+photographer: content/photographer/recent_works.md
 p_agency: Africa
 campaign: Ivan Resnik
 year: 2020
