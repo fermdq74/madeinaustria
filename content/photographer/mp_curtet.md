@@ -32,7 +32,7 @@ photographer_description_eng: >
   cinematography to projects in nearly eighty different countries. MP Curtet
   values collaborating with diverse, multidisciplinary teams, always dedicated
   to serving creativity.
-photographer_order: 2
+photographer_order: 3
 photographer_slug: mp_curtet
 ---
 
