@@ -110,9 +110,6 @@ menu:
         menu_item_en: Pocho
         slug: pocho
         children: []
-      - menu_item: Los Vocalino
-        menu_item_en: Los Vocalino
-        slug: los_vocalino
       - menu_item: Mp Curtet
         menu_item_en: Mp Curtet
         slug: mp_curtet
