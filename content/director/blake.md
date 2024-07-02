@@ -28,7 +28,7 @@ director_description_eng: >
 
 
   Currently, he is developing his first feature film.
-director_order: 6
+director_order: 5
 director_slug: blake
 ---
 
