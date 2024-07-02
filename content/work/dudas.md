@@ -5,7 +5,7 @@ agency: Gut
 brand: Stella Artois 0.0
 video_url: >-
   https://player.vimeo.com/progressive_redirect/playback/894263594/rendition/1080p/file.mp4?loc=external&log_user=0&signature=6cd58345497796d1b4738977055aa362c8e63951dd73698ecf12325a06128dd0
-featured_image: /uploads/Dudas.jpg
+featured_image: /uploads/stella schz.gif
 permalink: dudas
 work_director: content/director/sanchez.md
 featured_work: true
