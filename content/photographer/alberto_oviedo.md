@@ -18,7 +18,7 @@ photographer_description_eng: >
   Alberto has collaborated with models, athletes, celebrities, and emerging
   talents, always seeking new sources of inspiration. He currently resides in
   Miami, Florida.
-photographer_order: 7
+photographer_order: 1
 photographer_slug: alberto_oviedo
 ---
 
