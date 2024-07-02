@@ -117,6 +117,9 @@ menu:
       - menu_item: Camilo Villabona
         menu_item_en: Camilo Villabona
         slug: camilo_villabona
+      - menu_item: Augusto Cartagena
+        menu_item_en: Augusto Cartagena
+        slug: augusto_cartagena
   - menu_item: Contacto
     menu_item_en: Contact
     slug: '#contact-section'
