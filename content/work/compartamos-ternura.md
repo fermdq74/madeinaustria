@@ -9,7 +9,7 @@ featured_image: /uploads/MILKA - COMPARTAMOS TERNURA v2.gif
 permalink: compartamos-ternura
 work_director: content/director/mora.md
 featured_work: false
-info_work: ''
-info_work_eng: ''
+info_work: "Productor Ejecutivo:\_Juan Manuel Menvielle\nDirector Fotografía:\_Pablo Iacovone\nPost Producción:\_Ignacio Parodis\nSonido:\_Porta estudio\n"
+info_work_eng: "EP:\_Juan Manuel Menvielle\nDOP:\_Pablo Iacovone\nPost Production Coordinator:\_Ignacio Parodis\nSound:\_Porta Estudio\n"
 ---
 
