@@ -45,11 +45,10 @@ menu:
         slug: mora
         children:
           - work: content/work/compartamos-ternura.md
-          - work: content/work/estacion-de-servicio.md
-          - work: content/work/lloron.md
-          - work: content/work/luis-miguel-la-serie-ii.md
-          - work: content/work/me-enamore.md
           - work: content/work/oso.md
+          - work: content/work/luis-miguel-la-serie-ii.md
+          - work: content/work/estacion-de-servicio.md
+          - work: content/work/me-enamore.md
       - menu_item: Blake
         menu_item_en: Blake
         slug: blake
