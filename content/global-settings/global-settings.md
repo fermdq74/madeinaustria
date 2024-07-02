@@ -114,6 +114,9 @@ menu:
       - menu_item: Martin Kohler
         menu_item_en: Martin Kohler
         slug: martin_kohler
+      - menu_item: Camilo Villabona
+        menu_item_en: Camilo Villabona
+        slug: camilo_villabona
   - menu_item: Contacto
     menu_item_en: Contact
     slug: '#contact-section'
