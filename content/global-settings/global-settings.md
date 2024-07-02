@@ -103,9 +103,6 @@ menu:
     menu_item_en: Photographers
     slug: photographers
     children:
-      - menu_item: Martin Kohler
-        menu_item_en: Martin Kohler
-        slug: martin_kohler
       - menu_item: Trabajos Recientes
         menu_item_en: Recent Works
         slug: recent_works
@@ -116,6 +113,9 @@ menu:
       - menu_item: Mp Curtet
         menu_item_en: Mp Curtet
         slug: mp_curtet
+      - menu_item: Martin Kohler
+        menu_item_en: Martin Kohler
+        slug: martin_kohler
   - menu_item: Contacto
     menu_item_en: Contact
     slug: '#contact-section'
