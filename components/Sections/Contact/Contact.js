@@ -20,13 +20,24 @@ const Contact = (props) => {
                             <h5>{lp.languaje == 'es' ? contact.country_es : contact.country_en}</h5>
                             {
                                 lp.languaje == 'es' ? 
-                                contact.contact_info.map((ci, idx) => (
-                                    <p key={idx}>{ci.children[0].text}</p>
-                                ))
+                                contact.contact_info.map((ci, idx) => {
+                                    switch (ci.children[0].type) {
+                                        case 'text':
+                                            return (<p key={idx}>{ci.children[0].text}</p>);
+                                        case 'a':
+                                            return <p key={idx}><a key={idx} href={ci.children[0].url}>{ci.children[0].children[0].text}</a></p>
+                                    }
+                                })
                                 : 
-                                contact.contact_info_en.map((ci, idx) => (
-                                    <p key={idx}>{ci.children[0].text}</p>
-                                ))
+                                contact.contact_info_en.map((ci, idx) => {
+                                    // <p key={idx}>{ci.children[0].text}</p>
+                                    switch (ci.children[0].type) {
+                                        case 'text':
+                                            return (<p key={idx}>{ci.children[0].text}</p>);
+                                        case 'a':
+                                            return <p key={idx}><a key={idx} href={ci.children[0].url}>{ci.children[0].children[0].text}</a></p>
+                                    }
+                                })
                             }
                         </div>
                         <div className={styles.separator}></div>

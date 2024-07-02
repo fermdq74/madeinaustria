@@ -12,7 +12,7 @@ contact_info: |
 
   Tel: +57 311 3831210
 
-  camila@madeinaustria.com.co
+  [camila@madeinaustria.com.co](mailto:camila@madeinaustria.com.co)
 contact_info_eng: |
   Calle 76 Nro. 0-17. Bogotá
 
@@ -24,7 +24,8 @@ contact_info_eng: |
 
   Tel: +57 311 3831210
 
-  camila@madeinaustria.com.co
+  [camila@madeinaustria.com.co](mailto:camila@madeinaustria.com.co)
 ---
+
 
 
