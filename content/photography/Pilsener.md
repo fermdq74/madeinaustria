@@ -1,6 +1,6 @@
 ---
 client: Pilsener
-photographer: content/photographer/pocho.md
+photographer: content/photographer/martin_kohler.md
 campaign: Sponsor Oficial
 image_gallery:
   - /uploads/Pilsener 8.jpg
