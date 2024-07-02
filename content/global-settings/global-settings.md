@@ -24,10 +24,10 @@ menu:
         slug: ranchez
         children:
           - work: content/work/hola-colombia.md
-          - work: content/work/be-2-fit.md
           - work: content/work/marca.md
-          - work: content/work/sabe_a_alpina.md
+          - work: content/work/be-2-fit.md
           - work: content/work/Lanzamiento.md
+          - work: content/work/sabe_a_alpina.md
           - work: content/work/zona_v.md
           - work: content/work/grandes-entregas.md
       - menu_item: Santa
