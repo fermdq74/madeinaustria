@@ -45,7 +45,7 @@ photographer_description_eng: >
   His versatility and dedication to excellence have made him a highly
   sought-after photographer, with a well-earned reputation for his ability to
   create images that endure in memory.
-photographer_order: 3
+photographer_order: 5
 photographer_slug: augusto_cartagena
 ---
 
