@@ -1,6 +1,6 @@
 ---
 title_es: Compartamos ternura
-title_eng: Share sweetness
+title_eng: Share Sweetness
 agency: David
 brand: Milka
 video_url: >-
