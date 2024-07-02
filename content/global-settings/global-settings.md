@@ -12,13 +12,12 @@ menu:
         children:
           - work: content/work/dudas.md
           - work: content/work/not_snack.md
-          - work: content/work/halcon.md
           - work: content/work/pajaro.md
+          - work: content/work/halcon.md
           - work: content/work/mandamientos.md
           - work: content/work/toro_mecanico.md
           - work: content/work/pizza_artois.md
           - work: content/work/maquina_de_escribir.md
-          - work: content/work/la-gran-collins.md
           - work: content/work/miralo-en-camara-lenta.md
       - menu_item: Ranchez
         menu_item_en: Ranchez
