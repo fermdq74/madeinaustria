@@ -4,7 +4,7 @@ title_eng: Winter. Spend it Together
 agency: DDB
 brand: Mc Donald's
 video_url: >-
-  https://player.vimeo.com/progressive_redirect/playback/903391707/rendition/1080p/file.mp4?loc=external&signature=bc0212ef01bdb55e7492a7fc350bbd3a54d3e9e2831dfebbfd8d7683cc3ec7a9
+  https://player.vimeo.com/progressive_redirect/playback/902297485/rendition/1080p/file.mp4?loc=external&signature=5a0c82361533d46d769cbd2deb8807a1a0f65be0a9abd499d47eb80dd9c2a804
 featured_image: /uploads/winter.jpg
 permalink: winter_spend_it_together
 work_director: content/director/andiamo.md
