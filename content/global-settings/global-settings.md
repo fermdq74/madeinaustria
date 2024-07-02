@@ -120,6 +120,9 @@ menu:
       - menu_item: Augusto Cartagena
         menu_item_en: Augusto Cartagena
         slug: augusto_cartagena
+      - menu_item: Alberto Oviedo
+        menu_item_en: Alberto Oviedo
+        slug: alberto_oviedo
   - menu_item: Contacto
     menu_item_en: Contact
     slug: '#contact-section'
