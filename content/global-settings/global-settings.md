@@ -111,18 +111,18 @@ menu:
       - menu_item: Mp Curtet
         menu_item_en: Mp Curtet
         slug: mp_curtet
+      - menu_item: Alberto Oviedo
+        menu_item_en: Alberto Oviedo
+        slug: alberto_oviedo
+      - menu_item: Augusto Cartagena
+        menu_item_en: Augusto Cartagena
+        slug: augusto_cartagena
       - menu_item: Martin Kohler
         menu_item_en: Martin Kohler
         slug: martin_kohler
       - menu_item: Camilo Villabona
         menu_item_en: Camilo Villabona
         slug: camilo_villabona
-      - menu_item: Augusto Cartagena
-        menu_item_en: Augusto Cartagena
-        slug: augusto_cartagena
-      - menu_item: Alberto Oviedo
-        menu_item_en: Alberto Oviedo
-        slug: alberto_oviedo
   - menu_item: Contacto
     menu_item_en: Contact
     slug: '#contact-section'
