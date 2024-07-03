@@ -2,7 +2,7 @@
 country_es: México
 country_en: México
 contact_info: |
-  C. Copérnico 71, Anzures, Miguel Hidalgo, 11590 Ciudad de México, CDMX
+  C. Copérnico 71, Anzures, Miguel Hidalgo, CDMX
 
   Co-Fundador & Productor Ejecutivo
 
@@ -12,7 +12,7 @@ contact_info: |
 
   [juanma@madeinaustria.net](mailto:juanma@madeinaustria.net)
 contact_info_eng: |
-  C. Copérnico 71, Anzures, Miguel Hidalgo, 11590 Ciudad de México, CDMX
+  C. Copérnico 71, Anzures, Miguel Hidalgo, CDMX
 
   Co-Founder & Executive Producer
 
