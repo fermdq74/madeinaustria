@@ -1,6 +1,6 @@
 ---
 client: Suarez
-photographer: content/photographer/alberto_oviedo.md
+photographer: content/photographer/augusto_cartagena.md
 campaign: Catalogo
 image_gallery:
   - /uploads/Suarez 2.jpg
