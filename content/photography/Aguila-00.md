@@ -1,7 +1,7 @@
 ---
 client: Aguila 0.0
 photographer: content/photographer/martin_kohler.md
-campaign: Lanzamiento
+campaign: ''
 image_gallery:
   - /uploads/Aguila 0.0 1.jpg
   - /uploads/Aguila 0.0 2.jpg
