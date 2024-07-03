@@ -5,10 +5,10 @@ agency: The Juju
 brand: Bepanthol
 video_url: >-
   https://player.vimeo.com/progressive_redirect/playback/882246606/rendition/1080p/file.mp4?loc=external&log_user=0&signature=d43fc11216b74d56ee3bc5bd5fe9fb44c64041d262c27305708f1188ea6fac9b
-featured_image: /uploads/psicatrices.jpg
+featured_image: /uploads/Bephantol 1.jpg
 permalink: psicatrices
 work_director: content/director/santa.md
-featured_work: true
+featured_work: false
 info_work: |
   CCOs & Partners: Nicolás Zarlenga y Federico Plaza Montero
 
@@ -26,7 +26,7 @@ info_work: |
 
   Director de Fotografía 2da Unidad: Agustín Rocca
 
-  Asistente de Dirección: Agustina Pont Lezica 
+  Asistente de Dirección: Agustina Pont Lezica
 
   Director de Arte: Mauro Do Porto
 
@@ -58,7 +58,7 @@ info_work_eng: |
 
   DOP 2nd Unit: Agustín Rocca
 
-  AD: Agustina Pont Lezica 
+  AD: Agustina Pont Lezica
 
   Art Director: Mauro Do Porto
 
