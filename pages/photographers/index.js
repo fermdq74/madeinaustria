@@ -7,8 +7,6 @@ import { client } from "../../tina/__generated__/client";
 
 export default function Photographers(props) {
 
-  
-
     return (
         <NavContextProvider>
             <Layout 
@@ -21,7 +19,7 @@ export default function Photographers(props) {
                 {
                     
                     props.photographers_data
-                    .sort((a, b) => a.photographer_order - b.photographer_order)
+                    .sort((a, b) => a.order - b.order)
                     .map((photographer) => (
                         photographerPhotographs(photographer.id, props.photographs_data).length > 0 ?
                             <PhotographerSection 
