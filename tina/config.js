@@ -88,15 +88,24 @@ const schema = defineSchema({
                   ui: {
                     itemProps: (item) => {
                       // Field values are accessed by item?.<Field name>
-                      return { label: item?.work };
+                      if (item.work)
+                        return { label: item?.work };
+                      else
+                        return { label: item?.photographs };
                     },
                   },
                   fields: [
                     {
                       type: "reference",
-                      label: "Work",
+                      label: "Work (Directors only)",
                       name: "work",
                       collections: ["works"],
+                    },
+                    {
+                      type: "reference",
+                      label: "Photographs (Photographers only)",
+                      name: "photographs",
+                      collections: ["photographs"],
                     },
                   ],
                 },
