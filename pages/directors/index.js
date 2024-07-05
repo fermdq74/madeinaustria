@@ -35,6 +35,7 @@ export const getStaticProps = async () => {
   });
 
   const gs_data = gs.data.global_settings;
+  console.log("gs_data", gs_data);
 
   // WORKS
   const ordered_works = gs_data.menu.map((item) => {

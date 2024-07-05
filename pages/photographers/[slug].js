@@ -52,6 +52,35 @@ export const getStaticProps = async ({params}) => {
 
     const gs_data = gs.data.global_settings;
 
+    const ordered_photographs = gs_data.menu.map((item) => {
+      if (item.slug === "photographers") {
+        const director_works = item.children.map((child) => {
+          if (child.slug === photographer.photographer_slug) {
+            const work_items = child.children?.map((work) => {
+                  return {
+                    client: work.photographs.client,
+                    photographer: work.photographs.photographer,
+                    agency: work.photographs.p_agency,
+                    campaign: work.photographs.campaign,
+                    year: work.photographs.year,
+                    image_gallery: work.photographs.image_gallery,
+                    id: work.photographs.id,
+                  };                
+              })
+              .filter(Boolean);
+            return work_items;
+          }
+        }).filter(Boolean);
+        return director_works;
+      }
+    });
+    
+    let photographs;
+    if (ordered_photographs.filter(Boolean)[0][0])
+      photographs = ordered_photographs.filter(Boolean)[0][0];
+    else
+    photographs = await fetchPhotographsByPhotographer(photographer)   
+
     const about = await client.queries.about({
       relativePath: "about.md",
     });
@@ -62,7 +91,7 @@ export const getStaticProps = async ({params}) => {
 
     const contacts_data = getContactDataArray(contacts);
 
-    const photographs = await fetchPhotographsByPhotographer(photographer);
+    // const photographs = await fetchPhotographsByPhotographer(photographer);
 
     return {
         props: {

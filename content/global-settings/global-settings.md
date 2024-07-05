@@ -104,10 +104,15 @@ menu:
       - menu_item: Trabajos Recientes
         menu_item_en: Recent Works
         slug: recent_works
+        children:
+          - photographs: content/photography/becks.md
+          - photographs: content/photography/banco-ciudad.md
       - menu_item: Pocho
         menu_item_en: Pocho
         slug: pocho
-        children: []
+        children:
+          - photographs: content/photography/Alpina.md
+          - photographs: content/photography/Exito.md
       - menu_item: Mp Curtet
         menu_item_en: Mp Curtet
         slug: mp_curtet
@@ -153,4 +158,7 @@ featured_works:
   - title: CX90 PHEV
     work: content/work/cx90-phev.md
 ---
+
+
+
 

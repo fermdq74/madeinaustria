@@ -39,7 +39,39 @@ export default function Photographers(props) {
 
 export const getStaticProps = async () => {
     
-    
+  
+    const gs = await client.queries.global_settings({
+      relativePath: "global-settings.md",
+    });
+  
+    const gs_data = gs.data.global_settings;
+
+    //console.log('gs_data',gs_data.menu);
+
+    const ordered_photographs = gs_data.menu.map((item) => {
+      if (item.slug === "photographers") {
+        const director_works = item.children.map((child) => {
+            const work_items = child.children?.map((work) => {
+                  return {
+                    client: work.photographs.client,
+                    photographer: work.photographs.photographer,
+                    agency: work.photographs.p_agency,
+                    campaign: work.photographs.campaign,
+                    year: work.photographs.year,
+                    image_gallery: work.photographs.image_gallery,
+                    id: work.photographs.id,
+                  };                
+              })
+              .filter(Boolean);
+            return work_items;
+          })
+          .filter(Boolean);
+        return director_works;
+      }
+    });
+
+    console.log('ordered_photographs',ordered_photographs);
+
     //const photographs = await client.queries.photographsConnection();
     let photographs = {};
 
@@ -58,14 +90,8 @@ export const getStaticProps = async () => {
       }
     }
     
-    
-    const photographs_data = getPhotoDataArray(photographs);
-  
-    const gs = await client.queries.global_settings({
-      relativePath: "global-settings.md",
-    });
-  
-    const gs_data = gs.data.global_settings;
+    // const photographs_data = getPhotoDataArray(photographs);  
+    const photographs_data = getPhotoDataArray(ordered_photographs.filter(Boolean)[0]);  
 
     const about = await client.queries.about({
       relativePath: "about.md",
@@ -119,19 +145,39 @@ export const getStaticProps = async () => {
   
   const getPhotoDataArray = (photographs) => {
     
-    const photographsData = photographs.data.photographsConnection.edges.map((photo) => {
-      return { 
-        client: photo.node.client,
-        photographer: photo.node.photographer,
-        agency: photo.node.p_agency,
-        campaign: photo.node.campaign,
-        year: photo.node.year,
-        image_gallery: photo.node.image_gallery,
-        id: photo.node.id,
-      }
+    // const photographsData = photographs.data.photographsConnection.edges.map((photo) => {
+    //   return { 
+    //     client: photo.node.client,
+    //     photographer: photo.node.photographer,
+    //     agency: photo.node.p_agency,
+    //     campaign: photo.node.campaign,
+    //     year: photo.node.year,
+    //     image_gallery: photo.node.image_gallery,
+    //     id: photo.node.id,
+    //   }
+    // });
+  
+    // return photographsData;
+
+    const photographerWorks = photographs.map((director) => {
+
+      const worksData = director.map((work) => {
+        return {
+          client: work.client,
+          photographer: work.photographer,
+          agency: work.agency,
+          campaign: work.campaign,
+          year: work.year,
+          image_gallery: work.image_gallery,
+          id: work.id,
+        };
+      });
+  
+      return worksData;
     });
   
-    return photographsData;
+    return photographerWorks;
+
   };
   
   const getPhotographerDataArray = (photographers) => {
@@ -163,14 +209,25 @@ export const getStaticProps = async () => {
   
   const photographerPhotographs = (id, photographs) => {
     
+    // const pp = [];
+    // photographs.map((photo) => {
+    //   if(photo.photographer != null) {
+    //     if(photo.photographer.id == id) {
+    //       pp.push(photo);
+    //     }
+    //   }
+    // });
+
     const pp = [];
     photographs.map((photo) => {
-      if(photo.photographer != null) {
-        if(photo.photographer.id == id) {
-          pp.push(photo);
+      photo.map((work) => {
+        if (work.photographer != null) {
+          if (work.photographer.id == id) {
+            pp.push(work);
+          }
         }
-      }
+      });
     });
-  
+
     return pp;
   };

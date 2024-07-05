@@ -47,7 +47,6 @@ const DirectorSection = (props) => {
 
     const handleSlideChange = (swiper) => {
         const newIndex = swiper.activeIndex;
-        console.log(`Slider cambió a slide ${newIndex}`);
         setActiveSlideIndex(newIndex);
     };
 
