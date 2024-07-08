@@ -122,7 +122,7 @@ menu:
         slug: mp_curtet
         children:
           - photographs: content/photography/archer.md
-          - {}
+          - photographs: content/photography/cadillac.md
           - {}
       - menu_item: Alberto Oviedo
         menu_item_en: Alberto Oviedo
