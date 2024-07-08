@@ -144,6 +144,12 @@ menu:
       - menu_item: Martin Kohler
         menu_item_en: Martin Kohler
         slug: martin_kohler
+        children:
+          - photographs: content/photography/Pilsener.md
+          - {}
+          - {}
+          - {}
+          - {}
       - menu_item: Camilo Villabona
         menu_item_en: Camilo Villabona
         slug: camilo_villabona
