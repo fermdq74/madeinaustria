@@ -111,6 +111,11 @@ menu:
         menu_item_en: Pocho
         slug: pocho
         children:
+          - {}
+          - {}
+          - {}
+          - {}
+          - photographs: content/photography/Hatsu.md
           - photographs: content/photography/Alpina.md
           - photographs: content/photography/Exito.md
       - menu_item: Mp Curtet
@@ -158,7 +163,4 @@ featured_works:
   - title: CX90 PHEV
     work: content/work/cx90-phev.md
 ---
-
-
-
 
