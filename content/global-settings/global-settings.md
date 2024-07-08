@@ -111,7 +111,7 @@ menu:
         menu_item_en: Pocho
         slug: pocho
         children:
-          - {}
+          - photographs: content/photography/Ron-Medellin.md
           - photographs: content/photography/Lyne.md
           - photographs: content/photography/Viaje-Exito.md
           - photographs: content/photography/Hatsu.md
