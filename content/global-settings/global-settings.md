@@ -153,6 +153,10 @@ menu:
       - menu_item: Camilo Villabona
         menu_item_en: Camilo Villabona
         slug: camilo_villabona
+        children:
+          - {}
+          - {}
+          - photographs: content/photography/Esther.md
   - menu_item: Contacto
     menu_item_en: Contact
     slug: '#contact-section'
