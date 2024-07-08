@@ -130,7 +130,7 @@ menu:
         children:
           - photographs: content/photography/Champion.md
           - photographs: content/photography/Adidas.md
-          - {}
+          - photographs: content/photography/Virgin-Voyages.md
       - menu_item: Augusto Cartagena
         menu_item_en: Augusto Cartagena
         slug: augusto_cartagena
