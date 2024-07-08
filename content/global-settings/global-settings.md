@@ -136,7 +136,7 @@ menu:
         slug: augusto_cartagena
         children:
           - {}
-          - {}
+          - photographs: content/photography/Pollos-Friko.md
           - photographs: content/photography/Suarez.md
           - photographs: content/photography/Sprite.md
           - photographs: content/photography/Puegeot.md
