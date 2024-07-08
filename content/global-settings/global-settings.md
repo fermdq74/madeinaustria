@@ -155,7 +155,7 @@ menu:
         slug: camilo_villabona
         children:
           - {}
-          - {}
+          - photographs: content/photography/Soka.md
           - photographs: content/photography/Esther.md
   - menu_item: Contacto
     menu_item_en: Contact
