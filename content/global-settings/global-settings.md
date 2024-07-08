@@ -111,13 +111,13 @@ menu:
         menu_item_en: Pocho
         slug: pocho
         children:
+          - photographs: content/photography/Exito.md
+          - photographs: content/photography/Lyne.md
+          - photographs: content/photography/Alpina.md
           - photographs: content/photography/Nubank.md
           - photographs: content/photography/Ron-Medellin.md
-          - photographs: content/photography/Lyne.md
           - photographs: content/photography/Viaje-Exito.md
           - photographs: content/photography/Hatsu.md
-          - photographs: content/photography/Alpina.md
-          - photographs: content/photography/Exito.md
       - menu_item: Mp Curtet
         menu_item_en: Mp Curtet
         slug: mp_curtet
