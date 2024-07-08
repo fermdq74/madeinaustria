@@ -146,7 +146,7 @@ menu:
         slug: martin_kohler
         children:
           - photographs: content/photography/Pilsener.md
-          - {}
+          - photographs: content/photography/Aguila.md
           - {}
           - {}
           - {}
