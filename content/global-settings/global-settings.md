@@ -147,7 +147,7 @@ menu:
         children:
           - photographs: content/photography/Pilsener.md
           - photographs: content/photography/Aguila.md
-          - {}
+          - photographs: content/photography/Aguila-00--.md
           - {}
           - {}
       - menu_item: Camilo Villabona
