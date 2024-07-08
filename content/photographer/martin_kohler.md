@@ -13,7 +13,7 @@ photographer_description_eng: >
   as an advertising photographer, thanks to Lurzer Archive magazine naming him
   one of the top 15 advertising photographers in the world. Represented by
   Austria in Argentina, Ecuador, and Colombia.
-photographer_order: 4
+photographer_order: 6
 photographer_slug: martin_kohler
 ---
 
