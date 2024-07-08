@@ -127,6 +127,10 @@ menu:
       - menu_item: Alberto Oviedo
         menu_item_en: Alberto Oviedo
         slug: alberto_oviedo
+        children:
+          - photographs: content/photography/Champion.md
+          - {}
+          - {}
       - menu_item: Augusto Cartagena
         menu_item_en: Augusto Cartagena
         slug: augusto_cartagena
