@@ -137,7 +137,7 @@ menu:
         children:
           - {}
           - {}
-          - {}
+          - photographs: content/photography/Suarez.md
           - photographs: content/photography/Sprite.md
           - photographs: content/photography/Puegeot.md
       - menu_item: Martin Kohler
