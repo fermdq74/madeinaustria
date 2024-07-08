@@ -123,7 +123,7 @@ menu:
         children:
           - photographs: content/photography/archer.md
           - photographs: content/photography/cadillac.md
-          - {}
+          - photographs: content/photography/i_am_a_woman.md
       - menu_item: Alberto Oviedo
         menu_item_en: Alberto Oviedo
         slug: alberto_oviedo
