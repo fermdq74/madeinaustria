@@ -134,6 +134,12 @@ menu:
       - menu_item: Augusto Cartagena
         menu_item_en: Augusto Cartagena
         slug: augusto_cartagena
+        children:
+          - {}
+          - {}
+          - {}
+          - {}
+          - photographs: content/photography/Puegeot.md
       - menu_item: Martin Kohler
         menu_item_en: Martin Kohler
         slug: martin_kohler
