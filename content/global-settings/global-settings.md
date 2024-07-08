@@ -154,7 +154,7 @@ menu:
         menu_item_en: Camilo Villabona
         slug: camilo_villabona
         children:
-          - {}
+          - photographs: content/photography/Sol-de-Mayo.md
           - photographs: content/photography/Soka.md
           - photographs: content/photography/Esther.md
   - menu_item: Contacto
