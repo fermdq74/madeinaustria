@@ -138,7 +138,7 @@ menu:
           - {}
           - {}
           - {}
-          - {}
+          - photographs: content/photography/Sprite.md
           - photographs: content/photography/Puegeot.md
       - menu_item: Martin Kohler
         menu_item_en: Martin Kohler
