@@ -112,7 +112,7 @@ menu:
         slug: pocho
         children:
           - {}
-          - {}
+          - photographs: content/photography/Lyne.md
           - photographs: content/photography/Viaje-Exito.md
           - photographs: content/photography/Hatsu.md
           - photographs: content/photography/Alpina.md
