@@ -129,7 +129,7 @@ menu:
         slug: alberto_oviedo
         children:
           - photographs: content/photography/Champion.md
-          - {}
+          - photographs: content/photography/Adidas.md
           - {}
       - menu_item: Augusto Cartagena
         menu_item_en: Augusto Cartagena
