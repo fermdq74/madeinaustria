@@ -148,7 +148,7 @@ menu:
           - photographs: content/photography/Pilsener.md
           - photographs: content/photography/Aguila.md
           - photographs: content/photography/Aguila-00--.md
-          - {}
+          - photographs: content/photography/Pony-Malta.md
           - {}
       - menu_item: Camilo Villabona
         menu_item_en: Camilo Villabona
