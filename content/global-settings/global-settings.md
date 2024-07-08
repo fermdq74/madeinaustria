@@ -114,7 +114,7 @@ menu:
           - {}
           - {}
           - {}
-          - {}
+          - photographs: content/photography/Hatsu.md
           - photographs: content/photography/Hatsu.md
           - photographs: content/photography/Alpina.md
           - photographs: content/photography/Exito.md
