@@ -135,7 +135,7 @@ menu:
         menu_item_en: Augusto Cartagena
         slug: augusto_cartagena
         children:
-          - {}
+          - photographs: content/photography/Aguila-00--.md
           - photographs: content/photography/Pollos-Friko.md
           - photographs: content/photography/Suarez.md
           - photographs: content/photography/Sprite.md
