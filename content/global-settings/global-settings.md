@@ -159,8 +159,6 @@ featured_works:
     work: content/work/voces_psicologa.md
   - title: sabe_a_alpina
     work: content/work/sabe_a_alpina.md
-  - title: black_&_white
-    work: content/work/Black--White-day.md
   - title: Not Snack
     work: content/work/not_snack.md
   - title: Psicatrices
