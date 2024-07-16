@@ -48,17 +48,6 @@ menu:
           - work: content/work/luis-miguel-la-serie-ii.md
           - work: content/work/oso.md
           - work: content/work/me-enamore.md
-      - menu_item: Blake
-        menu_item_en: Blake
-        slug: blake
-        children:
-          - work: content/work/Black--White-day.md
-          - work: content/work/dont-stop-me.md
-          - work: content/work/real-me.md
-          - work: content/work/so-quiet.md
-          - work: content/work/serie-8.md
-          - work: content/work/Toma-Essa.md
-          - work: content/work/countdown.md
       - menu_item: Andiamo
         menu_item_en: Andiamo
         slug: andiamo
