@@ -41,8 +41,24 @@ export const getStaticProps = async () => {
 
   const gs_data = gs.data.global_settings;
 
-  const works = await client.queries.worksConnection();
-  
+  // const works = await client.queries.worksConnection();  
+
+  try {
+    works = await client.queries.worksConnection();
+  } catch (error) {
+    if (error.message.includes("Unable to find record")) {
+      const missingRecords = error.message.match(
+        /content\/work_director\/\S+\.md/g
+      );
+
+      if (missingRecords) {
+        console.log("Cleaning orphan references...");
+        await cleanOrphanReferences(missingRecords);
+        works = await client.queries.worksConnection();
+      }
+    }
+  }
+
   const works_data = getWorkDataArray(gs_data.featured_works);
 
   const hh = await client.queries.homepage_hero({
