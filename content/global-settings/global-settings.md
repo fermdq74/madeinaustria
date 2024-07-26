@@ -154,6 +154,8 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
+  - title: 'Culpa Cero '
+    work: content/work/Culpa-Cero.md
   - title: Dudas
     work: content/work/dudas.md
   - title: Voces
