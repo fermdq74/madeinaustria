@@ -94,6 +94,7 @@ menu:
         menu_item_en: Recent Works
         slug: recent_works
         children:
+          - photographs: content/photography/Stella-Artois-00.md
           - photographs: content/photography/BUDEWEISER-.md
           - photographs: content/photography/becks.md
           - photographs: content/photography/milka.md
