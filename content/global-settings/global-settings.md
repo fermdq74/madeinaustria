@@ -156,10 +156,10 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
-  - title: Dudas
-    work: content/work/dudas.md
   - title: 'Culpa Cero '
     work: content/work/Culpa-Cero.md
+  - title: Dudas
+    work: content/work/dudas.md
   - title: Voces
     work: content/work/voces_psicologa.md
   - title: sabe_a_alpina
