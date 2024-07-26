@@ -94,10 +94,9 @@ menu:
         menu_item_en: Recent Works
         slug: recent_works
         children:
-          - photographs: content/photography/bud-pardo.md
           - photographs: content/photography/BUDEWEISER-.md
           - photographs: content/photography/becks.md
-          - photographs: content/photography/banco-ciudad.md
+          - photographs: content/photography/bud-pardo.md
       - menu_item: Pocho
         menu_item_en: Pocho
         slug: pocho
