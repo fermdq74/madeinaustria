@@ -48,7 +48,6 @@ menu:
           - work: content/work/estacion-de-servicio.md
           - work: content/work/luis-miguel-la-serie-ii.md
           - work: content/work/oso.md
-          - work: content/work/me-enamore.md
       - menu_item: Andiamo
         menu_item_en: Andiamo
         slug: andiamo
