@@ -84,6 +84,7 @@ menu:
         menu_item_en: Nats Gomez
         slug: nats_gomez
         children:
+          - work: content/work/Vive-mas-con-Nu.md
           - work: content/work/enfrenta_tu_belleza.md
           - work: content/work/credifest.md
   - menu_item: Fotógrafos
