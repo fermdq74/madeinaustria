@@ -154,6 +154,8 @@ menu:
     menu_item_en: About
     slug: about
 featured_works:
+  - title: 'Budweiser '
+    work: content/work/Digital-Content.md
   - title: Dudas
     work: content/work/dudas.md
   - title: Voces
