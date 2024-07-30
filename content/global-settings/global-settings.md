@@ -1,5 +1,5 @@
 ---
-name: 'A U S T R I A '
+name: A U S T R I A
 logo: /uploads/logo-austria.svg
 menu:
   - menu_item: Directores
